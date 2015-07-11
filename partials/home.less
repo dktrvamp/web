@@ -1,0 +1,36 @@
+#Home {
+	position: absolute;
+	top:auto;
+	bottom:0;
+	// max-width: 450px;
+a {
+	font-size: 20px;
+	color: white;
+	text-decoration:none;
+	// color:#90bd2f;
+	.active & {
+			color: #fff;
+			text-shadow: 1px 0px @lime_green;
+			font-weight: bold;
+		}
+}
+	ul{
+		margin-bottom: 50px;
+		li {
+			list-style: none;
+			a {
+				text-align: left;
+				padding:5px;
+				display:block;
+				&:hover {
+					font-weight: bolder;
+					text-decoration:none;
+				}
+			}
+		}
+	}
+	#playlist,
+	audio{
+		width:500px;
+	}
+}

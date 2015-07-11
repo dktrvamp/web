@@ -2,9 +2,30 @@
 <html>
 <head>
 	<title>dktrvamp.com</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <!-- App LESS -->
+    <link href="css/app.less" type="text/css" rel="stylesheet/less">
 </head>
-<body>
-<h1><i> DKTRVAMP.COM</h1> </i></h1>
-Using Git
+<body data-ng-app="Dktrvamp">
+
+	<div ui-view></div>
+	<data-nav-bar></data-nav-bar>
+	<!-- 3rd Party Libs -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/less/dist/less.js" data-build="exclude"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- // <script src="bower_components/angular-hotkeys/hotkeys.js"></script> -->
+    
+    <!-- Main App JS -->
+    <script src="js/setup.js"></script>
+    <script src="directive/playlist/playlist.js"></script>
+    <script src="directive/nav-bar/nav-bar.js"></script>
 </body>
 </html>

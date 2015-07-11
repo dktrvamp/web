@@ -1,0 +1,43 @@
+@import "../partials/home.less";
+@import "../directive/nav-bar/nav-bar.less";
+
+@light_blue: #0992cc;
+@lime_green: #B1FFB1;
+@dark_gray: #202020;
+// @lime_green: #10A710;
+
+body {
+	min-height: 1000px;
+	background: -webkit-radial-gradient(red, @dark_gray, black); /* Safari 5.1 to 6.0 */
+	// background: -o-radial-gradient(@dark_gray, @lime_green, @light_blue); /* For Opera 11.6 to 12.0 */
+	// background: -moz-radial-gradient(@dark_gray, @lime_green, @light_blue); /* For Firefox 3.6 to 15 */
+	// background: radial-gradient(@dark_gray, @lime_green, @light_blue); /* 
+	// background-color: #333;
+	// background-image: -webkit-linear-gradient(left, lighten(@light_blue, 20%), #41414d, lighten(@dark_gray, 20%));
+}
+
+
+
+
+
+
+
+// *****************************************
+// Mixins
+// *****************************************
+
+	/* Background Gradient for Monochromatic Colors */
+.gradient() {
+	color: white;
+	border-radius: 100%;
+	opacity: 0.3;
+    background-color: @dark_gray;
+    /* For WebKit (Safari, Chrome, etc) */
+    background: @dark_gray -webkit-gradient(linear, left top, left bottom, from(@light_blue), to(@dark_gray)) no-repeat;
+    /* Mozilla,Firefox/Gecko */
+    background: @dark_gray -moz-linear-gradient(top, @light_blue, @dark_gray) no-repeat;
+    /* IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@light_blue, endColorstr=@dark_gray) no-repeat;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=@light_blue, endColorstr=@light_blue)" no-repeat;
+}
