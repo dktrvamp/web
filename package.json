@@ -1,0 +1,25 @@
+{
+  "name": "dktrvamp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dktrvamp/web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dktrvamp/web/issues"
+  },
+  "homepage": "https://github.com/dktrvamp/web#readme",
+  "devDependencies": {
+    "less": "^2.5.1"
+  }
+}
+
+
+// Manifest file for packages using NPM
