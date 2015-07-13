@@ -2,38 +2,58 @@
 *  Module
 *
 * Description
+* angular.module("Dktrvamp")
 */
 angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate" ])
 
 	.config(function($stateProvider, $urlRouterProvider){
         "use strict";
 
-		// For any unmatched url, send to /route1
-		$urlRouterProvider.otherwise("/route1")
+		// For any unmatched url, send to /home
+		$urlRouterProvider.otherwise("/home")
       
       $stateProvider
-        .state('route1', {
-            url: "/route1",
-            templateUrl: "partials/home.html"
+        .state('home', {
+            url: "/home",
+            templateUrl: "partials/home.html",
+            controller: "home",
+            data: {
+                context: "home"
+            }
         })
-          .state('route1.list', {
-              url: "/list",
-              templateUrl: "route1.list.html",
-              controller: function($scope){
-                $scope.items = ["A", "List", "Of", "Items"];
-              }
-          })
+		// .state('home.list', {
+		//   url: "/list",
+		//   templateUrl: "partials/home.list.html",
+		//   controller: function($scope){
+		//     $scope.items = ["A", "List", "Of", "Items"];
+		//   }
+		// })
+
+        .state('audio', {
+            url: "/audio",
+            templateUrl: "partials/audio.html",
+            data: {
+                context: "audio"
+            }
+        })
           
-        .state('route2', {
-            url: "/route2",
-            templateUrl: "route2.html"
+        .state('social', {
+            url: "/social",
+            templateUrl: "partials/social.html",
+            data: {
+                context: "social"
+            }
         })
-          .state('route2.list', {
-              url: "/list",
-              templateUrl: "route2.list.html",
-              controller: function($scope){
-                $scope.things = ["A", "Set", "Of", "Things"];
-              }
-          })
+		// .state('social.list', {
+		//   url: "/list",
+		//   templateUrl: "partials/social.list.html",
+		//   controller: function($scope){
+		//     $scope.items = [
+		//         "The first choice!",
+		//         "And another choice for you.",
+		//         "but wait! A third!"
+		//     ];
+		//   }
+		// })
     })
 

@@ -6,7 +6,11 @@
 */
 angular.module("Dktrvamp")
 	.directive('navBar', ['$state', function($state){
-		var linkFn = function() {
+		var linkFn = function(scope, element) {
+			scope.$state = $state;
+
+		    
+
 			// alert("fdsfsdas");
 		}
 		// Runs during compile

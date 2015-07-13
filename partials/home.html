@@ -1,4 +1,6 @@
 <div id="Home">
+	<img style="max-width:100px; max-height:100px;" bg-image class="fullBg" ng-repeat="slide in slides"
+    ng-if="isCurrentSlideIndex($index)"
+    ng-src="{{slide.src}}">
 	
-	<playlist></playlist>
 </div>
