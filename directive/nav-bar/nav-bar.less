@@ -1,3 +1,10 @@
+.nav {
+    position: relative;
+    left: 5%;
+    right: auto;
+    bottom: auto;
+    top: 0;
+}
 div.navbar-collapse.collapse {
     	display: block;
     	overflow: hidden;
@@ -6,8 +13,13 @@ div.navbar-collapse.collapse {
     	-moz-transition: max-height .3s ease;
     	-o-transition: max-height .3s ease;
     	transition: max-height .3s ease;
+
     }
 div.navbar-collapse.collapse.in {
-	max-height: 2000px;
-	background-color: rgba(32,32,32,.90);
+    max-height: 200px;
+
+    }
+.navbar-default .navbar-nav > li.active {
+    // display: none;
+    background: #00ff00 url("images/hip-hop-2014.png") no-repeat fixed center; 
 }

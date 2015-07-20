@@ -1,0 +1,82 @@
+[
+	{
+		"id" : "1",
+		"src" : "audio/Dr.Vamp - dark society.mp3",
+		"name" : "Dr.Vamp - Dark Society",
+		"title" : "Dark Society",
+		"volume" : "0",
+		"lease" : "$30",
+		"buy" : "$1000",
+		"bpm": "140 bpm",
+		"genre" : "hip-hop",
+		"year" : "2015",
+		"description" : "25 track beat." 
+	},
+	{
+		"id" : "2",
+		"src" : "audio/Dr.Vamp - dark angels.mp3",
+		"name" : "Dr.Vamp - Dark Angels",
+		"title" : "Dark Angels",
+		"volume" : "0",
+		"lease" : "$30",
+		"buy" : "$1000",
+		"bpm": "140 bpm",
+		"genre" : "hip-hop",
+		"year" : "2015",
+		"description" : "25 track beat."
+	},
+	{
+		"id" : "3",
+		"src" : "audio/Dr.Vamp - west-side.mp3",
+		"name" : "Dr.Vamp - Dark Side",
+		"title" : "Dark Side",
+		"volume" : "0",
+		"lease" : "$30",
+		"buy" : "$1000",
+		"bpm": "140 bpm",
+		"genre" : "hip-hop",
+		"year" : "2015",
+		"description" : "25 track beat." 
+	},
+	{
+		"id" : "4",
+		"src" : "audio/Dr.Vamp - Crew.mp3",
+		"name" : "  Dr.Vamp - Crew",
+		"title" : "Crew",
+		"volume" : "0",
+		"lease" : "$30",
+		"buy" : "$1000",
+		"bpm": "88  bpm",
+		"genre" : "hip-hop",
+		"year" : "2015",
+		"description" : "25 track beat." 
+	},
+	{
+		"id" : "5",
+		"src" : "audio/Dr.Vamp - Dark Alley.mp3",
+		"name" : "Dr.Vamp -  Dark Alley",
+		"title" : " Dark Alley",
+		"volume" : "0",
+		"lease" : "$30",
+		"buy" : "$1000",
+		"bpm": "140 bpm",
+		"genre" : "hip-hop",
+		"year" : "2015",
+		"description" : "25 track beat." 
+	},
+	{
+		"id" : "6",
+		"src" : "audio/Dr.Vamp - Attack (Trap-Hop).mp3",
+		"name" : "Dr.Vamp - Attack",
+		"title" : "Attack",
+		"volume" : "0",
+		"lease" : "$30",
+		"buy" : "$1000",
+		"bpm": "140 bpm",
+		"genre" : "Trap-hop",
+		"year" : "2015",
+		"description" : "25 track beat." 
+	}	
+]
+
+

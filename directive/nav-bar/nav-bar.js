@@ -9,9 +9,6 @@ angular.module("Dktrvamp")
 		var linkFn = function(scope, element) {
 			scope.$state = $state;
 
-		    
-
-			// alert("fdsfsdas");
 		}
 		// Runs during compile
 		return {

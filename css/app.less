@@ -1,33 +1,31 @@
+@import "../partials/audio.less";
 @import "../partials/home.less";
+@import "../modals/purchase-modal.less";
 @import "../directive/nav-bar/nav-bar.less";
 @import "../directive/playlist/playlist.less";
 
 @light_blue: #0992cc;
 @lime_green: #B1FFB1;
 @dark_gray: #202020;
-// @lime_green: #10A710;
-
+html {
+    max-height: 720px;
+}
 body {
-	.gradient();
-	min-height: 1000px;
-	// background: rgba(32,32,32,.25);
-	min-width: 300px;
-	// background: -webkit-radial-gradient(white, white, white, white, @dark_gray); /* Safari 5.1 to 6.0 */
-	// background: -o-radial-gradient(@dark_gray, @lime_green, @light_blue); /* For Opera 11.6 to 12.0 */
-	// background: -moz-radial-gradient(@dark_gray, @lime_green, @light_blue); /* For Firefox 3.6 to 15 */
-	// background: radial-gradient(@dark_gray, @lime_green, @light_blue); /* 
-	// background-color: #333;
-	
-	// background-image: -webkit-linear-gradient(left, lighten(@light_blue, 20%), #41414d, lighten(@dark_gray, 20%));
+    background-color: rgba(223,224,225,1)!important;
 }
 
-
-@media (max-width: 979px) {
-
-  /* Remove any padding from the body */
+@media (max-width: 939px) {
   body {
     padding-top: 0;
   }
+  img { display: none; }
+}
+
+canvas#grapher {
+  position: absolute;
+  top: 60px;
+  max-height: 30px;
+  width: 100%;
 }
 
 [ui-view] & {
@@ -78,21 +76,40 @@ body {
 .gradient {
 	.gradient();
 }
+.pattern {
+    .pattern();
+}
 // *****************************************
 // Mixins
 // *****************************************
-
+.pattern(){
+    background-image: -moz-linear-gradient(45deg, rgba(0, 0, 0, 0.25) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.25) 75%, rgba(0, 0, 0, 0.25)), -moz-linear-gradient(45deg, rgba(0, 0, 0, 0.25) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.25) 75%, rgba(0, 0, 0, 0.25));background-image: -webkit-linear-gradient(45deg, rgba(0, 0, 0, .25) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .25) 75%, rgba(0, 0, 0, .25)), -webkit-linear-gradient(45deg, rgba(0, 0, 0, .25) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .25) 75%, rgba(0, 0, 0, .25));background-position: 0 0pt, 2px 2px;background-size: 4px 4px;background-color: #202125;background-image: -webkit-linear-gradient(45deg, rgba(0, 0, 0, .25) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .25) 75%, rgba(0, 0, 0, .25)), -webkit-linear-gradient(45deg, rgba(0, 0, 0, .25) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .25) 75%, rgba(0, 0, 0, .25));background-position: 0 0pt, 2px 2px;background-size: 4px 4px;background-color: #202125;height:50px;
+}
 	/* Background Gradient for Monochromatic Colors */
 .gradient() {
-	// border-radius: 4px;
-	// opacity: 0.3;
-    background-color: @dark_gray;
-    /* For WebKit (Safari, Chrome, etc) */
-    background: @dark_gray -webkit-gradient(linear, left top, left bottom, from(white), to(@dark_gray)) no-repeat;
-    /* Mozilla,Firefox/Gecko */
-    background: @dark_gray -moz-linear-gradient(top, @light_blue, @dark_gray) no-repeat;
-    /* IE 5.5 - 7 */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@light_blue, endColorstr=@dark_gray) no-repeat;
-    /* IE 8 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=@light_blue, endColorstr=@light_blue)" no-repeat;
+    background: rgb(17, 17, 17);
+    background: -webkit-gradient(radial, center center, 0, center center, 40%,
+        from(rgba(100, 100, 100,0.5)), to(rgba(17, 17, 17,0))) no-repeat
+        url(http://iviewsource.com/exercises/audioslider/images/backgroundpattern.png),
+        rgb(17, 17, 17);
+    background: -webkit-radial-gradient(rgba(100, 100, 100,0.5),
+        rgba(17, 17, 17,0) 40%) no-repeat,
+        url(http://iviewsource.com/exercises/audioslider/images/backgroundpattern.png),
+        rgb(17, 17, 17);
+    background: -moz-radial-gradient(rgba(100, 100, 100,0.5),
+        rgba(17, 17, 17,0) 40%) no-repeat, 
+        url(http://iviewsource.com/exercises/audioslider/images/backgroundpattern.png),
+        rgb(17, 17, 17);
+    background: -ms-radial-gradient(rgba(100, 100, 100,0.5),
+        rgba(17, 17, 17,0) 40%) no-repeat,
+        url(http://iviewsource.com/exercises/audioslider/images/backgroundpattern.png),
+        rgb(17, 17, 17);
+    background: -o-radial-gradient(rgba(100, 100, 100,0.5),
+        rgba(17, 17, 17,0) 40%) no-repeat,
+        url(http://iviewsource.com/exercises/audioslider/images/backgroundpattern.png),
+        rgb(17, 17, 17);
+    background: radial-gradient(rgba(100, 100, 100,0.5),
+        rgba(17, 17, 17,0) 40%) no-repeat,
+    url(http://iviewsource.com/exercises/audioslider/images/backgroundpattern.png),
+    rgb(17, 17, 17);
 }

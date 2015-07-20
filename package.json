@@ -18,8 +18,6 @@
   "homepage": "https://github.com/dktrvamp/web#readme",
   "devDependencies": {
     "less": "^2.5.1"
-  }
+  
 }
 
-
-// Manifest file for packages using NPM

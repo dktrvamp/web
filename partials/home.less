@@ -1,9 +1,36 @@
 #Home {
- 	position: absolute;
-	top: 150px;
-	bottom:auto;
-	width:500px;
-	// background-color: rgba(32,32,32,.55);
+	.pattern();
+	height: 400px;
+	width: 100%;
+	>footer {
+		height: 100px;
+		width:100%;
+		position: absolute;
+		bottom: auto;
+		top: 350px;
+		// background-color: rgba(66,66,66,.55);
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0.65+0,0+100;Neutral+Density */
+		background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 100%, rgba(0,0,0,0) 0%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(100%,rgba(0,0,0,0.65)), color-stop(0%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(bottom,  rgba(0,0,0,0.65) 100%,rgba(0,0,0,0) 0%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
+		
+		>.footer-links {
+			position: relative;
+			top: 40%;
+			bottom: auto;
+			left: 5%;
+			right: auto;
+		}
+		.footer-wave-image {
+			position: absolute;
+			left: 0;
+		}	
+	}
 	// border-radius: 10%;
 	// -webkit-box-shadow: inset 10px 10px 108px 0px rgba(0,0,0,0.75);
 	// -moz-box-shadow: inset 10px 10px 108px 0px rgba(0,0,0,0.75);
