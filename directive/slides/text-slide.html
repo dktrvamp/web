@@ -1,0 +1,9 @@
+<div class="home-content">
+	<ul class="audio-caption" data-ng-repeat="attrs in attributes" 
+		data-ng-if="isCurrentSlideIndex($index)" >
+		<li>{{attrs.type}}</li>
+		<li>
+			<img class="attrs-image" data-ng-if="attrs.src" data-ng-src="{{attrs.src}}">
+		</li>
+	</ul>
+</div>

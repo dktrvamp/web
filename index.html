@@ -8,14 +8,14 @@
     <!-- App LESS -->
     <link href="css/app.less" type="text/css" rel="stylesheet/less">
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    <!-- <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"> -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
     <link href="bower_components/fontawesome/css/font-awesome.css" rel="stylesheet">
 </head>
 <body data-ng-app="Dktrvamp" class="{{ context }}">
 
-    <data-nav-bar></data-nav-bar>
+    <div data-nav-bar></div>
 	<div ui-view></div>
-    <div data-visual></div>
+    <!-- <div data-visual></div> -->
 
     
 	<!-- 3rd Party Libs -->
@@ -35,9 +35,12 @@
     <script src="partials/audio.js"></script>
     <script src="partials/social.js"></script>
     <script src="modals/purchase-modal.js"></script>
+    <script src="directive/footer/home-footer.js"></script>
     <script src="directive/playlist/playlist.js"></script>
     <script src="directive/nav-bar/nav-bar.js"></script>
     <script src="directive/visual/visual.js"></script>
+    <script src="directive/slides/text-slide.js"></script>
+    <script src="directive/instagram.js"></script>
     <script src="service/locale.js"></script>
 </body>
 </html>

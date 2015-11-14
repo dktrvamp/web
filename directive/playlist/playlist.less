@@ -1,17 +1,28 @@
+@media screen and (max-width: 300px) {
+	#table-list { width: 100vw; }    
+}
 #table-list {
+	height: 100vh;
+    width: 100vw;
+}
+.table-list {
+	position: absolute;
+	top: 115px;
 	overflow: scroll;
-	height: 400px;	
-	.playlist {
+    max-height: 100vh;
+	>.playlist {
 		min-width: 850px;
 		opacity: 1;
+		padding: 0;
+
 		li {
 			.pattern();
-			width:70%;
+			width: 100vw;
 			line-height: 30px;
 			list-style: none;
-			padding: 10px;
+			padding: 10px 20px;
+
 			&.active {
-				color: red;
 				text-shadow: 1px 0px #999;
 				font-weight: bold;
 			}
@@ -43,7 +54,6 @@
 			}
 			>.track-img {
 				padding: 10px;
-				// background-image: url(https://i1.sndcdn.com/artworks-000036116262-27sake-t500x500.jpg);
 			}
 		}
 		.canvas{
@@ -56,13 +66,58 @@
 			}
 		}
 	}
+}
 
-	audio{
-		// background-color: red;
-		width:70%;
-		height:100%;
-		padding:50px;
-	}
+div#mp3_player{ 
+	width:100%; 
+	position: absolute;
+}
+div#mp3_player > div > audio { 
+	width:100vw;
+    -webkit-filter: drop-shadow(0 0 2em blue);
+}
+div#mp3_player > canvas { 
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    // top: 13%;
+    left: 0;
+    // transform: rotate(180deg);
+    opacity: .85;
+    z-index: -1;
+}
 
-	}
+
+.background-lava {
+	opacity: .5;
+	background-color: rgba(20,420,420,.25);
+	animation:myfirst 10s;
+	-moz-animation:myfirst 10s infinite; /* Firefox */
+	-webkit-animation:myfirst 10s infinite; /* Safari and Chrome */
+
+}
+	@-moz-keyframes myfirst {
+	    0%     {background:red;}
+	    50%    {background:blue;}
+	    100%   {background:green;}
+    }
+
+    @-webkit-keyframes myfirst {
+	    0%,
+	    10%   { background: rgba(75,0,130, .3); }
+	    15%   { background: rgba(123,104,238, .8); }
+	    20%   { background: rgba(0,85,211, .8); }
+	    25%   { background: rgba(220,0,60, .9); }
+	    30%   { background: rgba(165,42,0, .8); }
+	    35%   { background: rgba(123,104,238, .8); }
+	    40%   { background: rgba(160,82,45, .6); }
+	    45%   { background: rgba(123,104,238, .8); }
+	    50%   { background: rgba(128,128,0, .4); }
+	    55%   { background: rgba(123,104,238, .8); }
+	    60%   { background: rgba(0,100,0, .2); }
+	    65%   { background: rgba(0,128,0, .3); }
+	    70%   { background: rgba(34,139,34, .4); }
+	    80%  { background: rgba(0,85,211, .8); }
+	    100%  { background: rgba(123,104,238, .5); }
+    }
 

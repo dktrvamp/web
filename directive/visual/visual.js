@@ -29,6 +29,7 @@ angular.module("Dktrvamp").directive("visual", function($state){
 		    $canvas = $('<canvas>', {
 		        id: 'grapher'
 		    }).prependTo(audio_player);
+		    $('<canvas>').css("z-index", -1);
 
 		    // Get the canvas element itself, not the jQuery wrapper
 		    canvas = $canvas[0];
@@ -112,7 +113,7 @@ angular.module("Dktrvamp").directive("visual", function($state){
 	return {
 		restrict: "A",
         replace: true,
-		template: ["<div style=\"height:50px;width:100%;\" class=\"canvas\"></div>"].join(""),
+		template: ["<div style=\"height:50px;width:100%;z-index:-1;opacity:.35;\" class=\"canvas\"></div>"].join(""),
         scope:{},
         link: linkFn
 	};

@@ -1,13 +1,66 @@
-<br>
-<button style="background-color:#3A5795;width:100%;" 
-        data-ng-click="should_display = !should_display" 
-        class="btn btn-default">FaceBook
-</button>
-<button style="background-color:#125688;width:100%;" 
-        data-ng-click="should_display = !should_display" 
-        class="btn btn-default">Instagram
-</button>
-<button style="background-color:#59ADEB;width:100%;" 
-        data-ng-click="should_display = !should_display" 
-        class="btn btn-default">Twitter
-</button>
+<div id="Network">
+    <br>
+    <!-- Facebook -->
+    <button style="background-color:#3A5795;width:100%;"
+            data-ng-click="should_display = !should_display"
+            class="btn btn-default">FaceBook
+    </button>
+    <!-- Instagram -->
+    <button style="background-color:#125688;width:100%;"
+            data-ng-click="artist = !artist"
+            class="btn btn-default">Instagram
+            <div data-ng-if="artist" data-instagram></div>
+    </button>
+    <!-- Twitter -->
+    <button style="background-color:#59ADEB;width:100%;"
+            data-ng-click="should_display = !should_display"
+            class="btn btn-default">Twitter
+    </button>
+    <!-- Itunes -->
+    <a style="background-color:#F0242A;width:100%;"
+        href="http://www.soundclick.com/DrVamp"
+        target="_blank"
+        class="btn btn-default">Itunes
+    </a>
+    <!-- SoundCloud -->
+    <a style="background-color:#ff3e00;width:100%;"
+        data-ng-click="should_display = !should_display"
+        class="btn btn-default">SoundCloud
+    </a>
+    <!-- SoundClick -->
+    <a style="background-color:#fafafa;width:100%;"
+        href="http://www.soundclick.com/DrVamp"
+        target="_blank"
+        class="btn btn-default">SoundClick
+    </a>
+
+    <a style="background-color:#1DD65F;width:100%;"
+        href="http://www.soundclick.com/DrVamp"
+        target="_blank"
+        class="btn btn-default">Spotify
+    </a>
+
+    <div data-ng-if="should_display === true">
+        <iframe width="100%"
+            height="150"
+            scrolling="no"
+            frameborder="no"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/148558617&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
+        </iframe>
+
+        <iframe width="100%"
+            height="150"
+            scrolling="no"
+            frameborder="no"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/113326521&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
+        </iframe>
+
+        <iframe width="100%"
+            height="150"
+            scrolling="no"
+            frameborder="no"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/110627228&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
+        </iframe>
+    </div>
+
+</div>

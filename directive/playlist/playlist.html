@@ -1,23 +1,28 @@
 <div id="table-list">
-    <ul class="playlist" data-ng-repeat="track in tracks">
-        <li>
-            <i class="fa fa-music"></i>
-            <a class="track-name" data-ng-click="onPlayClicked($index)">{{track.name}}</a>
-            <i class="play-controls fa fa-pause" data-ng-click="onPauseClicked($index)"></i>
-            <i class="play-controls fa fa-play-circle-o" data-ng-click="onPlayClicked($index)"></i>
-            <i class="play-controls fa fa-cart-plus"></i>
-            <audio data-ng-src="{{track.src}}">Your Browser is not Compatible!</audio>
-
-        </li>
-    </ul>
+        <div id="mp3_player">
+            <div id="audio_box"></div>
+            <canvas class="canvas" id="analyser_render"></canvas>
+        </div>
+    <div class="table-list">
+        <ul class="playlist" data-ng-repeat="track in tracks">
+            <li data-ng-class="{ 'active' : is_clicked } " data-ng-click="is_clicked = !is_clicked">
+                <i class="fa fa-music"></i>
+                <a class="track-name" 
+                    data-ng-click="onPlayClicked($index)">{{track.name}}
+                </a>
+                <i class="play-controls fa fa-pause" 
+                    data-ng-click="onPauseClicked($index)">
+                </i>
+                <i class="play-controls fa 
+                        fa-play-circle-o" 
+                    data-ng-click="onPlayClicked($index)">
+                </i>
+                <i class="play-controls fa fa-cart-plus"></i>
+            </li>
+        </ul>
+    </div>
 </div>  
 
-<!-- 
-<span class="track-caption">
-                    <span data-ng-bind="track.genre"></span>
-                    <span data-ng-bind="track.bpm"></span>
-                    <span data-ng-bind="track.year"></span>
-                </span> -->
 
 
 

@@ -1,0 +1,53 @@
+#Artist {
+	@size: 100px;
+	max-width: 100vw;
+	min-height: 300px;
+	&.slide-side {
+
+	}
+	>ul > li {
+		display: inline-block;
+		padding: 20px;
+	}
+	>ul.insta-artist {
+		position: absolute;
+	    top: @size * 2 + @size / 4;
+	    max-width: 100vw;
+		min-height: 300px;
+		overflow: scroll;
+		>.insta-thumbnail {
+			width: @size;
+			height: @size;
+			opacity: .7;
+			display: inline-block;
+			padding-right: 150px;
+			-webkit-transition: all .7s ease;
+			transition: all .7s ease;
+			&:hover {
+				opacity: 1;
+				-webkit-transform:scale(1.2);
+				transform:scale(1.2);
+			}
+			>video {
+				background: rgba(32,32,32,.8);
+				position: absolute;
+			}
+		}
+	}
+	>.insta-caption {
+		position: absolute;
+		left:0;
+		width: 100vw;
+		height: 50px;
+		background-color: rgba(0,0,0, .9);
+		overflow: scroll;
+		>.insta-text {
+			color: #fff;
+	    }
+	    >.username {
+	    	color: green;
+	    	font-size: x-large;
+	    }
+	    >img { width: 50px; height: 50px; }
+	}
+}
