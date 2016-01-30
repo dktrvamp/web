@@ -4,11 +4,11 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate" ])
+angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet" ])
 
 	.config(function($stateProvider, $provide, $urlRouterProvider){
         "use strict";
-        $provide.decorator('$state', function($delegate) {
+        $provide.decorator("$state", function($delegate) {
             $delegate.go = function(to, params, options) {
                 return $delegate.transitionTo(to, params, angular.extend(
                     {
@@ -21,10 +21,10 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate" ])
         });
 
 		// For any unmatched url, send to /home
-		$urlRouterProvider.otherwise("/home")
-      
-      $stateProvider
-        .state('home', {
+		$urlRouterProvider.otherwise("/home");
+
+        $stateProvider
+        .state("home", {
             url: "/home",
             templateUrl: "partials/home.html",
             controller: "homeCtrl",
@@ -32,7 +32,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate" ])
                 context: "home"
             }
         })
-        .state('audio', {
+        .state("audio", {
             url: "/audio",
             templateUrl: "partials/audio.html",
             controller: "audioCtrl",
@@ -40,8 +40,8 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate" ])
                 context: "audio"
             }
         })
-          
-        .state('social', {
+
+        .state("social", {
             url: "/social",
             templateUrl: "partials/social.html",
             controller: "socialCtrl",
@@ -49,21 +49,21 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate" ])
                 context: "social"
             }
         })
-        .state('about', {
+        .state("about", {
             url: "/about",
             templateUrl: "partials/about.html",
             data: {
                 context: "about"
             }
         })
-        .state('contact', {
+        .state("contact", {
             url: "/contact",
             templateUrl: "partials/contact.html",
             data: {
                 context: "contact"
             }
-        })
-		// .state('social.list', {
+        });
+		// .state("social.list", {
 		//   url: "/list",
 		//   templateUrl: "partials/social.list.html",
 		//   controller: function($scope){
@@ -74,5 +74,5 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate" ])
 		//     ];
 		//   }
 		// })
-    })
+    });
 

@@ -13,7 +13,7 @@
     </button>
     <!-- Twitter -->
     <button style="background-color:#59ADEB;width:100%;"
-            data-ng-click="should_display = !should_display"
+            data-ng-click="should_display_tweet = !should_display_tweet"
             class="btn btn-default">Twitter
     </button>
     <!-- Itunes -->
@@ -61,6 +61,12 @@
             frameborder="no"
             src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/110627228&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
         </iframe>
+    </div>
+    <div id="container" data-ng-if="should_display_tweet === true">
+         <twitter-widget>
+    <a class="twitter-timeline" href="https://twitter.com/DktrVamp" data-widget-id="693361144551968770">Tweets by @DktrVamp</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</twitter-widget>
     </div>
 
 </div>

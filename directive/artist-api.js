@@ -1,5 +1,7 @@
+/*jshint smarttabs:true */
+
 // https://freemusicarchive.org/api/docs/
-// I3BCD2KQCWZ44ZY2 
+// I3BCD2KQCWZ44ZY2
 // http://freemusicarchive.org/api/get/{dataset}.{format}?api_key={yourkey}
 // http://freemusicarchive.org/api/get/curators.xml?api_key=I3BCD2KQCWZ44ZY2
 // http://freemusicarchive.org/api/trackSearch?q=deerhoof&limit=10
@@ -9,11 +11,11 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive('artistApi', function(){
+angular.module("Dktrvamp").directive("artistApi", function(){
 	"use strict";
 	// Runs during compile
 	return {
-		// name: '',
+		// name: "",
 		// priority: 1,
 		// terminal: true,
 		// scope: {}, // {} = isolate, true = child, false/undefined = no change
@@ -21,7 +23,7 @@ angular.module("Dktrvamp").directive('artistApi', function(){
 			$scope.model = {
 				artist : null
 			};
-			
+
 			$scope.artists = [];
 			$scope.browseSpotifyArtist = function(){
 				var artist = $scope.model.artist;
@@ -31,24 +33,20 @@ angular.module("Dktrvamp").directive('artistApi', function(){
 						artist_array = [];
 					_.each(artists, function(art) {
 						artist_array.push(art.name);
-						console.log("kldasjdkaldj()", art);
 						$scope.artist.name = artist.name;
 					});
 					$scope.artists = artist_array;
 
 				})
-		    	.then(function(response){
-	    			// console.log("items", response);
-		    	})
-		    	.catch(function(){
-		    		$log.warn("Social.Unable to retrieve tweets");
-		    	})
-		    	.finally(function(){
-		    	});	
-		    };
+				.catch(function(){
+					$log.warn("Social.Unable to retrieve tweets");
+				})
+				.finally(function(){
+				});
+			};
 		},
-		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-		restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
-		templateUrl: "directive/artist-api.html" 
+		// require: "ngModel", // Array = multiple requires, ? = optional, ^ = check parent elements
+		restrict: "A", // E = Element, A = Attribute, C = Class, M = Comment
+		templateUrl: "directive/artist-api.html"
 	};
 });

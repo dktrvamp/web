@@ -10,7 +10,7 @@
 		"bpm": "140 bpm",
 		"genre" : "hip-hop",
 		"year" : "2015",
-		"description" : "25 track beat." 
+		"description" : "25 track beat."
 	},
 	{
 		"id" : "2",
@@ -36,7 +36,7 @@
 		"bpm": "140 bpm",
 		"genre" : "hip-hop",
 		"year" : "2015",
-		"description" : "25 track beat." 
+		"description" : "25 track beat."
 	},
 	{
 		"id" : "4",
@@ -49,7 +49,7 @@
 		"bpm": "88  bpm",
 		"genre" : "hip-hop",
 		"year" : "2015",
-		"description" : "25 track beat." 
+		"description" : "25 track beat."
 	},
 	{
 		"id" : "5",
@@ -62,7 +62,7 @@
 		"bpm": "140 bpm",
 		"genre" : "hip-hop",
 		"year" : "2015",
-		"description" : "25 track beat." 
+		"description" : "25 track beat."
 	},
 	{
 		"id" : "6",
@@ -75,112 +75,21 @@
 		"bpm": "140 bpm",
 		"genre" : "Trap-hop",
 		"year" : "2015",
-		"description" : "25 track beat." 
+		"description" : "25 track beat."
 	},
 	{
-		"id" : "4",
-		"src" : "",
-		"name" : "  Dr.Vamp - ",
+		"id" : "7",
+		"src" : "audio/Dr.Vamp - genre .mp3",
+		"name" : "Dr.Vamp - Dr.Vamp - Genre? ",
 		"title" : "Crew",
 		"volume" : "0",
 		"lease" : "$30",
 		"buy" : "$1000",
-		"bpm": "88  bpm",
+		"bpm": "140  bpm",
 		"genre" : "hip-hop",
 		"year" : "2015",
-		"description" : "25 track beat." 
-	},
-	{
-		"id" : "",
-		"src" : "",
-		"name" : "Dr.Vamp -  ",
-		"title" : " Dark Alley",
-		"volume" : "0",
-		"lease" : "$30",
-		"buy" : "$1000",
-		"bpm": "140 bpm",
-		"genre" : "hip-hop",
-		"year" : "2015",
-		"description" : "25 track beat." 
-	},
-	{
-		"id" : "",
-		"src" : "",
-		"name" : "Dr.Vamp - ",
-		"title" : "Attack",
-		"volume" : "0",
-		"lease" : "$30",
-		"buy" : "$1000",
-		"bpm": "140 bpm",
-		"genre" : "Trap-hop",
-		"year" : "2015",
-		"description" : "25 track beat." 
-	},
-	{
-		"id" : "",
-		"src" : "",
-		"name" : "Dr.Vamp - ",
-		"title" : "Attack",
-		"volume" : "0",
-		"lease" : "$30",
-		"buy" : "$1000",
-		"bpm": "140 bpm",
-		"genre" : "Trap-hop",
-		"year" : "2015",
-		"description" : "25 track beat." 
-	},
-	{
-		"id" : "",
-		"src" : "",
-		"name" : "Dr.Vamp - ",
-		"title" : "Attack",
-		"volume" : "0",
-		"lease" : "$30",
-		"buy" : "$1000",
-		"bpm": "140 bpm",
-		"genre" : "Trap-hop",
-		"year" : "2015",
-		"description" : "25 track beat." 
-	},
-	{
-		"id" : "",
-		"src" : "",
-		"name" : "Dr.Vamp - ",
-		"title" : "Attack",
-		"volume" : "0",
-		"lease" : "$30",
-		"buy" : "$1000",
-		"bpm": "140 bpm",
-		"genre" : "Trap-hop",
-		"year" : "2015",
-		"description" : "25 track beat." 
-	},
-	{
-		"id" : "",
-		"src" : "",
-		"name" : "Dr.Vamp - ",
-		"title" : "Attack",
-		"volume" : "0",
-		"lease" : "$30",
-		"buy" : "$1000",
-		"bpm": "140 bpm",
-		"genre" : "Trap-hop",
-		"year" : "2015",
-		"description" : "25 track beat." 
-	},
-	{
-		"id" : "",
-		"src" : "",
-		"name" : "Dr.Vamp - ",
-		"title" : "Attack",
-		"volume" : "0",
-		"lease" : "$30",
-		"buy" : "$1000",
-		"bpm": "140 bpm",
-		"genre" : "Trap-hop",
-		"year" : "2015",
-		"description" : "25 track beat." 
-	}	
+		"description" : "25 track beat."
+	}
 ]
 
 

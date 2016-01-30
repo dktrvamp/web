@@ -9,7 +9,7 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive('instagram', function($timeout, $http, $log) {
+angular.module("Dktrvamp").directive("instagram", function($timeout, $http) {
 	"use strict";
 	// Runs during compile
 	function linkFn(scope) {
@@ -58,17 +58,18 @@ angular.module("Dktrvamp").directive('instagram', function($timeout, $http, $log
 	    //--------------------------------------------------------------------------
         instaArtist();
 	}
+
 	return {
-		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-		restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
+		// require: "ngModel", // Array = multiple requires, ? = optional, ^ = check parent elements
+		restrict: "A", // E = Element, A = Attribute, C = Class, M = Comment
 		templateUrl: "directive/instagram.html",
 		link: linkFn
-	}
+	};
 })
 .animation(".slide-side", function() {
     return {
         enter: function (element, doneFn) {
-            element.css(opacity, .5).animate({ opacity : 1 }, 1250, "ease-in", doneFn);
+            element.css("opacity", 0.5).animate({ opacity : 1 }, 1250, "ease-in", doneFn);
         }
     };
 });
