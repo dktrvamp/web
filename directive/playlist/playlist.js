@@ -87,7 +87,10 @@ angular.module("Dktrvamp").directive("playlist", function(){
 
 		function initMp3Player(){
 			document.getElementById("audio_box").appendChild(audio);
-			context = new AudioContext(); // Safari and old versions of Chrome
+			/* jshint ignore:start */
+			context = new webkitAudioContext(); // jshint ignore:line
+			// new AudioContext(); // Safari and old versions of Chrome
+			/* jshint ignore:end */
 
 
 			analyser = context && context.createAnalyser(); // AnalyserNode method

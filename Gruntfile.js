@@ -24,7 +24,7 @@ module.exports = function (grunt) {
                 options: {
                     hostname: "0.0.0.0",
                     open: false,
-                    port: 9001,
+                    port: 9002,
                     middleware: function(connect, options) {
                         return [folderMount(connect, options.base)];
                     }
