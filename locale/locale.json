@@ -1,24 +1,20 @@
 [
 	{
 		"description" : [
-				{ 
+				{
 					"name" : "Audio Mastering",
-					"content" : "Years Experience, in finalizing tracks for a creat HIGH QUALITY sound." 
+					"content" : "Years Experience, in finalizing tracks for a creat HIGH QUALITY sound."
 				},
-				{ 
-					"name" :"Audio Engineering",
-					"content" : "Years Experience, in working with the best technologies." 
-				},
-				{ 
+				{
 					"name" :"Audio Mixing",
-					"content" : "Years Experience, using verious tools and software." 
+					"content" : "Years Experience, using verious tools and software."
 				},
 				{
 					"name" :"Audio FX",
-					"content" : "Years Experience, in experimental SOUND EFFECTS" 
+					"content" : "Years Experience, in experimental SOUND EFFECTS"
 				}
 		]
-	}	
+	}
 ]
 
 
