@@ -1,3 +1,13 @@
 <div class="home-content">
+    <span ng-bind="model.artist"></span>
+    <hr>
+    <input type="text" data-ng-model="model.artist"></input>
+    <br>
+    <button class="btn btn-success" data-ng-click="searchArtist($event)">Search For Artist</button>
 
+
+    <div data-ng-repeat="artist in model.artists">
+        <span ng-bind="artist.name"></span>
+        <span>{{ artist.disambiguation }}</span>
+    </div>
 </div>
