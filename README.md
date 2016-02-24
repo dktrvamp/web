@@ -38,7 +38,7 @@ Development of the Web application depends on the following tools:
 # Run the Server
 
 The Web application is run on a Node Web server instance started by Grunt and hosted
-at http://0.0.0.0:9001:
+at http://0.0.0.0:9002:
 
     grunt server
 
