@@ -1,0 +1,28 @@
+<div id="ArtistContent">
+    <input type="text"
+        autofocus
+        data-ng-model-options="{ debounce: 500 }"
+        data-ng-model="model.artist"
+        class="form-control"
+        data-ng-change="searchArtist($event)">
+
+    <!-- Spotify -->
+    <div class="list-container" data-ng-repeat="item in model.items">
+        <b class="text">Album:</b>
+        <br>
+        <span class="text span" ng-bind="item.name"></span>
+        <br>
+        <img class="album-img" data-ng-if="item && item.images[0].url" data-ng-src="{{item.images[0].url}}">
+    </div>
+
+    <!-- LastFM -->
+    <div class="list-container"  data-ng-repeat="item in model.toptracks">
+        <b class="text">Title:</b>
+        <br>
+        <span class="text span" ng-bind="item.name"></span>
+        <br>
+        <img class="album-img" data-ng-src="{{ item.image[3].url }}">
+        <a data-ng-if="item.url" target="_blank" data-ng-href="{{item.url}}">See on LastFm</a>
+    </div>
+    <h1 data-ng-if="!model.items.length || !model.toptracks.length"> Search An Artist... </h1>
+</div>

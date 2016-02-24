@@ -1,0 +1,28 @@
+.side-menu {
+    width: @side_width;
+    height: 100%;
+    .overlay(@top: auto; @left:auto;);
+    .overlayBackground();
+    > .search-engine-btn {
+        &.direction-btn {
+            .overlay(@top:auto; @bottom: 150px;);
+        }
+        &:nth-child(odd){
+            text-shadow: -2px -1px 2px @lime_green;
+            &:hover {
+                text-shadow: -4px -1px 2px @light_blue;
+            }
+        }
+        text-shadow: -2px -1px 2px @light_blue;
+        &:hover {
+            text-shadow: -4px -1px 2px @lime_green;
+        }
+        width: 100%;
+        background: none;
+        font-size: 24px;
+        white-space: normal;
+
+        font-family: "Arial Black", Gadget, sans-serif;
+
+    }
+}

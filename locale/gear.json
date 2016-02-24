@@ -1,0 +1,53 @@
+{
+    "daw" : [
+            {
+                "image" : [ "images/ableton.png" ],
+                "content" :
+                    [
+                        "Over 7 years experience with Ableton Live.",
+                         " Using Max4Live to extend functionality."
+                    ],
+                "others"   : "Experience using Protools, Logic Pro and others... "
+            }
+    ],
+    "os" : [
+            {
+                "image" : [ "images/macbookpro.png" ],
+                "content" :
+                    [
+                        "Over 10 years working on MAC/APPLE operating system.",
+                        "TYPES: Mac Pro, iMac, Macbook Pro"
+                    ],
+                "others"   : "Experience using Windows, Unix... "
+            }
+    ],
+    "tools" : [
+            {
+                "image" : [
+                    "images/macbookpro.png",
+                    "images/minilogue.png",
+                    "images/push.png",
+                    "images/bs2.png",
+                    "images/hs8.gif"
+                ],
+                "content" :
+                    [
+                        "Over 10 years working on MAC/APPLE operating system.",
+                        "TYPES: Mac Pro, iMac, Macbook Pro"
+                    ],
+                "others"   : "Experience using Windows, Unix."
+            }
+    ],
+    "vst" : [
+            {
+                "image" : [ "images/vsts.png" ],
+                "content" :
+                    [
+                        "Plugins:",
+                        "Synths: Ik Multimedia",
+                        "FX: Waves, SoundToys, IK Multimedia, Ozone"
+                    ],
+                "others"   : "Experience using Windows, Unix... "
+            }
+    ]
+}

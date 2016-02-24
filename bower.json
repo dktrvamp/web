@@ -13,17 +13,19 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "angular": "~1.4",
-    "jquery": "~2.1.4",
-    "underscore": "~1.8.3",
-    "bootstrap": "~3.3.5",
-    "less": "~2.5.1",
-    "ui-router": "~0.2.15",
-    "angular-bootstrap": "~0.13.0",
-    "angular-animate": "~1.4.2",
-    "angular-hotkeys": "~0.2.2",
-    "fontawesome": "~4.3.0",
-    "ngtweet": "~0.3.1"
+ "dependencies": {
+    "jquery": "~2.1",
+    "underscore": "~1.8",
+    "bootstrap": "~3.3",
+    "angular": "~1.4.7",
+    "angular-animate": "~1.4.7",
+    "angular-ui-router": "~0.2.15",
+    "angular-bootstrap": "~1.1.0",
+    "moment": "~2.10",
+    "less.js": "~2.5",
+    "font-awesome": "~4.4",
+    "js-signals": "~1.0",
+    "hashmap": "~2.0",
+    "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.6"
   }
 }

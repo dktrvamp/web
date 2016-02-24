@@ -50,3 +50,5 @@ angular.module("Dktrvamp").directive("artistApi", function(){
 		templateUrl: "directive/artist-api.html"
 	};
 });
+
+

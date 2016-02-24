@@ -5,15 +5,10 @@
 * angular.module("Dktrvamp")
 */
 angular.module("Dktrvamp")
-	.directive("navBar", ["$state", function($state){
+	.directive("navBar", ["$state", function($state, $window){
 		var linkFn = function(scope) {
 			var _model = {};
 			scope.$state = $state;
-			scope.model = _model;
-
-			$(window).resize(function () {
-				_model.left =  ($(window).width() / 4) + "px";
-			});
 		};
 		// Runs during compile
 		return {

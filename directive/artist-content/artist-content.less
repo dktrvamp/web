@@ -1,0 +1,54 @@
+#ArtistContent {
+    height: 75vh;
+    overflow: scroll;
+    > .list-container {
+        width: 200px;
+        display: inline-block;
+        margin: 50px 100px;
+        .rotate();
+        > .text.span {  }
+        > .album-img {
+            width: 250px;
+            height: 250px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+    }
+
+}
+
+.rotate() {
+    &.ng-enter,
+    &.ng-leave {
+        -webkit-transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        -moz-transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        -ms-transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        -o-transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        position: relative;
+        display: block;
+    }
+
+    &.ng-leave.ng-leave-active,
+    &.ng-enter {
+        -webkit-transform: skewX(45deg) skewY(30deg);
+        -moz-transform: skewX(45deg) skewY(30deg);
+        -ms-transform: skewX(45deg) skewY(30deg);
+        -o-transform: skewX(45deg) skewY(30deg);
+        transform: skewX(45deg) skewY(30deg);
+        opacity: 0;
+    }
+
+    &.ng-enter.ng-enter-active,
+    &.ng-leave {
+        -webkit-transform: skewX(0deg) skewY(0deg);
+        -moz-transform: skewX(0deg) skewY(0deg);
+        -ms-transform: skewX(0deg) skewY(0deg);
+        -o-transform: skewX(0deg) skewY(0deg);
+        transform: skewX(0deg) skewY(0deg);
+        opacity: 1;
+        height: 100vh;
+    }
+}

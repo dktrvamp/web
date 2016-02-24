@@ -11,32 +11,32 @@
           <span class="icon-bar"></span>
         </button>
       </div>
-    
+
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" data-ng-class="!navCollapsed && 'in'" data-ng-click="navCollapsed = true">
-        <ul class="nav navbar-nav" data-ng-style="{ 'padding-left' : model.left }" >
-            <li class="tab" data-ng-class="{active: $state.current.name === 'home'}" 
+        <ul class="nav navbar-nav">
+            <li class="tab" data-ng-class="{active: $state.includes('home')}"
                 class="tab">
-             <a data-ui-sref="home">Home</a>
+             <a data-ui-sref="home" data-ui-sref-active="active">Home</a>
             </li>
-            <li class="tab" data-ng-class="{active: $state.current.name === 'audio'}" 
+            <li class="tab" data-ng-class="{active: $state.current.name === 'audio'}"
                 class="tab">
                 <a data-ui-sref="audio">Audio</a>
             </li>
-            <li class="tab" data-ng-class="{active: $state.current.name === 'social'}" 
+            <li class="tab" data-ng-class="{active: $state.current.name === 'social'}"
                 class="tab">
-                <a 
+                <a
                 data-ui-sref="social">Social</a>
             </li>
-            <li class="tab" data-ng-class="{active: $state.current.name === 'about'}" 
+            <li class="tab" data-ng-class="{active: $state.current.name === 'about'}"
                 class="tab">
                 <a data-ui-sref="about">About</a>
             </li>
-            <li class="tab" data-ng-class="{active: $state.current.name === 'contact'}" 
+            <li class="tab" data-ng-class="{active: $state.current.name === 'contact'}"
                 class="tab">
                 <a data-ui-sref="contact">Contact</a>
             </li>
-          
+
         </ul>
       </div>
 </nav>

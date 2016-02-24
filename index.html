@@ -12,10 +12,14 @@
     <link href="bower_components/fontawesome/css/font-awesome.css" rel="stylesheet">
 </head>
 <body data-ng-app="Dktrvamp" class="{{ context }}">
-  <script src="http://localhost:35729/livereload.js" data-build="exclude"></script>
     <div data-nav-bar></div>
-	<div ui-view></div>
+
+    <div ui-view></div>
+    <!-- FOOTER -->
+    <div data-home-footer></div>
+
     <!-- <div data-visual></div> -->
+      <script src="http://localhost:35729/livereload.js" data-build="exclude"></script>
 	<!-- 3rd Party Libs -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/less/dist/less.js" data-build="exclude"></script>
@@ -32,24 +36,30 @@
     <!-- Setup -->
     <script src="js/setup.js"></script>
 
-    <!-- Servie -->
-    <script src="modals/purchase-modal.js"></script>
-    <script src="service/utils.js"></script>
-    <script src="service/cache.js"></script>
+    <!-- Service -->
     <script src="service/artist-invoice.js"></script>
+    <script src="service/cache.js"></script>
+    <script src="service/locale.js"></script>
+    <script src="service/locale.js"></script>
+    <script src="service/utils.js"></script>
 
     <!-- Directive JS -->
-    <script src="directive/content/content.js"></script>
+    <script src="directive/artist-lookup/artist-lookup.js"></script>
+    <script src="directive/artist-content/artist-content.js"></script>
     <script src="directive/footer/home-footer.js"></script>
-    <script src="directive/playlist/playlist.js"></script>
-    <script src="directive/nav-bar/nav-bar.js"></script>
-    <script src="directive/visual/visual.js"></script>
     <script src="directive/instagram.js"></script>
+    <script src="directive/nav-bar/nav-bar.js"></script>
+    <script src="directive/playlist/playlist.js"></script>
+    <script src="directive/side-bar/side-bar.js"></script>
+    <script src="directive/visual/visual.js"></script>
 
     <!-- Modals -->
-    <script src="service/locale.js"></script>
+    <script src="modals/gear.js"></script>
+    <script src="modals/purchase-modal.js"></script>
+
 
     <!-- Partial JS -->
+    <script src="partials/artist/artist.js"></script>
     <script src="partials/audio.js"></script>
     <script src="partials/home.js"></script>
     <script src="partials/social.js"></script>

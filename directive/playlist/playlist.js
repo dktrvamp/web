@@ -12,7 +12,7 @@ angular.module("Dktrvamp").directive("playlist", function(){
 		// priority: 1,
 		// terminal: true,
 		// scope: {}, // {} = isolate, true = child, false/undefined = no change
-		controller: function($window, $http, $log, $scope, $modal, $timeout, $transclude, $q) {
+		controller: function($window, $http, $log, $scope, $uibModal, $timeout, $transclude, $q) {
 
 		var _model = {
 				length : null,

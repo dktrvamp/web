@@ -32,6 +32,12 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
                 context: "home"
             }
         })
+         .state("home.artist", {
+            url: "/artist",
+            data: {},
+            templateUrl: "partials/artist/artist.html",
+            controller: "ArtistCtrl"
+        })
         .state("audio", {
             url: "/audio",
             templateUrl: "partials/audio.html",
@@ -74,5 +80,10 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
 		//     ];
 		//   }
 		// })
-    });
+    })
+    .run(["$rootScope", "$state", "$stateParams", function ($rootScope, $state, $stateParams) {
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
+        $state.transitionTo("home");
+    }]);
 
