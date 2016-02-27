@@ -3,9 +3,10 @@
         autofocus
         data-ng-model-options="{ debounce: 500 }"
         data-ng-model="model.artist"
-        class="form-control"
+        class="form-control  text-input"
         data-ng-change="searchArtist($event)">
 
+    <br>
     <!-- Spotify -->
     <div class="list-container" data-ng-repeat="item in model.items">
         <b class="text">Album:</b>

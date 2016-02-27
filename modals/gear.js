@@ -5,7 +5,7 @@
  *
  *
  */
-angular.module("Dktrvamp").controller("gearCtrl", ["$scope", "Locale", "Utils", function ($scope, Locale, Utils) {
+angular.module("Dktrvamp").controller("gearCtrl", ["$uibModalInstance", "$scope", "Locale", "Utils", function ($uibModalInstance, $scope, Locale, Utils) {
 
     var _model = {},
         _selected_tab = $scope.$parent.selected_tab.toLowerCase();
@@ -33,11 +33,20 @@ angular.module("Dktrvamp").controller("gearCtrl", ["$scope", "Locale", "Utils", 
             _model.image = item.image;
             _model.content = item.content;
             _model.others = item.others;
-            console.log(item);
         });
     }
 
 
+    /**
+     * @doc method
+     * @name onDismiss
+     * @description
+     *
+     * Handles when the modal dialog is closed.
+     */
+    $scope.onClose = function() {
+        $uibModalInstance.dismiss();
+    };
     //--------------------------------------------------------------------------
     // INITIALIZATION
     //--------------------------------------------------------------------------

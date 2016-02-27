@@ -4,7 +4,7 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("homeFooter", ["$timeout", "$http", function($timeout, $http){
+angular.module("Dktrvamp").directive("homeFooter", function($http){
 	"use strict";
 
 	var linkFn = function(scope) {
@@ -45,4 +45,4 @@ angular.module("Dktrvamp").directive("homeFooter", ["$timeout", "$http", functio
 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
 		link: linkFn
 	};
-}]);
+});

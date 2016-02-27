@@ -4,7 +4,7 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet" ])
+angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet", "ngSanitize" ])
 
 	.config(function($stateProvider, $provide, $urlRouterProvider){
         "use strict";

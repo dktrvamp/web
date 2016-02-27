@@ -1,6 +1,12 @@
 <div class="gear-container">
+    <span class="fa fa-times-circle" data-ng-click="onClose()"></span>
     <img class="image" data-ng-repeat="img in model.image" data-ng-src="{{ img }}">
     <br>
     <hr>
-    <span data-ng-repeat="con in model.content" data-ng-bind="con"></span>
+    <div class="text-container"
+        data-ng-repeat="con in model.content track by $index">
+        <span class="text"
+            data-ng-bind-html="con">
+        </span>
+    </div>
 </div>

@@ -4,8 +4,14 @@
                 "image" : [ "images/ableton.png" ],
                 "content" :
                     [
-                        "Over 7 years experience with Ableton Live.",
-                         " Using Max4Live to extend functionality."
+                        "<h2 class=\"dynamic-text\">Ableton Live</h2>",
+                        "<hr>",
+                        " Using Max4Live to extend functionality.",
+                        "I use the <sup> Ableton Live</sup> effects as well as other VSTs",
+                        "Mastering, sound design, fx, mixing are all done within the DAW",
+                        "<hr>",
+                        "<h2 class=\"dynamic-text\">Protools</h2>",
+                        "<img src=\"images/protools.png\"> "
                     ],
                 "others"   : "Experience using Protools, Logic Pro and others... "
             }

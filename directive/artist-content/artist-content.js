@@ -4,23 +4,51 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("artistContent", function(ArtistInvoice){
+angular.module("Dktrvamp").directive("artistContent", function($log, ArtistInvoice){
 
     function linkFn(scope) {
+
+        //--------------------------------------------------------------------------
+        // PROPERTIES (PRIVATE)
+        //--------------------------------------------------------------------------
+
         var _model = {};
+
+        //--------------------------------------------------------------------------
+        // PROPERTIES (PUBLIC)
+        //--------------------------------------------------------------------------
 
         scope.model = _model;
 
+        //----------------------------------------------------------------------
+        // METHODS (PRIVILEGED)
+        //----------------------------------------------------------------------
+
+        /**
+         * @doc method
+         * @name searchArtist
+         * @description
+         *
+         * Handle when the button is activated (via a click or enter key press).
+         */
         scope.searchArtist = function() {
 
             var promise = ArtistInvoice.fetchResults(_model.artist, scope.type);
 
             promise.then(load)
             .catch(function(){
-                console.log("failed to fetch data from the content directive");
+                $log.info("Dir.ArtistContent - failed to fetch data from the content directive");
             });
         };
 
+        /**
+         * @doc method
+         * @name load
+         * @param {Object} response
+         * @description
+         *
+         * Loads the response data for the Artist Search Results.
+         */
         function load(response) {
             var data = response.data,
                 result = data && data.toptracks || data.albums,
@@ -42,6 +70,14 @@ angular.module("Dktrvamp").directive("artistContent", function(ArtistInvoice){
         }
 
 
+        /**
+         * @doc method
+         * @name onSearchEngineChanged
+         * @param {Object} new_val
+         * @description
+         *
+         * Executes the search.
+         */
         function onSearchEngineChanged(new_val) {
             if(new_val) {
                 _model.items = [];
@@ -50,7 +86,12 @@ angular.module("Dktrvamp").directive("artistContent", function(ArtistInvoice){
             _model.type = new_val;
         }
 
+        //----------------------------------------------------------------------
+        // INITIALIZATION
+        //----------------------------------------------------------------------
+
         scope.$watch("type", onSearchEngineChanged);
+
     }
     // Runs during compile
     return {
