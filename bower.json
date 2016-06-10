@@ -13,7 +13,7 @@
     "test",
     "tests"
   ],
- "dependencies": {
+  "dependencies": {
     "jquery": "~2.1",
     "underscore": "~1.8",
     "bootstrap": "~3.3",
@@ -26,6 +26,6 @@
     "font-awesome": "~4.4",
     "js-signals": "~1.0",
     "hashmap": "~2.0",
-    "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.6"
+    "angular-hotkeys": "chieffancypants/angular-hotkeys#^1.7.0"
   }
 }

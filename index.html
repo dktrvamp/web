@@ -1,68 +1,71 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>dktrvamp.com</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
+    <head>
+    	<title>dktrvamp.com</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
 
-    <!-- App LESS -->
-    <link href="css/app.less" type="text/css" rel="stylesheet/less">
-    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
-    <link href="bower_components/fontawesome/css/font-awesome.css" rel="stylesheet">
-</head>
-<body data-ng-app="Dktrvamp">
-    <div data-nav-bar id="NavBar"></div>
+        <!-- App LESS -->
+        <link href="css/app.less" type="text/css" rel="stylesheet/less">
+        <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
+        <link href="bower_components/fontawesome/css/font-awesome.css" rel="stylesheet">
+    </head>
+    <body data-ng-app="Dktrvamp">
+        <div id="Main" data-ng-controller="MainCtrl" class="{{ context }}">
+            <div data-nav-bar data-ng-show="enabled" id="NavBar"></div>
 
-    <div ui-view class="{{context}}"></div>
-    <!-- FOOTER -->
-    <div data-home-footer></div>
+            <div ui-view class="{{context}}"></div>
+            <!-- FOOTER -->
+            <div data-home-footer></div>
+        </div>
 
-    <!-- <div data-visual></div> -->
-      <script src="http://localhost:35729/livereload.js" data-build="exclude"></script>
-	<!-- 3rd Party Libs -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/less/dist/less.js" data-build="exclude"></script>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/underscore/underscore.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/ngtweet/dist/ngtweet.min.js"></script>
-    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <!-- // <script src="bower_components/angular-hotkeys/hotkeys.js"></script> -->
-
-
-    <!-- Setup -->
-    <script src="js/setup.js"></script>
-
-    <!-- Service -->
-    <script src="service/artist-invoice.js"></script>
-    <script src="service/cache.js"></script>
-    <script src="service/locale.js"></script>
-    <script src="service/locale.js"></script>
-    <script src="service/utils.js"></script>
-
-    <!-- Directive JS -->
-    <script src="directive/artist-lookup/artist-lookup.js"></script>
-    <script src="directive/artist-content/artist-content.js"></script>
-    <script src="directive/footer/home-footer.js"></script>
-    <script src="directive/instagram.js"></script>
-    <script src="directive/nav-bar/nav-bar.js"></script>
-    <script src="directive/playlist/playlist.js"></script>
-    <script src="directive/vertical-menu/vertical-menu.js"></script>
-    <script src="directive/visual/visual.js"></script>
-
-    <!-- Modals -->
-    <script src="modals/gear.js"></script>
-    <script src="modals/purchase-modal.js"></script>
+        <!-- <div data-visual></div> -->
+          <script src="http://localhost:35729/livereload.js" data-build="exclude"></script>
+    	<!-- 3rd Party Libs -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/less/dist/less.js" data-build="exclude"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="bower_components/ngtweet/dist/ngtweet.min.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-hotkeys/build/hotkeys.js"></script>
 
 
-    <!-- Partial JS -->
-    <script src="partials/artist/artist.js"></script>
-    <script src="partials/audio.js"></script>
-    <script src="partials/home.js"></script>
-    <script src="partials/social.js"></script>
-</body>
+        <!-- Setup -->
+        <script src="js/setup.js"></script>
+
+        <!-- Service -->
+        <script src="service/artist-invoice.js"></script>
+        <script src="service/cache.js"></script>
+        <script src="service/locale.js"></script>
+        <script src="service/locale.js"></script>
+        <script src="service/utils.js"></script>
+
+        <!-- Directive JS -->
+        <script src="directive/artist-lookup/artist-lookup.js"></script>
+        <script src="directive/artist-content/artist-content.js"></script>
+        <script src="directive/footer/home-footer.js"></script>
+        <script src="directive/instagram.js"></script>
+        <script src="directive/nav-bar/nav-bar.js"></script>
+        <script src="directive/playlist/playlist.js"></script>
+        <script src="directive/vertical-menu/vertical-menu.js"></script>
+        <script src="directive/visual/visual.js"></script>
+
+        <!-- Modals -->
+        <script src="modals/gear.js"></script>
+        <script src="modals/purchase-modal.js"></script>
+
+
+        <!-- Partial JS -->
+        <script src="partials/artist/artist.js"></script>
+        <script src="partials/audio.js"></script>
+        <script src="partials/home.js"></script>
+        <script src="partials/social.js"></script>
+        <script src="partials/main.js"></script>
+    </body>
 </html>
