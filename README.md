@@ -15,10 +15,10 @@ Development of the Web application depends on the following tools:
 
 # Setup Instructions
 
-1. Get access to the Gryphon HTML and Flat Config Server repositories.
-2. Clone the Gryphon HTML repo to your workstation.
+1. Get access to the Dktrvamp HTML and Flat Config Server repositories.
+2. Clone the Dktrvamp HTML repo to your workstation.
 3. [Download](http://nodejs.org) and install Node (which includes NPM).
-4. In a terminal window, navigate to the Gryphon HTML folder
+4. In a terminal window, navigate to the Dktrvamp HTML folder
 5. Tell NPM to install Grunt and Bower globally:
 
         sudo npm install -g grunt-cli bower
