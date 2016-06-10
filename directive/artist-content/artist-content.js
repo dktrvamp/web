@@ -56,8 +56,8 @@ angular.module("Dktrvamp").directive("artistContent", function($log, ArtistInvoi
 
             _model.items = result && result.items || {};
 
-            top_tracks = _model.type === "LastFm" ? result.track : null || [];
-            if (top_tracks.length) {
+            top_tracks = _model.type === "LastFm" ? result && result.track : null || [];
+            if (top_tracks && top_tracks.length) {
                 _.each(top_tracks, function(item){
                     _.each(item.image, function(image) {
                         var value = image && image[Object.keys(image)[0]];

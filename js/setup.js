@@ -34,7 +34,9 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
         })
          .state("home.artist", {
             url: "/artist",
-            data: {},
+            data: {
+                context: "artist"
+            },
             templateUrl: "partials/artist/artist.html",
             controller: "ArtistCtrl"
         })

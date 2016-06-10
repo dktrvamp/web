@@ -4,7 +4,7 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("sideBar", function($uibModal) {
+angular.module("Dktrvamp").directive("verticalMenu", function($uibModal) {
     "use strict";
     function linkFn(scope) {
         //--------------------------------------------------------------------------
@@ -43,7 +43,7 @@ angular.module("Dktrvamp").directive("sideBar", function($uibModal) {
         replace: true,
         // require: "ngModel", // Array = multiple requires, ? = optional, ^ = check parent elements
         restrict: "E", // E = Element, A = Attribute, C = Class, M = Comment
-        templateUrl: "directive/side-bar/side-bar.html",
+        templateUrl: "directive/vertical-menu/vertical-menu.html",
         link: linkFn
     };
 })

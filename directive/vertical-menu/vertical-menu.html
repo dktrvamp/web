@@ -1,10 +1,12 @@
-<div class="side-menu">
+<div class="vertical-menu"
+    data-ng-class="{ 'side-menu': $state.is('home.artist')}" >
     <hr>
     <button class="search-engine-btn btn"
         data-ng-repeat="tab in tabs"
         data-ng-click="onTopArtistClick($event, tab.title)" data-ng-bind="tab.title">
     </button>
     <hr>
+    <!--  -->
     <button class="search-engine-btn btn direction-btn"
         data-ng-if="$state.is('home')"
         data-ui-sref="home.artist">

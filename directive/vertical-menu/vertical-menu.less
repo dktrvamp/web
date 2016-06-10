@@ -1,9 +1,14 @@
-.side-menu {
-    width: @side_width;
+.vertical-menu {
+    width: 100vw;
     height: 100%;
+    .transition(@prop: width, @time: 5s);
+    &.side-menu { width: 20vw; }
     .overlay(@top: auto; @left:auto;);
     .overlayBackground();
     > .search-engine-btn {
+        &:hover {
+            background: rgba(32,32,32,.7);
+        }
         &.direction-btn {
             .overlay(@top:auto; @bottom: 150px;);
         }

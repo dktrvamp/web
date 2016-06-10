@@ -12,13 +12,12 @@
 @import "../directive/instagram.less";
 @import "../directive/nav-bar/nav-bar.less";
 @import "../directive/playlist/playlist.less";
-@import "../directive/side-bar/side-bar.less";
+@import "../directive/vertical-menu/vertical-menu.less";
 
 @light_blue: #0992cc;
 @lime_green: #00FF40;
 @dark_gray: #202020;
 
-@side_width: 20vw;
 html {
     max-height: 720px;
 }
@@ -57,48 +56,21 @@ canvas#grapher {
   z-index:-1;
   opacity:.35;
 }
-
-[ui-view] & {
+.transition(@prop: all, @time: .7s) {
+    -webkit-transition: @prop @time ease-in-out;
+    -o-transition: @prop @time ease-in-out;
+    transition: @prop @time ease-in-out;
+}
+.fadeAnimation() {
     opacity: 1;
-    margin-top: 100px;
+    .transition();
+    &.ng-enter { opacity: 0; }
+    &.ng-enter-active { opacity: 1; }
+    &.ng-leave { opacity: 1; }
+    &.ng-leave-active { opacity: 0; }
 }
-
-[ui-view].ng-enter, [ui-view].ng-leave {
-  position: absolute;
-  left: 0;
-  right: 0;
-  -webkit-transition:all .7s ease-in-out;
-	-moz-transition:all .7s ease-in-out;
-	-o-transition:all .7s ease-in-out;
-	transition:all .7s ease-in-out;
-}
-
-[ui-view].ng-enter {
-  opacity: 0;
-  -webkit-transform: scale3d(0.1, 0.1, 0.1);
-  -moz-transform: scale3d(0.1, 0.1, 0.1);
-  transform: scale3d(0.1, 0.1, 0.1);
-}
-
-[ui-view].ng-enter-active {
-  opacity: 1;
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-}
-
-[ui-view].ng-leave {
-  opacity: 1;
-  -webkit-transform:translate3d(0, 0, 0);
-  -moz-transform:translate3d(0, 0, 0);
-  transform:translate3d(0, 0, 0);
-}
-
-[ui-view].ng-leave-active {
-  opacity: 0;
-  -webkit-transform: translate3d(0.5, 0.5, 0.5);
-  -moz-transform: translate3d(0.5, 0.5, 0.5);
-  transform: translate3d(0.5, 0.5, 0.5);
+[ui-view] {
+    .fadeAnimation();
 }
 
 .gradient {
@@ -110,6 +82,23 @@ canvas#grapher {
 // *****************************************
 // Mixins
 // *****************************************
+
+.box(@pack: start, @align: center, @orient: horizontal) {
+    // Default: left justified, vertically centered, horizontal oriented.
+    display: -webkit-box;
+    box-pack: @pack;
+    -webkit-box-pack: @pack;
+    -moz-box-pack: @pack;
+
+    box-align: @align;
+    -webkit-box-align: @align;
+    -moz-box-align: @align;
+
+    box-orient: @orient;
+    -webkit-box-orient: @orient;
+    -moz-box-orient: @orient;
+
+}
 .pattern(){
     background-image: -moz-linear-gradient(
 	    	45deg, rgba(0, 0, 0, 0.25) 25%,
