@@ -16,7 +16,7 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
     //--------------------------------------------------------------------------
 
     $scope.context = null;
-    $scope.enabled_nav = false;
+    $scope.enabled_nav = true;
 
     //--------------------------------------------------------------------------
     // METHODS (PRIVATE)
