@@ -9,8 +9,6 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
 	.config(function($locationProvider, $stateProvider, $provide, $urlRouterProvider){
         "use strict";
 
-        $locationProvider.html5Mode(true).hashPrefix('!');
-
         $provide.decorator("$state", function($delegate) {
             $delegate.go = function(to, params, options) {
                 return $delegate.transitionTo(to, params, angular.extend(
@@ -85,6 +83,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
 		//     ];
 		//   }
 		// })
+        $locationProvider.html5Mode(true);
     })
     .run(["$rootScope", "$state", "$stateParams", function ($rootScope, $state, $stateParams) {
         $rootScope.$state = $state;
