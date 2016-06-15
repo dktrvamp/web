@@ -16,7 +16,7 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
     //--------------------------------------------------------------------------
 
     $scope.context = null;
-    $scope.enabled_nav = true;
+    // $scope.enabled_nav = true;
 
     //--------------------------------------------------------------------------
     // METHODS (PRIVATE)
@@ -71,22 +71,22 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
      *
      * Adds handler for navigating the menu tabs via keyboard (and deleted when it is not in an User state).
      */
-    function addHotkeysForScope() {
-        hotkeys.bindTo($scope)
-        .add({
-            combo: "w",
-            callback: function(event) {
-                event.preventDefault();
-                $scope.enabled = !$scope.enabled;
-            }
-        });
-    }
+    // function addHotkeysForScope() {
+    //     hotkeys.bindTo($scope)
+    //     .add({
+    //         combo: "w",
+    //         callback: function(event) {
+    //             event.preventDefault();
+    //             $scope.enabled_nav = !$scope.enabled_nav;
+    //         }
+    //     });
+    // }
 
     //--------------------------------------------------------------------------
     // INITIALIZATION
     //--------------------------------------------------------------------------
 
-    addHotkeysForScope();
+    // addHotkeysForScope();
     onStateChangeSuccess(null, $state.current);
 
     $scope.$on("$stateChangeSuccess", onStateChangeSuccess);
