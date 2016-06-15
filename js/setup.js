@@ -6,8 +6,12 @@
 */
 angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet", "ngSanitize", "cfp.hotkeys" ])
 
-	.config(function($stateProvider, $provide, $urlRouterProvider){
+	.config(function($locationProvider, $stateProvider, $provide, $urlRouterProvider){
         "use strict";
+        $locationProvider.html5Mode({
+          enabled: true,
+          requireBase: false
+        });
         $provide.decorator("$state", function($delegate) {
             $delegate.go = function(to, params, options) {
                 return $delegate.transitionTo(to, params, angular.extend(
