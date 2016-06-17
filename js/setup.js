@@ -6,7 +6,7 @@
 */
 angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet", "ngSanitize", "cfp.hotkeys" ])
 
-	.config(function($locationProvider, $stateProvider, $provide, $urlRouterProvider){
+	.config(function($stateProvider, $provide, $urlRouterProvider){
         "use strict";
 
         $provide.decorator("$state", function($delegate) {
@@ -84,7 +84,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
 
         // For any unmatched url, send to /home
         $urlRouterProvider.otherwise("/home");
-        $locationProvider.html5Mode(true);
+        // $locationProvider.html5Mode(true);
     })
     .run(["$rootScope", "$state", "$stateParams", function ($rootScope, $state, $stateParams) {
         $rootScope.$state = $state;
