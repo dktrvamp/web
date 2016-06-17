@@ -21,9 +21,6 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
             return $delegate;
         });
 
-		// For any unmatched url, send to /home
-		$urlRouterProvider.otherwise("/home");
-
         $stateProvider
         .state("home", {
             url: "/home",
@@ -61,6 +58,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
         .state("about", {
             url: "/about",
             templateUrl: "partials/about.html",
+            controller: "aboutCtrl",
             data: {
                 context: "about"
             }
@@ -83,6 +81,9 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
 		//     ];
 		//   }
 		// })
+
+        // For any unmatched url, send to /home
+        $urlRouterProvider.otherwise("/home");
         $locationProvider.html5Mode(true);
     })
     .run(["$rootScope", "$state", "$stateParams", function ($rootScope, $state, $stateParams) {

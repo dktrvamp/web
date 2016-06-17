@@ -1,0 +1,44 @@
+{
+    "info" : {
+        "name" : "<b>Name</b>: John Oprisor<br>",
+        "artist_name": "Dr.Vamp <i>(Doctor Vamp)</i>",
+        "age" : "<b>Age</b>: 28 years old<br>",
+        "ethnicity": "<b>Ethnicity</b>: European - Romanian<br>",
+        "location" : "<b>Location</b>: Los Angeles, California<br>",
+        "image": "<img src=\"images/drvamp.png\">",
+        "about": ["Born in Eastern Europe, Romania in the state of Transylvania, ",
+            "John has been inspired by many world class musicians.<br>",
+            "In the early 90's Rock n Roll, Jazz, Blues, Hip-Hop, R&B, Electronica had a major interest in becoming an artist.<br>",
+            "While Rock n Roll has been a genre of interest, in 1994 an Artist by the name of Eazy-E has drawn his attention.<br>",
+            "Later on the various Artists became a daily playlist in Johns life.<br>",
+            "N.W.A has had a global impact, but other artists started apearing on the Main Stream media later on.<br>",
+            "Although living in Europe in the early 90's there were no age restrictions,",
+            "John started the night life at a very young age.<br>",
+            "Concerts, Night Clubs, Bars, Festivals, Parties have all been a way of life.<br>",
+            "In the late 90's his parents have decided to move to the United States of America.<br>",
+            "During the transition John and his sister, Joana have remained in Romania.<br>",
+            "Thats when Electronic Music had taken a different direction.<br>",
+            "John started attending Electronic Music events, which expanded the interest in music.<br>",
+            "Exploring the Euphoric Dance Music and enjoying the Peace Love Unity Respect environment.<br>",
+            "John has started digging further and started picking up a keyboard.<br>",
+            "Seeing the music change within such short amount of time, John has grew a significant interest into the art of Disk Jockeying.<br>",
+            "While relatives had the equipment, he had the passion.<br>",
+            "Vinyl records of various genres were all pieces of collecting knowledge about music.<br>",
+            "In 2000 John has moved to Los Angeles, California.<br>",
+            "Where the passion of Hip-Hop has elevated to a whole new level.<br>",
+            "Many can say that the grove and tempo of Hip-Hop has pregressed.<br>",
+            "John always had room for appreciating all types of music.<br>",
+            "In 2006 John has picked up a free Demo of a DAW called Ableton Live.<br>",
+            "Then the Journey has begun.<br>"
+
+
+        ],
+        "contact": {
+            "email" : "drvaudio@gmail.com"
+
+        }
+    }
+}
+
+
+
