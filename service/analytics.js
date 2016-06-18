@@ -76,7 +76,7 @@ angular.module("Dktrvamp").service("Analytics", function($log, $state, $window) 
      */
     this.trackClick = function(tag_or_text, include_state_info) {
         // If analytics hasn't been setup, just exit.
-        // if (!_google_analytics) { return; }
+        if (!_google_analytics) { return; }
 
         if(!tag_or_text || !_.isString(tag_or_text)) {
             $log.warn("Analytics.trackClick - Invalid tracking tag, event not tracked.");
