@@ -88,7 +88,7 @@ angular.module("Dktrvamp").service("Analytics", function($log, $state, $window) 
         var element_name = tag_or_text;
 
         if(include_state_info) {
-            element_name = $state.current.data.name + element_name;
+            element_name = "State" + include_state_info + "-element-" + element_name;
         }
 
         _google_analytics("send", "event", element_name, "click", new Date());
