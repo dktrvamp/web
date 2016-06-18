@@ -6,16 +6,15 @@
  *
  *
  */
-angular.module("Dktrvamp").directive("ngClick", function ($state, Analytics) {
+angular.module("Dktrvamp").directive("ngClick", function ($location, Analytics) {
     "use strict";
 
     return {
         restrict: "A",
         link: function (scope, element, attrs) {
             function onClick(event) {
-                var tag_name = event && event.target.tagName.toLowerCase();
-                Analytics.trackClick(tag_name, $state.current.name);
-                // console.log(tag_name, $state.current.name);
+                var tag_name = event && $(event.target).text();
+                Analytics.trackClick(tag_name, $location.absUrl());
             }
 
             scope.$on("$destroy", function () { element.off("click", onClick); });

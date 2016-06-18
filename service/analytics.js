@@ -17,8 +17,7 @@ angular.module("Dktrvamp").service("Analytics", function($log, $state, $window) 
     // PROPERTIES (PPRIVATE)
     //--------------------------------------------------------------------------
     // $window.ga is created in index.html from Google's script.
-    var _google_analytics = $window.ga,
-        _is_initialized;
+    var _is_initialized;
 
 
     //--------------------------------------------------------------------------
@@ -60,7 +59,7 @@ angular.module("Dktrvamp").service("Analytics", function($log, $state, $window) 
             return;
         }
         _is_initialized = true;
-        _google_analytics("create", analytics_data.id, "auto");
+        $window.ga("create", analytics_data.id, "www.drvaudio.com");
 
         $log.info("Analytics.init - Initialized!");
     };
@@ -88,10 +87,10 @@ angular.module("Dktrvamp").service("Analytics", function($log, $state, $window) 
         var element_name = tag_or_text;
 
         if(include_state_info) {
-            element_name = "State" + include_state_info + "-element-" + element_name;
+            element_name = "Current View: " + include_state_info + " Element Text:" + element_name;
         }
 
-        _google_analytics("send", "event", element_name, "click", new Date());
+        $window.ga("send", "event", element_name, "click", new Date());
     };
 
 });
