@@ -17,7 +17,8 @@ angular.module("Dktrvamp").service("Analytics", function($log, $state, $window) 
     // PROPERTIES (PPRIVATE)
     //--------------------------------------------------------------------------
     // $window.ga is created in index.html from Google's script.
-    var _is_initialized;
+    var _google_analytics = $window.ga,
+        _is_initialized;
 
 
     //--------------------------------------------------------------------------
@@ -59,7 +60,7 @@ angular.module("Dktrvamp").service("Analytics", function($log, $state, $window) 
             return;
         }
         _is_initialized = true;
-        $window.ga("create", analytics_data.id, "www.drvaudio.com");
+        _google_analytics("create", analytics_data.id, "auto");
 
         $log.info("Analytics.init - Initialized!");
     };
