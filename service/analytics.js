@@ -90,8 +90,8 @@ angular.module("Dktrvamp").service("Analytics", function($log, $state, $window) 
         if(include_state_info) {
             element_name = "Current View: " + include_state_info + " Element Text:" + element_name;
         }
-
-        $window.ga("send", "event", element_name, "click", new Date());
+        $window.ga("send", "pageview", $state.current.name);
+        $window.ga("send", "event", element_name, "click", Date());
     };
 
 });

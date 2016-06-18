@@ -14,7 +14,7 @@ angular.module("Dktrvamp").directive("ngClick", function ($location, Analytics) 
         link: function (scope, element, attrs) {
             function onClick(event) {
                 var tag_name = event && $(event.target).text();
-                Analytics.trackClick(tag_name, $location.absUrl());
+                Analytics.trackClick(tag_name, $location.url());
             }
 
             scope.$on("$destroy", function () { element.off("click", onClick); });
