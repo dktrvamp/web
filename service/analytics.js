@@ -16,8 +16,9 @@ angular.module("Dktrvamp").service("Analytics", function($log, $state, $window) 
     //--------------------------------------------------------------------------
     // PROPERTIES (PPRIVATE)
     //--------------------------------------------------------------------------
-
-    var _google_analytics = $window.ga; // $window.ga is created in index.html from Google's script.
+    // $window.ga is created in index.html from Google's script.
+    var _google_analytics = $window.ga,
+        _is_initialized;
 
 
     //--------------------------------------------------------------------------
@@ -45,6 +46,11 @@ angular.module("Dktrvamp").service("Analytics", function($log, $state, $window) 
      * Initializes the analytics service.
      */
     this.init = function() {
+        if (_is_initialized) {
+            $log.info("Analytics.init - Already Initialized!");
+            return;
+        }
+
         $log.info("Analytics.init - Initializing...");
 
         var analytics_data = {id: "UA-79509363-1"};
@@ -53,7 +59,7 @@ angular.module("Dktrvamp").service("Analytics", function($log, $state, $window) 
             $log.warn("Analytics.init - ID not found. Google Analytics is not configured.");
             return;
         }
-
+        _is_initialized = true;
         _google_analytics("create", analytics_data.id, "auto");
 
         $log.info("Analytics.init - Initialized!");

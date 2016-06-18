@@ -15,7 +15,7 @@ angular.module("Dktrvamp").directive("ngClick", function ($state, Analytics) {
             function onClick(event) {
                 var tag_name = event && event.target.tagName.toLowerCase();
                 Analytics.trackClick(tag_name, $state.current.name);
-                console.log(tag_name, $state.current.name);
+                // console.log(tag_name, $state.current.name);
             }
 
             scope.$on("$destroy", function () { element.off("click", onClick); });
