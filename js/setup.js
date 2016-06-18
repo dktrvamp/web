@@ -66,6 +66,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
         .state("contact", {
             url: "/contact",
             templateUrl: "partials/contact.html",
+            controller: "contactCtrl",
             data: {
                 context: "contact"
             }

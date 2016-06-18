@@ -1,5 +1,4 @@
-<div class="vertical-menu"
-    data-ng-class="{ 'side-menu': $state.is('home.artist')}" >
+<div class="vertical-menu">
     <hr>
     <button class="search-engine-btn btn"
         data-ng-repeat="tab in tabs"
@@ -12,6 +11,7 @@
         data-ui-sref="home.artist">
         Search For An Artist
     </button>
+    <br>
     <button class="search-engine-btn btn direction-btn"
         data-ng-if="!$state.is('home')"
         data-ui-sref="home">

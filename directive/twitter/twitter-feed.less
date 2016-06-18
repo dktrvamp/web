@@ -1,0 +1,8 @@
+[data-twitter-feed] {
+    width: 300px;
+    iframe { height: 30vh !important; }
+    .home & {
+        // Ensure it is displayed above the footer
+        .overlay(@bottom: 30vh, @top:auto);
+    }
+}

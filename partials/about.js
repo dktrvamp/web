@@ -24,9 +24,7 @@ angular.module("Dktrvamp").controller("aboutCtrl",["$scope", "$http", function (
     function getAboutLocale() {
         $http.get("locale/about.json")
             .then(function(response){
-                console.log(response);
                 $scope.model.content = response.data && response.data.info;
-
             })
             .catch(function(){
                 console.log("getAboutLocale.Failed -----");

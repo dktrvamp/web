@@ -20,7 +20,7 @@ angular.module("Dktrvamp").directive("playlist", function(){
 				source : null
 			},
 			_tracks = [],
-			audio = new Audio(),
+			audio = null,
 			current_track = 0,
 			// Establish all variables that your Analyser will use
 			canvas, ctx, source, context, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
@@ -28,13 +28,6 @@ angular.module("Dktrvamp").directive("playlist", function(){
 		$($window).mousemove(function(){
 			$("ul>li").fadeIn("fast");
 		});
-		// start
-		// Create a new instance of an audio object and adjust some of its properties
-		// audio.src = "audio/Dr.Vamp - dark society.mp3";
-		audio.controls = true;
-		audio.loop = true;
-		audio.autoplay = true;
-		// Initialize the MP3 player after the page loads all of its HTML into the window
 
 		$scope.model = _model;
 		$scope.audio = audio;
@@ -86,18 +79,30 @@ angular.module("Dktrvamp").directive("playlist", function(){
 		};
 
 		function initMp3Player(){
-			document.getElementById("audio_box").appendChild(audio);
+			// start
+			// Create a new instance of an audio object and adjust some of its properties
+			// audio.src = "audio/Dr.Vamp - dark society.mp3";
+			if (audio) { return; }
+
+			audio = new Audio();
+			audio.controls = true;
+			audio.loop = true;
+			audio.autoplay = true;
+			// Initialize the MP3 player after the page loads all of its HTML into the window
+
+			window.player = document.getElementById("audio_box").appendChild(audio);
 			/* jshint ignore:start */
+			window.AudioContext = window.AudioContext || window.webkitAudioContext;
 			context = new AudioContext(); // jshint ignore:line
+			// Re-route audio playback into the processing graph of the AudioContext
+			source = context && context.createMediaElementSource(audio);
+
 			// new AudioContext(); // Safari and old versions of Chrome
 			/* jshint ignore:end */
-
 
 			analyser = context && context.createAnalyser(); // AnalyserNode method
 			canvas = document.getElementById("analyser_render");
 			ctx = canvas && canvas.getContext("2d");
-			// Re-route audio playback into the processing graph of the AudioContext
-			source = context && context.createMediaElementSource(audio);
 			source.connect(analyser);
 			analyser.connect(context.destination);
 			frameLooper();
@@ -105,7 +110,7 @@ angular.module("Dktrvamp").directive("playlist", function(){
 
 		// frameLooper() animates any style of graphics you wish to the audio frequency
 		// Looping at the default frame rate that the browser provides(approx. 60 FPS)
-		function frameLooper(){
+		function frameLooper() {
 
 			$window.requestAnimationFrame(frameLooper);
 			fbc_array = new Uint8Array(analyser.frequencyBinCount);

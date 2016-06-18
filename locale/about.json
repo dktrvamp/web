@@ -34,7 +34,8 @@
 
         ],
         "contact": {
-            "email" : "drvaudio@gmail.com"
+            "info": "<b>For More Information Please Contact at:</b>",
+            "email" : "<b>Email:</b> <i><a>drvaudio@gmail.com</a></i>"
 
         }
     }

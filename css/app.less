@@ -1,6 +1,7 @@
 @import "../partials/artist/artist.less";
 @import "../partials/about.less";
 @import "../partials/audio.less";
+@import "../partials/contact.less";
 @import "../partials/home.less";
 
 @import "../modals/purchase-modal.less";
@@ -13,10 +14,15 @@
 @import "../directive/nav-bar/nav-bar.less";
 @import "../directive/playlist/playlist.less";
 @import "../directive/vertical-menu/vertical-menu.less";
+@import "../directive/twitter/twitter-feed.less";
+@import "../directive/soundcloud/soundcloud-new-track.less";
 
 @light_blue: #0992cc;
 @lime_green: #00FF40;
 @dark_gray: #202020;
+
+
+@standard_padding: 55px;
 
 html {
     max-height: 720px;
@@ -70,6 +76,8 @@ canvas#grapher {
     &.ng-leave-active { opacity: 0; }
 }
 [ui-view] {
+    min-height: 350px;
+    overflow: auto;
     .fadeAnimation();
 }
 
@@ -202,8 +210,7 @@ canvas#grapher {
     }
 }
 
-.ngtweet-wrapper iframe {
-}
+.ngtweet-wrapper iframe {}
 body > .timeline { background: none !important; }
 .root.timeline.ltr.customisable-border {
   width: 100vw!important;
