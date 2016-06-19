@@ -5,4 +5,19 @@
         <h3 data-ng-bind-html="model.content.name"></h3>
         <h5 data-ng-bind-html="model.content.contact.email"></h5>
     </div>
+
+    <?=$thankYou ?>
+
+    <form method="post" action="php/mail.php">
+        <label>Name:</label>
+        <input name="sender">
+
+        <label>Email address:</label>
+        <input name="senderEmail">
+
+        <label>Message:</label>
+        <textarea rows="5" cols="20" name="message"></textarea>
+
+        <input type="submit" name="submit">
+    </form>
 </div>

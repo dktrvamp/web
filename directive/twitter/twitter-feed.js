@@ -9,7 +9,7 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("twitterFeed", function($timeout, $http) {
+angular.module("Dktrvamp").directive("twitterFeed", function() {
     "use strict";
 
 
