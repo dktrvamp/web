@@ -2,16 +2,17 @@
 	<!-- Footer Links -->
 	<a class="footer-links" href=""
 		data-ng-repeat="link in links"
-		popover-title="{{ link.name }}" 
-		popover="{{ link.content }}" 
-		popover-placement="top" 
-		popover-trigger="click">
+		popover-title="{{ link.name }}"
+		popover="{{ link.content }}"
+		popover-placement="top"
+		popover-trigger="click"
+		data-ui-state="link.to_state || 'home'">
 		<i class="fa fa-square"></i>
 		&nbsp;&nbsp;&nbsp;
 		<span data-ng-bind="link.name"></span>
 		&nbsp;&nbsp;&nbsp;
 	</a>
-	
-	
+
+
 	<img class="footer-wave-image" src="images/hip-hop-2014.png" width="80px" height="30px;">
 </footer>

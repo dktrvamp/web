@@ -16,13 +16,13 @@
         <div id="Main" data-ng-controller="MainCtrl" class="{{ context }}">
             <div data-nav-bar id="NavBar"></div>
 
-            <div ui-view class="{{context}}"></div>
+            <div ui-view class="fade-in fade-out {{context}}"></div>
             <!-- FOOTER -->
 
         </div>
 
         <!-- <div data-visual></div> -->
-          <!-- <script src="http://localhost:35729/livereload.js" data-build="exclude"></script> -->
+          <script src="http://localhost:35729/livereload.js" data-build="exclude"></script>
     	<!-- 3rd Party Libs -->
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/less/dist/less.js" data-build="exclude"></script>
@@ -74,6 +74,9 @@
         <script src="partials/home.js"></script>
         <script src="partials/social.js"></script>
         <script src="partials/main.js"></script>
+
+        <!-- Animations -->
+        <script src="animations/animations.js"></script>
 
         <!-- Analytics -->
         <script src="libs/desktop-view-switch.js"></script>

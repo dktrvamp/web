@@ -1,8 +1,17 @@
 #Contact {
-    padding-left: @standard_padding;
-    padding-top: @standard_padding;
-    >.contact-content {
-        margin-top: @standard_padding;
-        color: #ccc;
+    padding: @standard_padding;
+    > form {
+        margin-top: 100px;
+        > label > span {
+            color: @blue;
+        }
+        > h4 {
+            color: #fff;
+        }
+        > .invalid-form-message {
+            color: @red;
+            font-size: 20px;
+        }
     }
+    * {margin-top: 10px; }
 }

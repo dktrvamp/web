@@ -1,23 +1,45 @@
 <div id="Contact">
     <h1>Contact</h1>
-    <div class="contact-content">
-        <h5 data-ng-bind-html="model.content.contact.info"></h5>
-        <h3 data-ng-bind-html="model.content.name"></h3>
-        <h5 data-ng-bind-html="model.content.contact.email"></h5>
-    </div>
 
-    <?=$thankYou ?>
+    <form method="post" name="form" data-ng-attr-action="model.url" class="form-group">
+        <h4>Send an Email!</h4>
+        <div class="invalid-form-message" data-ng-if="form.$invalid && form.$dirty">
+            Please enter the required fields!
+        </div>
+        <label for="name">Name:
+            <span ng-bind="name"></span>
+        </label>
+        <input id="name" name="name" type="text"
+            class="form-control"
+            placeholder="Name"
+            autofocus
+            data-ng-model="name" required>
 
-    <form method="post" action="php/mail.php">
-        <label>Name:</label>
-        <input name="sender">
+        <label for="email"
+            data-ng-class="{
+                'invalid': email.$dirty  && email.$invalid
+            }">
+            Email address:
+            <span ng-bind="email"></span>
+        </label>
+        <input id="email"
+            type="email"
+            name="email"
+            data-ng-model="email"
+            placeholder="Email"
+            class="form-control" required>
 
-        <label>Email address:</label>
-        <input name="senderEmail">
-
-        <label>Message:</label>
-        <textarea rows="5" cols="20" name="message"></textarea>
-
-        <input type="submit" name="submit">
+        <label for="message">Message:</label>
+        <textarea id="message" class="form-control"
+            name="message"
+            data-ng-model="message" name="message"
+            placeholder="Please leave a comment!"
+            rows="5" cols="20" name="message" required></textarea>
+        <br>
+        <button type="submit" class="submit-button"
+            ng-disabled="form.$dirty && form.$invalid ||
+            (!email && !name && !message)">
+            Submit
+        </button>
     </form>
 </div>

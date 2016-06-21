@@ -1,15 +1,23 @@
 <?php
-    if($_POST["submit"]) {
-        $recipient="drvaudio@gmail.com";
-        $subject="Form to email message";
-        $sender=$_POST["sender"];
-        $senderEmail=$_POST["senderEmail"];
-        $message=$_POST["message"];
+$name = $_POST['name'];
+$email = $_POST['email'];
+$subject = $_POST['subject'];
+$message = $_POST['message'];
 
-        $mailBody="Name: $sender\nEmail: $senderEmail\n\n$message";
+/*
+===================== perform check if any field in form is empty
+ */
+if(empty($name) || empty($email) || empty($message) || empty($subject)){
+    echo "Kindly fill all the fileds";
+    die();
+}
+// change the following statement according to your need.
+$to = "drvaudio@gmail.com";
 
-        mail($recipient, $subject, $mailBody, "From: $sender <$senderEmail>");
-
-        $thankYou="<p>Thank you! Your message has been sent.</p>";
-    }
+if(mail($to, $subject, $message)){
+    echo "Message Sent!";
+}
+else {
+    echo "Failed!";
+}
 ?>

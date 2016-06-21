@@ -70,6 +70,20 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
             data: {
                 context: "contact"
             }
+        })
+        .state("policy", {
+            url: "/policy",
+            templateUrl: "partials/policy.html",
+            data: {
+                context: "policy"
+            }
+        })
+        .state("engineering", {
+            url: "/engineering",
+            templateUrl: "partials/engineering.html",
+            data: {
+                context: "engineering"
+            }
         });
 		// .state("social.list", {
 		//   url: "/list",
