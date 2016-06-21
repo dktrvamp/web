@@ -1,4 +1,5 @@
 #NavBar {
+    position: static;
     .box(center);
     @media screen and (min-width: 768px) {
         nav.navbar-nav {
@@ -46,19 +47,19 @@
     }
 
     div.navbar-collapse.collapse {
-        	display: block;
-        	overflow: hidden;
-        	max-height: 0px;
-        	-webkit-transition: max-height .15s ease-in-out;
-        	-moz-transition: max-height .15s ease-in-out;
-        	-o-transition: max-height .15s ease-in-out;
-        	transition: max-height .15s ease-in-out;
-            >.nav > li {
-                position: relative;
-                display: -webkit-inline-box;
-            }
-
+    	display: block;
+    	overflow: hidden;
+    	max-height: 0px;
+    	-webkit-transition: max-height .15s ease-in-out;
+    	-moz-transition: max-height .15s ease-in-out;
+    	-o-transition: max-height .15s ease-in-out;
+    	transition: max-height .15s ease-in-out;
+        >.nav > li {
+            position: relative;
+            display: -webkit-inline-box;
         }
+
+    }
     div.navbar-collapse.collapse.in {
         max-height: 100vh;
         background-color: rgba(32,32,32,.85);

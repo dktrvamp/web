@@ -1,16 +1,12 @@
 footer {
-	height: 10vh;
+	height: 40px;
 	width: 100vw;
 	position: fixed;
 	bottom: 0;
 	top: auto;
-	.overlayBackground();
+	padding: 10px;
 	>.footer-links {
-		position: relative;
-		top: 40%;
-		bottom: auto;
-		left: 5%;
-		right: auto;
+
 	}
 	>div.popover {
 		top: -150px!important;
@@ -20,6 +16,18 @@ footer {
 	.footer-wave-image {
 		position: absolute;
 		left: 0;
+		margin-top: -55px;
 	}
-
+	@media screen and (max-width: 420px) {
+        height: 100px;
+        column-count: 2;
+        .footer-links {
+        	display: inline-block;
+        	margin-top: 5px;
+        }
+        .fa-square { display: none; }
+        .footer-wave-image {
+        	margin-top: 0px;
+        }
+    }
 }
