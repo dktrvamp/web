@@ -9,11 +9,14 @@ $to = "drvaudio@gmail.com";
 if (($name=="")||($email=="")||($message=="")) {
     printf("0");
 }
-else{
+if (mail($to, $subject, $message, $from)){
     $from="From: $name<$email>\r\nReturn-path: $email";
     $subject="Message sent using your contact form";
-    mail($to, $subject, $message, $from);
-    print '$array';
-    var_dump($input);
+    echo '$from';
+    echo '$name';
+    echo '$email';
+}
+else {
+    print 'email failed';
 }
 ?>
