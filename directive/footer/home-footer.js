@@ -4,27 +4,27 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("homeFooter", function($http){
+angular.module("Dktrvamp").directive("homeFooter", function(){
 	"use strict";
 
 	var linkFn = function(scope) {
-		scope.links = [];
+		scope.links = [
+			{
+				"name" : "Engineering",
+				"to_state": "engineering",
+				"content" : "Years Experience, in finalizing tracks for a creat HIGH QUALITY sound."
+			},
+			{
+				"name" :"Contact",
+				"to_state": "contact",
+				"content" : "Years Experience, in experimental SOUND EFFECTS"
+			},
+			{
+				"name" : "Privacy Policy",
+				"to_state": "policy"
+			}
+		];
 
-		function getLocaleString(){
-			$http.get("locale/locale.json")
-				.then(function(response){
-					var data = response.data[0];
-					_.each(data, function(content) {
-						scope.links = content;
-					});
-				})
-				.catch(function(){
-					console.log("getLocaleString.getLocaleString - ");
-				})
-				.finally(function(){
-				});
-		}
-		getLocaleString();
 		$(".popover").mouseover(function(){
 			$(this).hide();
 		});

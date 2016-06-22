@@ -1,43 +1,12 @@
-<!-- Navigation Bar -->
-
-<nav class="navbar navbar-default pattern" role="navigation">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-
-        <button type="button" class="navbar-toggle" data-ng-init="navCollapsed = true" data-ng-click="navCollapsed = !navCollapsed">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" data-ng-class="!navCollapsed && 'in'" data-ng-click="navCollapsed = true">
-        <ul class="nav navbar-nav">
-            <li class="tab" data-ng-class="{active: $state.includes('home')}"
-                class="tab">
-             <a data-ui-sref="home" data-ui-sref-active="active">Home</a>
-            </li>
-            <li class="tab" data-ng-class="{active: $state.current.name === 'audio'}"
-                class="tab">
-                <a data-ui-sref="audio">Audio</a>
-            </li>
-            <li class="tab" data-ng-class="{active: $state.current.name === 'social'}"
-                class="tab">
-                <a
-                data-ui-sref="social">Social</a>
-            </li>
-            <li class="tab" data-ng-class="{active: $state.current.name === 'about'}"
-                class="tab">
-                <a data-ui-sref="about">About</a>
-            </li>
-            <li class="tab" data-ng-class="{active: $state.current.name === 'contact'}"
-                class="tab">
-                <a data-ui-sref="contact">Contact</a>
-            </li>
-
-        </ul>
-      </div>
-</nav>
+<div id="NavBar">
+    <button class="menu-tab"
+        data-ng-repeat="item in menu_bar"
+        data-ng-attr-tabindex="{{item.index}}"
+        data-ng-keyup="onKeyUp($event)"
+        data-focus-if="is_current_state"
+        data-ui-state="item.state || ''"
+        data-ui-sref-active="active"
+        data-ng-bind="::item.title">
+    </button>
+</div>
 
