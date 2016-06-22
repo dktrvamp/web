@@ -14,7 +14,6 @@ else{
     $subject="Message sent using your contact form";
     mail($to, $subject, $message, $from);
     print '$array';
-    header('Content-Type: application/json');
     var_dump($input);
 }
 ?>
