@@ -2,12 +2,13 @@
 $response = array( 'success' => false );
 $formData = file_get_contents( 'php://input' );
 $data = json_decode( $formData );
-if ( $data->submit ) {
+
     $name = $data->name;
     $email = $data->email;
     $message = $data->message;
 
     if ( $name != '' && $email != '' && $message != '' ) {
+
         $mailTo = 'drvaudio@gmail.com';
         $subject = 'New contact form submission';
         $body  = 'From: ' . $name . "\n";
@@ -20,7 +21,6 @@ if ( $data->submit ) {
             $response[ 'success' ] = true;
         }
     }
-}
 
     echo json_encode( $response );
 ?>
