@@ -13,6 +13,9 @@ else{
     $from="From: $name<$email>\r\nReturn-path: $email";
     $subject="Message sent using your contact form";
     mail($to, $subject, $message, $from);
-    echo 'message sent';
+    print '$array';
+    echo '$array';
+    header('Content-Type: application/json');
+    var_dump($input);
 }
 ?>
