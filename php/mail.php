@@ -1,20 +1,18 @@
 <?php
-print 'yoo it works';
-$name = $_POST['name'];
-$email = $_POST['email'];
-$subject = $_POST['subject'];
-$message = $_POST['message'];
+print 'sending the email';
+$array = json_decode(file_get_contents('php://input'), true);
+$name = $array['name'];
+$email = $array['email'];
+$message = $array['message'];
 $to = "drvaudio@gmail.com";
 
-
-$body = "From: $name\n E-Mail: $email\n Message:\n $message";
-
-if (isset($_POST['submit'])) {
-    if (mail($to, $subject, $body)) {
-        echo '<p>Your message has been sent!</p>';
-    } else {
-        echo '<p>Something went wrong, go back and try again!</p>';
-    }
+if (($name=="")||($email=="")||($message=="")) {
+    printf("0");
 }
-
+else{
+    $from="From: $name<$email>\r\nReturn-path: $email";
+    $subject="Message sent using your contact form";
+    mail($to, $subject, $message, $from);
+    echo 'message sent';
+}
 ?>
