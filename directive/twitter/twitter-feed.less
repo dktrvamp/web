@@ -1,8 +1,10 @@
 [data-twitter-feed] {
-    width: 300px;
-    iframe { height: 30vh !important; }
-    .home & {
-        // Ensure it is displayed above the footer
-        .overlay(@bottom: 30vh, @top:auto);
+    width: 100vw;
+    iframe {
+        height: @twitter_height !important;
+        width: 100vw !important;
+        div.timeline-Widget {
+            max-width: 100vw;
+        }
     }
 }

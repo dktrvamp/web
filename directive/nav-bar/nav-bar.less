@@ -3,29 +3,7 @@
     width: 100vw;
     .box(center);
     >.menu-tab {
-        border: none;
-        height: 50px;
-        width: 25vw;
-        color: #fff;
-        opacity: .7;
-        font-weight: 900;
-        background-image: -webkit-linear-gradient(bottom, #444, #222 23px);;
-        background-image: -o-linear-gradient(bottom, #444, #222 23px);;
-        background-image: -moz-linear-gradient(bottom, #444, #222 23px);;
-        background-image: gradient(bottom, #444, #222 23px);;
-        &.active,
-        &:hover,
-        &:focus {
-            opacity: 1;
-        }
-        &.active {
-            background: @blue;
-            border-bottom: 1px solid @lime_green;
-            -webkit-box-shadow: inset 4px 4px 20px 4px rgba(0,0,0,0.49) !important;
-            -o-box-shadow: inset 4px 4px 20px 4px rgba(0,0,0,0.49) !important;
-            -moz-box-shadow: inset 4px 4px 20px 4px rgba(0,0,0,0.49) !important;
-            box-shadow: inset 4px 4px 20px 4px rgba(0,0,0,0.49) !important;
-
-        }
+        width: calc(100vw / 4);
+        height: @nav_height;
     }
 }

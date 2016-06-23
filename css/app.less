@@ -26,7 +26,9 @@
 @red: #e60000;
 
 @standard_padding: 55px;
-
+@widget_height: 100px;
+@twitter_height: 250px;
+@nav_height: 50px;
 html {
     max-height: 720px;
 }
@@ -48,9 +50,23 @@ hr {
     padding-top: 0;
   }
 }
+
+#Main {
+    position: relative;
+    height: 100vh;
+    width:100vw;
+}
+[data-ui-view] {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    .overlay(@top: @nav_height, @bottom: @nav_height);
+}
+
 button {
     pointer-events: auto;
     cursor: pointer;
+    background: none;
+    outline: none;
     &.submit-button {
         width: 100%;
         min-height: 50px;
@@ -75,9 +91,32 @@ button {
         }
     }
 
-    background: none;
-    outline: none !important;
-  // &:hover, &:focus, &:active, &:hover, &:link, &:visited {  }
+    &.nav-button {
+        color: #fff;
+        border: none;
+        opacity: .7;
+        font-weight: 900;
+        background-image: -webkit-linear-gradient(bottom, #444, #222 23px);;
+        background-image: -o-linear-gradient(bottom, #444, #222 23px);;
+        background-image: -moz-linear-gradient(bottom, #444, #222 23px);;
+        background-image: gradient(bottom, #444, #222 23px);
+        white-space: nowrap;
+        &.active,
+        &:hover,
+        &:focus {
+            opacity: 1;
+        }
+        &.active {
+            background: @blue;
+            border-bottom: 1px solid @lime_green;
+            -webkit-box-shadow: inset 4px 4px 20px 4px rgba(0,0,0,0.49) !important;
+            -o-box-shadow: inset 4px 4px 20px 4px rgba(0,0,0,0.49) !important;
+            -moz-box-shadow: inset 4px 4px 20px 4px rgba(0,0,0,0.49) !important;
+            box-shadow: inset 4px 4px 20px 4px rgba(0,0,0,0.49) !important;
+
+        }
+
+    }
 }
 label,
 textarea,
@@ -109,18 +148,6 @@ canvas#grapher {
     width: 100%;
     z-index:-1;
     opacity:.35;
-}
-#Main {
-    position: relative;
-}
-[data-ui-view] {
-    height: 80vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    .overlay(@top: 70px, @bottom: 100px);
-    @media screen and (max-height: 720px) {
-        height: 60VH;
-    }
 }
 
 .transition(@prop: all, @time: .7s) {

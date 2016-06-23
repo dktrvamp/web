@@ -13,7 +13,8 @@
         <link href="bower_components/fontawesome/css/font-awesome.css" rel="stylesheet">
     </head>
     <body data-ng-app="Dktrvamp">
-        <div id="Main" data-ng-controller="MainCtrl" class="{{ context }}">
+        <div id="Main" data-ng-controller="MainCtrl"
+            data-ng-class="model.is_mobile ? 'mobile' : 'desktop'">
             <div data-nav-bar></div>
 
             <div data-ui-view class="fade-in fade-out {{context}}"></div>

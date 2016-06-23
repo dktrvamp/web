@@ -8,19 +8,17 @@ angular.module("Dktrvamp").directive("homeFooter", function(){
 	"use strict";
 
 	var linkFn = function(scope) {
-		scope.links = [
+		scope.items = [
 			{
-				"name" : "Engineering",
-				"to_state": "engineering",
-				"content" : "Years Experience, in finalizing tracks for a creat HIGH QUALITY sound."
+				"title" : "Engineering",
+				"to_state": "engineering"
 			},
 			{
-				"name" :"Contact",
-				"to_state": "contact",
-				"content" : "Years Experience, in experimental SOUND EFFECTS"
+				"title" :"Contact",
+				"to_state": "contact"
 			},
 			{
-				"name" : "Privacy Policy",
+				"title" : "Privacy Policy",
 				"to_state": "policy"
 			}
 		];

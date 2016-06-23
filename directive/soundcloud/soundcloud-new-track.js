@@ -14,6 +14,7 @@ angular.module("Dktrvamp").directive("soundcloudNewTrack", function() {
 
     return {
         // require: "ngModel", // Array = multiple requires, ? = optional, ^ = check parent elements
+        replace: true,
         restrict: "A", // E = Element, A = Attribute, C = Class, M = Comment
         templateUrl: "directive/soundcloud/soundcloud-new-track.html",
         link: function(){
