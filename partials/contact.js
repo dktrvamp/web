@@ -28,6 +28,11 @@ angular.module("Dktrvamp").controller("contactCtrl",["$scope", "$state", "$uibMo
 
             promise.then(function(){
                 $state.go("home");
+            }, function(){
+                $state.go("home");
+            })
+            .finally(function(){
+                $scope.model = {};
             });
 
         })
