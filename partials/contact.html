@@ -1,44 +1,49 @@
 <div id="Contact">
     <h1>Contact</h1>
 
-    <form method="post" name="form" data-ng-attr-action="model.url" class="form-group">
+    <form name="form" class="form-group" method="post" role="form"
+        data-ng-submit="form.$valid && onSubmitClicked()" novalidate>
         <h4>Send an Email!</h4>
         <div class="invalid-form-message" data-ng-if="form.$invalid && form.$dirty">
             Please enter the required fields!
         </div>
+        <!-- Name -->
         <label for="name">Name:
             <span ng-bind="name"></span>
         </label>
-        <input id="name" name="name" type="text"
+        <input id="name"
+            name="name" type="text"
             class="form-control"
             placeholder="Name"
             autofocus
-            data-ng-model="name" required>
-
+            data-ng-model="model.name" required>
+        <!-- Email -->
         <label for="email"
             data-ng-class="{
                 'invalid': email.$dirty  && email.$invalid
-            }">
-            Email address:
-            <span ng-bind="email"></span>
+            }"> Email address: <span ng-bind="email"></span>
         </label>
         <input id="email"
             type="email"
             name="email"
-            data-ng-model="email"
+            data-ng-model="model.email"
             placeholder="Email"
             class="form-control" required>
-
+        <!-- Message -->
         <label for="message">Message:</label>
-        <textarea id="message" class="form-control"
+        <textarea id="message"
             name="message"
-            data-ng-model="message" name="message"
+            class="form-control"
+            data-ng-model="model.message"
             placeholder="Please leave a comment!"
-            rows="5" cols="20" name="message" required></textarea>
+            rows="5" cols="20" required></textarea>
         <br>
-        <button type="submit" class="submit-button"
-            ng-disabled="form.$dirty && form.$invalid ||
-            (!email && !name && !message)">
+        <button type="submit"
+            value="submit"
+            name="submit"
+            class="submit-button"
+            data-ng-disabled="form.$dirty && form.$invalid ||
+            (!model.email && !model.name && !model.message)">
             Submit
         </button>
     </form>
