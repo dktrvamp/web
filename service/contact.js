@@ -6,12 +6,12 @@
  *
  *
  */
-angular.module("Dktrvamp").service("Contact", function($log, $http, $location) {
+angular.module("Dktrvamp").service("Contact", function($log, $http) {
     "use strict";
     return {
         sendEmail: function(data) {
             var promise = $http({
-                url: $location.host() + "/php/sendEmail.php",
+                url: "http://www.drvaudio.com/php/sendEmail.php",
                 method: "post",
                 data: data,
                 headers: { "Content-Type": "application/x-www-form-urlencoded" }
