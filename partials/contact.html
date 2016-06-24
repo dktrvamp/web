@@ -3,8 +3,13 @@
 
     <form name="form" class="form-group" method="post" role="form"
         data-ng-submit="form.$valid && onSubmitClicked()" novalidate>
+
         <h4>Send an Email!</h4>
-        <div class="invalid-form-message" data-ng-if="form.$invalid && form.$dirty">
+        <div class="invalid-form-message"
+            data-ng-if="model.is_error">
+            {{ model.error_message }}
+        </div>
+        <div class="invalid-form-message" data-ng-if="form.$invalid && form.$dirty && !model.is_error">
             Please enter the required fields!
         </div>
         <!-- Name -->
@@ -47,4 +52,5 @@
             Submit
         </button>
     </form>
+    <data-loading data-ng-if="model.is_loading"></data-loading>
 </div>

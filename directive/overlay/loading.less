@@ -1,0 +1,92 @@
+#ContainerOverlay {
+    height:100vh;
+    .overlay();
+    background-color: rgba(0,0,0, .7);
+
+    > .loading {
+        margin-top: 40vh;
+        width: 100vw;
+        height: 100vh;
+        background-color: @blue;
+        animation: fadeInOut 3s ease-in infinite;
+        -webkit-animation: fadeInOut 3s ease-in-out infinite;
+        -moz-animation: fadeInOut 3s ease-in-out infinite;
+        -o-animation: fadeInOut 3s ease-in-out infinite;
+        .sk-cube-grid {
+            width: 100px;
+            height: 100px;
+            margin: 100px auto;
+            > .sk-cube {
+                width: 33%;
+                height: 33%;
+                background-color: @lime_green;
+                float: left;
+                -webkit-animation: pulse 1.3s infinite ease-in-out;
+                -moz-animation: pulse 1.3s infinite ease-in-out;
+                -o-animation: pulse 1.3s infinite ease-in-out;
+                animation: pulse 1.3s infinite ease-in-out;
+            }
+            > .sk-cube5,  > .sk-cube9, > .sk-cube1 {
+                -webkit-animation-delay: 0.2s;
+                animation-delay: 0.2s;
+            }
+            > .sk-cube4, > .sk-cube8 {
+                -webkit-animation-delay: 0.1s;
+                animation-delay: 0.1s;
+            }
+            > .sk-cube2, > .sk-cube6 {
+                -webkit-animation-delay: 0.3s;
+                animation-delay: 0.3s;
+            }
+
+            > .sk-cube3 >.sk-cube7 {
+                -webkit-animation-delay: 0s;
+                animation-delay: 0s;
+            }
+        }
+
+
+
+            @-webkit-keyframes pulse {
+                0%, 70%, 100% {
+                    -webkit-transform: scale3D(1, 1, 1);
+                    -moz-transform: scale3D(1, 1, 1);
+                    -o-transform: scale3D(1, 1, 1);
+                    transform: scale3D(1, 1, 1);
+                }
+                35% {
+                    -webkit-transform: scale3D(0, 0, 1);
+                    -moz-transform: scale3D(0, 0, 1);
+                    -o-transform: scale3D(0, 0, 1);
+                    transform: scale3D(0, 0, 1);
+                }
+            }
+
+            @keyframes pulse {
+                0%, 70%, 100% {
+                    -webkit-transform: scale3D(1, 1, 1);
+                    -moz-transform: scale3D(1, 1, 1);
+                    -o-transform: scale3D(1, 1, 1);
+                    transform: scale3D(1, 1, 1);
+                }
+                35% {
+                    -webkit-transform: scale3D(0, 0, 1);
+                    -moz-transform: scale3D(0, 0, 1);
+                    -o-transform: scale3D(0, 0, 1);
+                    transform: scale3D(0, 0, 1);
+                }
+            }
+    }
+
+    @keyframes fadeInOut {
+        0% {
+            background-color: rgba(0,0,0,.1);
+        }
+        50% {
+            background-color: rgba(0,0,0,1);
+        }
+        100% {
+            background-color: rgba(0,0,0,.1);
+        }
+    }
+}
