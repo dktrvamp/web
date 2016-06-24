@@ -17,7 +17,8 @@
             data-ng-class="model.is_mobile ? 'mobile' : 'desktop'">
             <div data-nav-bar></div>
 
-            <div data-ui-view class="fade-in fade-out {{context}}"></div>
+            <data-loading data-ng-if="model.is_loading"></data-loading>
+            <div data-ui-view data-ng-if="!model.is_loading" class="fade-in fade-out {{context}}"></div>
             <!-- FOOTER -->
             <div data-home-footer></div>
         </div>

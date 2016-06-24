@@ -8,7 +8,7 @@
  *
  * Controller for the main element.
  */
-angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window", "hotkeys", function($scope, $state, $window, hotkeys) {
+angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window", "Utils", function($scope, $state, $window, Utils) {
     "use strict";
 
     //--------------------------------------------------------------------------
@@ -16,6 +16,7 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
     //--------------------------------------------------------------------------
     $scope.model = {};
     $scope.context = null;
+    $scope.model.is_loading = true;
     // $scope.enabled_nav = true;
 
     //--------------------------------------------------------------------------
@@ -31,12 +32,19 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
      *
      * Handles when a request to change the state has been made.
      */
-    function onStateChangeSuccess(event, new_state) {
+    function onStateChangeSuccess(event, new_state, new_params, old_state) {
         new_state = new_state || $state.current;
         var data = new_state.data || {};
 
         // Update the context (CSS class) for content styling.
         $scope.context = data.context || "";
+        if (new_state && !old_state) {
+            $scope.model.is_loading = true;
+            Utils.createTimer(1500).finally(function(){
+                $scope.model.is_loading = false;
+            });
+
+        }
     }
 
     /**
@@ -72,7 +80,6 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
             $scope.model.is_mobile = true;
         }
     })();
-    // addHotkeysForScope();
     onStateChangeSuccess(null, $state.current);
 
     $scope.$on("$stateChangeSuccess", onStateChangeSuccess);
