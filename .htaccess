@@ -1,5 +1,7 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
+    RewriteCond %{HTTP_HOST} !^www\.
+    RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
     # RewriteCond %{HTTP_HOST} ^drvaudio\.com$
     # RewriteRule ^(.*) http://www.drvaudio.com/$1 [R=301]
   	# If an existing asset or directory is requested go to it as it is
