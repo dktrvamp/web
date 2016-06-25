@@ -28,14 +28,40 @@ angular.module("Dktrvamp").directive("instagram", function($timeout, $http) {
 			//--------------------------------------------------------------------------
 		    // Private Functions
 		    //--------------------------------------------------------------------------
+// https://api.instagram.com/v1/users/self/media/liked?access_token=ACCESS-TOKEN
+
+// CLIENT INFO
+// CLIENT ID	956b500ec10745f395e4eddc267bf291
+// CLIENT SECRET	79d2d22e293a41218cf3274ce151bb6a
+// https://instagram.com/oauth/authorize/?client_id=956b500ec10745f395e4eddc267bf291&amp;redirect_uri=http://localhost&amp;response_type=token
+// https://instagram.com/oauth/authorize/?client_id=956b500ec10745f395e4eddc267bf291&amp;redirect_uri=http://localhost&amp;redirect_uri=www.drvaudio.com&amp;response_type=token
+// https://instagram.com/oauth/authorize/?client_id=956b500ec10745f395e4eddc267bf291&amp;redirect_uri=http://localhost&amp;redirect_uri=www.drvaudio.com&amp;response_type=token
+// https://instagram.com/oauth/authorize/?client_id=956b500ec10745f395e4eddc267bf291&amp;redirect_uri=HTTP://YOURREDIRECTURLHERE.COM&amp;response_type=token
+
+// http://localhost/#access_token=202159144.956b500.f1c1ca50f73d44aa8dc252406b8bb94e
+
+
+// https://api.instagram.com/v1/media/client_id=e745c44dec174f73ae0a7964001dacae/likes?access_token=202159144.956b500.f1c1ca50f73d44aa8dc252406b8bb94e
+// https://api.instagram.com/v1/media/search?lat=48.858844&lng=2.294351&access_token=202159144.956b500.f1c1ca50f73d44aa8dc252406b8bb94e
+
+
+// https://instagram.com/oauth/authorize/?client_id=956b500ec10745f395e4eddc267bf291&redirect_uri=http://www.drvaudio.com/#/home&response_type=token
+// https://www.instagram.com/oauth/authorize/?client_id=956b500ec10745f395e4eddc267bf291&redirect_uri=http://www.drvaudio.com/#/home&response_type=token
 
 			function instaArtist() {
-				var url = "https://api.instagram.com/v1/media/popular?client_id=e745c44dec174f73ae0a7964001dacae&callback=JSON_CALLBACK";
-				 $http.jsonp(url)
-					.success(function(response){
-		                console.log("instaArtist()", response.data);
-		                scope.artists = response.data;
-		            });
+				// var url = "";
+				//  // $http.get(url)
+				 $http({
+	                url: "https://api.instagram.com/v1/media/client_id=956b500ec10745f395e4eddc267bf291/likes?access_token=202159144.956b500.f1c1ca50f73d44aa8dc252406b8bb94e",
+	                method: "get"
+	            })
+				.then(function(response){
+	                console.log("instaArtist()", response , response && response.data);
+	                scope.artists = response.data;
+	            })
+				.catch(function(){
+					console.log("failed---",arguments);
+				});
             }
 
             //--------------------------------------------------------------------------
