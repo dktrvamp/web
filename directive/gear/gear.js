@@ -4,7 +4,7 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("gearSlide", function($http, $interval, Utils){
+angular.module("Dktrvamp").directive("gearSlide", function($http, $interval, hotkeys, Utils){
     var linkFn = function(scope, element) {
         var _model = {
             should_display: false,
@@ -29,9 +29,7 @@ angular.module("Dktrvamp").directive("gearSlide", function($http, $interval, Uti
          * Handles when item changes
          */
         function update() {
-            console.log(arguments);
-            var promise = $http.get("locale/studio-gear.json"),
-                items;
+            var promise = $http.get("locale/studio-gear.json");
             promise
                 .then(function(response){
                     _items = response.data;
@@ -71,6 +69,52 @@ angular.module("Dktrvamp").directive("gearSlide", function($http, $interval, Uti
                 });
         }
 
+        /**
+         * @doc method
+         * @name addHotkeysForScope
+         * @description
+         *
+         * Adds handlers for various key events that apply to this scope (and deleted when it is destroyed).
+         */
+        function addHotkeysForScope() {
+
+            var createCallback = function(direction) {
+                return function(event) {
+                    event.preventDefault();
+                    getItemAtIndex(direction);
+                    reset();
+                };
+            };
+
+            hotkeys.bindTo(scope)
+                .add({
+                    // Go to the (full) Guide section
+                    combo: "left",
+                    allowIn: ["INPUT"], // i.e. search input
+                    callback: createCallback("left")
+                })
+                .add({
+                    // Go to the (full) Guide section
+                    combo: "right",
+                    allowIn: ["INPUT"], // i.e. search input
+                    callback: createCallback("right")
+                });
+        }
+
+        /**
+         * @doc method
+         * @name reset
+         * @description
+         *
+         *
+         */
+        function reset() {
+            if (_slide_interval_promise) {
+                $interval.cancel(_slide_interval_promise);
+                _slide_interval_promise = null;
+            }
+        }
+
         //----------------------------------------------------------------------
         // METHODS (PRIVILEGED)
         //----------------------------------------------------------------------
@@ -83,14 +127,12 @@ angular.module("Dktrvamp").directive("gearSlide", function($http, $interval, Uti
          * Left Right Item.
          */
         scope.onButtonClicked = function(direction) {
-            if (_slide_interval_promise) {
-                $interval.cancel(_slide_interval_promise);
-                _slide_interval_promise = null;
-            }
+            reset();
 
             getItemAtIndex(direction);
 
         };
+
 
 
         //----------------------------------------------------------------------
@@ -98,6 +140,7 @@ angular.module("Dktrvamp").directive("gearSlide", function($http, $interval, Uti
         //----------------------------------------------------------------------
 
         update();
+        addHotkeysForScope();
     };
     return {
         replace: true,
