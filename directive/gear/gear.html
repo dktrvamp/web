@@ -1,0 +1,20 @@
+<div id="Slide">
+    <div class="studio-gear fade-in fade-out" data-ng-show="model.should_display"
+        data-ng-swipe-left="onButtonClicked('left')"
+        data-ng-swipe-right="onButtonClicked('right')">
+        <button data-ng-click="onButtonClicked('left')"
+            class="direction fa fa-arrow-left">
+        </button>
+        <div class="content">
+            <img data-ng-src="{{model.item.image}}" class="gear-image">
+            <div class="text">
+                <h5 class="item-title" data-ng-bind-html="model.item.title"></h5>
+                <span class="description" data-ng-bind-html="model.item.description.join('')"></span>
+            </div>
+        </div>
+        <button data-ng-click="onButtonClicked('right')"
+            class="direction fa fa-arrow-right">
+        </button>
+    </div>
+
+</div>

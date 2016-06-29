@@ -26,6 +26,7 @@
     "font-awesome": "~4.4",
     "js-signals": "~1.0",
     "hashmap": "~2.0",
-    "angular-hotkeys": "chieffancypants/angular-hotkeys#^1.7.0"
+    "angular-hotkeys": "chieffancypants/angular-hotkeys#^1.7.0",
+    "angular-swipe": "~0.1.0"
   }
 }

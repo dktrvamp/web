@@ -16,6 +16,7 @@
         <div id="Main" data-ng-controller="MainCtrl"
             data-ng-class="model.is_mobile ? 'mobile' : 'desktop'">
             <div data-nav-bar></div>
+            <div style="z-index:1;" data-ng-click="onFacebookClicked()" class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
 
             <data-loading data-ng-if="model.is_loading"></data-loading>
             <div data-ui-view data-ng-if="!model.is_loading" class="fade-in fade-out {{context}}"></div>
@@ -24,7 +25,7 @@
         </div>
 
         <!-- <div data-visual></div> -->
-          <!-- <script src="http://localhost:35729/livereload.js" data-build="exclude"></script> -->
+          <script src="http://localhost:35729/livereload.js" data-build="exclude"></script>
     	<!-- 3rd Party Libs -->
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/less/dist/less.js" data-build="exclude"></script>
@@ -37,6 +38,7 @@
         <script src="bower_components/ngtweet/dist/ngtweet.min.js"></script>
         <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="bower_components/angular-hotkeys/build/hotkeys.js"></script>
+        <script src="bower_components/angular-swipe/dist/angular-swipe.js"></script>
 
 
         <!-- Setup -->
@@ -55,6 +57,7 @@
         <script src="directive/artist-lookup/artist-lookup.js"></script>
         <script src="directive/artist-content/artist-content.js"></script>
         <script src="directive/footer/home-footer.js"></script>
+        <script src="directive/gear/gear.js"></script>
         <script src="directive/instagram.js"></script>
         <script src="directive/nav-bar/nav-bar.js"></script>
         <script src="directive/overlay/loading.js"></script>
@@ -86,5 +89,6 @@
         <!-- Analytics -->
         <script src="libs/desktop-view-switch.js"></script>
         <script src="libs/analytics.js"></script>
+        <script src="libs/facebook.js"></script>
     </body>
 </html>

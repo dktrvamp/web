@@ -12,6 +12,7 @@
 @import "../directive/artist-lookup/artist-lookup.less";
 @import "../directive/artist-content/artist-content.less";
 @import "../directive/footer/home-footer.less";
+@import "../directive/gear/gear.less";
 @import "../directive/instagram.less";
 @import "../directive/nav-bar/nav-bar.less";
 @import "../directive/overlay/loading.less";
@@ -36,6 +37,11 @@ html {
 
 body {
     background-color: #000!important;
+}
+body, html {
+    width:100vw;
+    height:100vh;
+    overflow: hidden;
 }
 ul {
     list-style: none;
@@ -184,14 +190,17 @@ canvas#grapher {
     box-pack: @pack;
     -webkit-box-pack: @pack;
     -moz-box-pack: @pack;
+    -moz-o-pack: @pack;
 
     box-align: @align;
     -webkit-box-align: @align;
     -moz-box-align: @align;
+    -moz-boolign: @align;
 
     box-orient: @orient;
     -webkit-box-orient: @orient;
     -moz-box-orient: @orient;
+    -moz-box-oent: @orient;
 
 }
 .pattern(){
@@ -309,6 +318,35 @@ canvas#grapher {
     box-shadow:         inset 1px 1px 15px @lime_green;
     border-color: @lime_green;
 }
+.opacityTransition(@time: 500ms) {
+    -webkit-transition: opacity @time ease-in-out;
+    -o-transition: opacity @time ease-in-out;
+    -moz-transition: opacity @time ease-in-out;
+    transition: opacity @time ease-in-out;
+}
+
+.truncate() {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// Truncate lines of text as opposed to a singe line of text.
+.truncate(@lines) {
+    .truncate();
+    display: -webkit-box;
+    display: box;
+    -webkit-line-clamp: @lines;
+    line-clamp: @lines;
+    -moz-line-clamp: @lines;
+    -o-line-clamp: @lines;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+}
+
+
 
 .modal-confirmation {
     padding: @standard_padding;
