@@ -54,7 +54,7 @@
         "description" : [
             "ROLAND SYSTEM-1 PLUG-OUT SYNTHESIZER TECHNICAL SPECIFICATIONS: Three modes: Mono, Unison, Poly Legato / Portamento Two modes: system-1 and plug-out Scatter / Arpeggio - Oscillators section (TWO) OSC 1 transpose 6 waveforms color mod cross mod OSC 2 transpose 6 waveforms color mod ring sync - Mixer section OSC 1, OSC 2, SUB OSC (-10 oct/-20 oct), NOISE (white/pink) - Pitch section key tracking AD enveloppe for pitch - Filter section LPF cutoff (12dB/24dB) HPF cutoff resonance ADSR enveloppe - LFO section Keytrig 6 waveforms LFO can affect four paramters simultaneously: pitch (-/+) filter (-/+) rate (-/+) amp (-/+) - Amp / VCA section tone crusher ADSR enveloppe - Effects section reverb delay."
         ]
-    },
+    }
 
 ]
 
