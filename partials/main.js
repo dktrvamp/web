@@ -8,9 +8,11 @@
  *
  * Controller for the main element.
  */
-angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window", "Utils", function($scope, $state, $window, Utils) {
+angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window", "Analytics", "Utils", function($scope, $state, $window, Analytics, Utils) {
     "use strict";
 
+
+    var _google_analytics = $window.ga;
     //--------------------------------------------------------------------------
     // PROPERTIES (PRIVILEGED)
     //--------------------------------------------------------------------------
@@ -45,7 +47,8 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
             });
 
         }
-        if ($window.ga) {
+
+        if (_google_analytics) {
             $window.ga("send", "pageview", $state.current.name);
         }
     }
@@ -81,6 +84,9 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
     (function() {
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
             $scope.model.is_mobile = true;
+        }
+        if (Analytics.initialized === false) {
+            Analytics.init();
         }
     })();
     onStateChangeSuccess(null, $state.current);

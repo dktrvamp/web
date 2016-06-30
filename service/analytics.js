@@ -27,12 +27,12 @@ angular.module("Dktrvamp").service("Analytics", function($log, $state, $window) 
 
     /**
      * @doc method
-     * @name TRACKING_TAGS
+     * @name initialized
      * @description
      *
-     * Expose _TRACKING_TAGS publicly.
+     *
      */
-    // this.TRACKING_TAGS = _TRACKING_TAGS;
+    this.initialized = false;
 
     //--------------------------------------------------------------------------
     // METHODS (PUBLIC)
