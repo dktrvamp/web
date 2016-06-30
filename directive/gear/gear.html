@@ -6,8 +6,9 @@
             class="direction fa fa-arrow-left">
         </button>
         <div class="content"  data-ng-if="model.should_display">
-            <img data-ng-src="{{model.item.image}}" class="gear-image">
-            <div class="text">
+            <img data-ng-src="{{model.item.image}}" class="gear-image"
+                data-ng-class="{'no-text': !model.item.title}">
+            <div class="text" data-ng-if="model.item.title || model.item.description">
                 <h5 class="item-title" data-ng-bind-html="model.item.title"></h5>
                 <span class="description" data-ng-bind-html="model.item.description.join('')"></span>
             </div>

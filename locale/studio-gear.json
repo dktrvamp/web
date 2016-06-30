@@ -1,5 +1,8 @@
 [
     {
+        "image" : "http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467254977/controllers-place-holder_asupwx.png"
+    },
+    {
         "image" : "http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467167102/ableton-push_vpqwtp.png",
         "title" : "Ableton Live: <b>Push 2</b>",
         "description" : [
@@ -22,12 +25,14 @@
         "description" : [
             "Akai Professional's MPC Renaissance fuses the legendary MPC's layout and workflow with the power of your computer to create an unrivaled instrument for music production. ",
             "This new flagship MPC is a fully integrated hardware/software system.  MPC Renaissance features 16 backlit genuine MPC pads, 16 Q-link controls, an adjustable, backlit LCD-screen, and a full array of inputs and outputs for easy connection in any studio. ",
-            "We collaborated with producers and artists from around the world during our design process, so the MPC Renaissance maintains the beloved workflow and layout of classic MPCs: Note Repeat, Swing, transport controls and other traditional MPC functions.  ",
             "For the especially nostalgic, the exclusive Vintage Mode and built-in audio interface give you instant access to MPCs of the past. ",
             "Choose from MPC3000, MPC60, SP1200 Ring, and more. ",
             "The included MPC software explodes with all the essential sounds of modern production, and you have the ability to expand at will because the MPC Renaissance utilizes the RAM and hard drive space of your computer. ",
             "Thanks to its tight integration with MPC Software, you can use MPC Renaissance for the high-end features of computer DAWs and plugins. "
         ]
+    },
+    {
+        "image" : "http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467254977/affordable-analog-polysynth_i8e90p.png"
     },
     {
         "image" : "http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467179494/novation-bass-station-2_emrrzd.png",

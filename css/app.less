@@ -187,6 +187,9 @@ canvas#grapher {
 .box(@pack: start, @align: center, @orient: horizontal) {
     // Default: left justified, vertically centered, horizontal oriented.
     display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: box;
     box-pack: @pack;
     -webkit-box-pack: @pack;
     -moz-box-pack: @pack;

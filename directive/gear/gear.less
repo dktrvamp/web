@@ -9,11 +9,15 @@
     > .studio-gear {
         height: 100%;
         overflow: hidden;
-        .box(center);
         > .content {
-            display: inline;
+            .box(center);
+            text-align: center;
             .mobile & { display: block; }
             > .gear-image {
+                &.no-text {
+                    position: initial;
+                }
+                .overlay(@top: 30px);
                 .mobile & {
                     width: 175px;
                     height: 115px;
