@@ -45,6 +45,9 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
             });
 
         }
+        if ($window.ga) {
+            $window.ga("send", "pageview", $state.current.name);
+        }
     }
 
     /**
