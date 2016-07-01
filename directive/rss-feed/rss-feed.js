@@ -34,8 +34,8 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
                 _model.should_display = true;
             })
             .then(scrapeDomainData)
-            .catch(function(){
-                _model.should_display = false;
+            .catch(function(error){
+                console.log(error);
             });
 
             _slide_interval_promise = $interval(getItemAtIndex,30000);
