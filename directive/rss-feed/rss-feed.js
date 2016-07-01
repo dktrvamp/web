@@ -1,15 +1,18 @@
+
 /**
 *  Module
 *
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("gearSlide", function($http, $interval, hotkeys, Utils){
-    var linkFn = function(scope, element) {
+angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedService, hotkeys, Utils) {
+    "use strict";
+
+    var linkFn = function(scope, element){
         var _model = {
-            should_display: false,
-            item: {},
-            image: ""
+            feed: {},
+            image_thumbnail: null,
+            should_display: false
         },
         _items = [],
         _index = 0,
@@ -21,26 +24,35 @@ angular.module("Dktrvamp").directive("gearSlide", function($http, $interval, hot
         // METHODS (PRIVATE)
         //----------------------------------------------------------------------
 
-        /**
-         * @doc method
-         * @name update
-         * @description
-         *
-         * Handles when item changes
-         */
-        function update() {
-            var promise = $http.get("locale/studio-gear.json");
-            promise
-                .then(function(response){
-                    _items = response.data;
-                    _model.item = _items[_index];
-                })
-                .then(getItemAtIndex)
-                .catch(function(){
-                    element.remove();
-                });
+        function getRssFeed() {
+            //http://feeds.feedburner.com/TechCrunch
+            FeedService.parseFeed("http://www.youredm.com/feed/")
+            .then(function(response) {
+                _items = response && response.data.responseData.feed.entries;
 
-            _slide_interval_promise = $interval(getItemAtIndex,7000);
+                _model.feed = _items[_index];
+                _model.should_display = true;
+            })
+            .then(scrapeDomainData)
+            .catch(function(){
+                _model.should_display = false;
+            });
+
+            _slide_interval_promise = $interval(getItemAtIndex,30000);
+        }
+        function scrapeDomainData() {
+            return $http.get(_model.feed.link).then(parseResponse);
+        }
+        function parseResponse(response) {
+            // console.log(response);
+            var tmp = document.implementation.createHTMLDocument();
+            tmp.body.innerHTML = response.data;
+
+            var images = $(tmp.body.children).find("img.attachment-cb-full-full.size-cb-full-full.wp-post-image"),
+                image = _.first(images);
+            // console.log(image);
+            _model.image_thumbnail = $(image).attr("src");
+            // console.log(_model.image_thumbnail);
         }
 
         /**
@@ -58,7 +70,7 @@ angular.module("Dktrvamp").directive("gearSlide", function($http, $interval, hot
             } else {
                 _index = _index >= items_length ? 0 : _index +1;
             }
-            _model.item = _items[_index];
+            _model.feed = _items[_index];
 
             _model.should_display = false;
 
@@ -67,7 +79,9 @@ angular.module("Dktrvamp").directive("gearSlide", function($http, $interval, hot
                     _model.should_display = true;
 
                 });
+            scrapeDomainData();
         }
+
 
         /**
          * @doc method
@@ -133,21 +147,21 @@ angular.module("Dktrvamp").directive("gearSlide", function($http, $interval, hot
 
         };
 
-
-
         //----------------------------------------------------------------------
         // INITIALIZATION
         //----------------------------------------------------------------------
 
-        update();
+        getRssFeed();
         addHotkeysForScope();
+
+
     };
+
     return {
+        // require: "ngModel", // Array = multiple requires, ? = optional, ^ = check parent elements
         replace: true,
         restrict: "A", // E = Element, A = Attribute, C = Class, M = Comment
-        scope: {},
-        // template: "",
-        templateUrl: "directive/gear/gear.html",
+        templateUrl: "directive/rss-feed/rss-feed.html",
         link: linkFn
     };
 });

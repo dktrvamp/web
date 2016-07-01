@@ -17,9 +17,7 @@ angular.module("Dktrvamp").directive("soundcloudNewTrack", function() {
         replace: true,
         restrict: "A", // E = Element, A = Attribute, C = Class, M = Comment
         templateUrl: "directive/soundcloud/soundcloud-new-track.html",
-        link: function(){
-            console.log("-------");
-        }
+        link: function(){}
 
     };
 });

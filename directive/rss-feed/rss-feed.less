@@ -1,0 +1,35 @@
+#RssFeed {
+    padding: 15px;
+    position: relative;
+    > .content {
+        color: white;
+        font-size: 18px;
+        > .date { color: #ccc; }
+        > .title {
+            margin-left: 10px;
+
+        }
+        > .image-thumbnail {
+
+        }
+        > .contentSnippet {
+            padding: 15px;
+            max-width: 100vw;
+
+        }
+    }
+    > button.direction {
+        .mobile & { display: none; }
+        border: none;
+        font-size: 24px;
+        opacity: 0;
+        margin: 10px 0;
+        .overlay();
+        .opacityTransition(@time: 1s);
+        &:hover { color: #fff; }
+    }
+    &:hover { > button.direction { opacity: 1; color: #ccc; } }
+
+    > button.fa-arrow-right { left: auto; }
+    > button.fa-arrow-left { right: auto; }
+}

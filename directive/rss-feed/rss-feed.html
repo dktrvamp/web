@@ -1,0 +1,18 @@
+<div id="RssFeed" data-ng-if="model.feed">
+    <h1 data-ng-if="model.should_display">Articles</h1>
+    <button data-ng-click="onButtonClicked('left')"
+        class="direction fa fa-arrow-left">
+    </button>
+    <div class="content fade-in fade-out" data-ng-if="model.should_display"
+        data-ng-swipe-left="onButtonClicked('left')"
+        data-ng-swipe-right="onButtonClicked('right')">
+        <div class="date" data-ng-bind="model.feed.publishedDate"></div><br>
+
+        <img data-ng-if="model.image_thumbnail" class="image-thumbnail" width="360" height="240" data-ng-src="{{model.image_thumbnail}}"/><br>
+        <a data-ng-click="" class="title" data-ng-href="{{model.feed.link}}" target="_blank">{{model.feed.title}}</a><br>
+        <p class="contentSnippet" data-ng-bind-html="model.feed.content"></p><br>
+    </div>
+    <button data-ng-click="onButtonClicked('right')"
+        class="direction fa fa-arrow-right">
+    </button>
+</div>
