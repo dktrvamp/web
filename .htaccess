@@ -1,9 +1,9 @@
 <IfModule mod_rewrite.c>
-    Header set Access-Control-Allow-Origin: *
+    # Header set Access-Control-Allow-Origin: *
 
-    Header set Access-Control-Allow-Headers: content-type
+    # Header set Access-Control-Allow-Headers: content-type
 
-    Header set Access-Control-Allow-Methods: *
+    # Header set Access-Control-Allow-Methods: *
 	  RewriteEngine On
     RewriteCond %{HTTP_HOST} !^www\.
     RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
