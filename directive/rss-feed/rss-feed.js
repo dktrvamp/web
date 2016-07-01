@@ -8,7 +8,7 @@
 angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedService, hotkeys, Utils) {
     "use strict";
 
-    var linkFn = function(scope, element){
+    var linkFn = function(scope){
         var _model = {
             feed: {},
             image_thumbnail: null,
