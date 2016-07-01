@@ -1,9 +1,5 @@
 <IfModule mod_rewrite.c>
-    # Header set Access-Control-Allow-Origin: *
 
-    # Header set Access-Control-Allow-Headers: content-type
-
-    # Header set Access-Control-Allow-Methods: *
 	  RewriteEngine On
     RewriteCond %{HTTP_HOST} !^www\.
     RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
@@ -18,4 +14,14 @@
 
   	# If the requested resource doesn't exist, use index.html
   	RewriteRule ^ /index.html
+    # Header set Access-Control-Allow-Origin: *
+
+    # Header set Access-Control-Allow-Headers: content-type
+
+    # Header set Access-Control-Allow-Methods: *
+    RewriteRule ^/api(.*)\.json$ /api$1.json [CORS=True]
+    Header set Access-Control-Allow-Origin "*" env=CORS
+    Header set Access-Control-Allow-Methods "GET" env=CORS
+    Header set Access-Control-Allow-Credentials "false" env=CORS
+
 </IfModule>
