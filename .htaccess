@@ -10,6 +10,7 @@
   	RewriteRule ^ - [L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
+    Header set Access-Control-Allow-Origin: *
   	# If the requested resource doesn't exist, use index.html
   	RewriteRule ^ /index.html
 </IfModule>
