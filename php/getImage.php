@@ -13,17 +13,7 @@ $images = $dom->getElementsByTagName('img');
 
 foreach ($images as $image) {
 $image_class = $image->getAttribute('class');
-if (strpos($image_class, 'attachment-cb-full-full') !== false) {
-    echo  $image->getAttribute('src');
+echo "class=" .$image_class. "," ."image_src=" .$image->getAttribute('src');
 }
-elseif (strpos($image_class, 'size-cb-full-full') !== false) {
-    echo  $image->getAttribute('src');
-}
-elseif (strpos($image_class, 'wp-post-image') !== false) {
-    echo  $image->getAttribute('src');
-} else {
-    echo '';
-}
-}
-echo $images;
+// echo $images;
 ?>
