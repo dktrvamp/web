@@ -15,8 +15,6 @@ function cors() {
     header("Access-Control-Allow-Origin: http://drvaudio.com");
     header("Access-Control-Allow-Origin: https://www.drvaudio.com");
     header("Access-Control-Allow-Origin: http://www.drvaudio.com/#/home");
-    print "index.html php cors";
-    echo "index.html php cors";
 
     // Allow from any origin
     if (isset($_SERVER['HTTP_ORIGIN'])) {
@@ -25,11 +23,12 @@ function cors() {
         header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
         header('Access-Control-Allow-Credentials: true');
         header('Access-Control-Max-Age: 86400');    // cache for 1 day
+        echo: "We have HTTP_ORIGIN";
     }
 
     // Access-Control headers are received during OPTIONS requests
     if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-
+        echo: "We have OPTIONS";
         if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
             header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 
@@ -38,8 +37,6 @@ function cors() {
 
         exit(0);
     }
-
-    echo "You have CORS!";
 
 }
 cors();
