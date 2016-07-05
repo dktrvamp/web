@@ -13,9 +13,8 @@ $images = $dom->getElementsByTagName('img');
 
 foreach ($images as $image) {
 $image_class = $image->getAttribute('class');
-    if (strpos($image_class, "attachment-cb-full-full") !== false) {
-        echo '{' .'class:' .$image->getAttribute('class') ', src:' .$image->getAttribute('src') .'}';
-    }
+echo '{' .'class:' .$image->getAttribute('class') .', src:' .$image->getAttribute('src') .'}';
+
 }
 echo $images;
 ?>
