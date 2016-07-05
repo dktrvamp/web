@@ -16,15 +16,15 @@ foreach ($images as $image) {
 
     if (strpos($image_class, 'attachment-cb-full-full') !== false) {
         $image_src = $image->getAttribute('src');
-        return;
+
     }
-    if (strpos($image_class, 'size-cb-full-full') !== false) {
+    elseif (strpos($image_class, 'size-cb-full-full') !== false) {
         $image_src = $image->getAttribute('src');
-        return;
+
     }
-    if (strpos($image_class, 'wp-post-image') !== false) {
+    elseif (strpos($image_class, 'wp-post-image') !== false) {
         $image_src = $image->getAttribute('src');
-        return;
+
     }
 }
 echo $image_src;
