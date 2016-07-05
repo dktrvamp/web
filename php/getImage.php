@@ -16,6 +16,12 @@ $image_class = $image->getAttribute('class');
 if (strpos($image_class, "attachment-cb-full-full") !== false) {
     echo  $image->getAttribute('src');
 }
+elseif (strpos($image_class, "size-cb-full-full") !== false) {
+    echo  $image->getAttribute('src');
+}
+elseif (strpos($image_class, "wp-post-image") !== false) {
+    echo  $image->getAttribute('src');
+}
 }
 echo $images;
 ?>
