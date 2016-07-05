@@ -30,10 +30,24 @@ angular.module("Dktrvamp").service("FeedService", function($http, $q){
     this.get = function(url) {
         var dfd = $q.defer();
 
-        $http.get(url)
+        $http({
+            url: "http://www.drvaudio.com/php/getImage.php",
+            method: "post",
+            data: {url: url}
+        })
+        .then(function(){
+            console.log(arguments);
+        })
         .then(dfd.resolve)
         .catch(function(er) {
-            dfd.reject(er);
+            console.log(url, er);
+            if (_.isString(er.data)) {
+                dfd.resolve(er.data);
+            } else {
+                console.log(er);
+                dfd.reject(er);
+            }
+
         });
 
         return dfd.promise;
