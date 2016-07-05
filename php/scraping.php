@@ -4,9 +4,12 @@ $dom = new domDocument;
 $dom->loadHTML($html);
 $dom->preserveWhiteSpace = false;
 $images = $dom->getElementsByTagName('img');
+
 foreach ($images as $image) {
-  echo $image->getAttribute('src');
+$image_class = $image->getAttribute('class');
+if (strpos($image_class, "attachment-cb-full-full") !== false) {
+	echo  $image->getAttribute('src');
+}
 }
 echo $images;
-print "Get Any?";
 ?>
