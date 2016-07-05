@@ -13,8 +13,8 @@ $images = $dom->getElementsByTagName('img');
 
 foreach ($images as $image) {
 $image_class = $image->getAttribute('class');
-echo '{' .'class:' .$image->getAttribute('class') .', src:' .$image->getAttribute('src') .'}';
-
+    echo $image->getAttribute('src');
+    echo $image_class;
 }
 echo $images;
 ?>
