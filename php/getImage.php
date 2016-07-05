@@ -1,5 +1,5 @@
 <?php
-$postdata = file_get_contents('php://input');
+$postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
 $url = $request->url;
 $url = is_string($url) ? $url : '';
@@ -13,7 +13,9 @@ $images = $dom->getElementsByTagName('img');
 
 foreach ($images as $image) {
 $image_class = $image->getAttribute('class');
-echo "class=" .$image_class. "," ."image_src=" .$image->getAttribute('src');
+    if (strpos($image_class, "attachment-cb-full-full") !== false) {
+        echo '{' .'class:' .$image->getAttribute('class') ', src:' .$image->getAttribute('src') .'}';
+    }
 }
-// echo $images;
+echo $images;
 ?>
