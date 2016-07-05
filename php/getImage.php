@@ -10,20 +10,22 @@ $dom = new domDocument;
 $dom->loadHTML($html);
 $dom->preserveWhiteSpace = false;
 $images = $dom->getElementsByTagName('img');
+$image_src;
 foreach ($images as $image) {
     $image_class = $image->getAttribute('class');
 
     if (strpos($image_class, 'attachment-cb-full-full') !== false) {
-        echo $image->getAttribute('src');
+        $image_src = $image->getAttribute('src');
         return;
     }
     if (strpos($image_class, 'size-cb-full-full') !== false) {
-        echo $image->getAttribute('src');
+        $image_src = $image->getAttribute('src');
         return;
     }
     if (strpos($image_class, 'wp-post-image') !== false) {
-        echo $image->getAttribute('src');
+        $image_src = $image->getAttribute('src');
         return;
     }
 }
+echo $image_src;
 ?>
