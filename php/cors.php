@@ -11,6 +11,12 @@
  *
  */
 function cors() {
+    header("Access-Control-Allow-Origin: http://localhost:9002");
+    header("Access-Control-Allow-Origin: http://drvaudio.com");
+    header("Access-Control-Allow-Origin: https://www.drvaudio.com");
+    header("Access-Control-Allow-Origin: http://www.drvaudio.com/#/home");
+    print "index.html php cors";
+    echo "index.html php cors";
 
     // Allow from any origin
     if (isset($_SERVER['HTTP_ORIGIN'])) {
@@ -25,7 +31,7 @@ function cors() {
     if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
         if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
-            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");         
+            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 
         if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
             header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
