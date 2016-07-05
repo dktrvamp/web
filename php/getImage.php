@@ -1,5 +1,5 @@
 <?php
-$postdata = file_get_contents("php://input");
+$postdata = file_get_contents('php://input');
 $request = json_decode($postdata);
 $url = $request->url;
 $url = is_string($url) ? $url : '';
@@ -13,13 +13,13 @@ $images = $dom->getElementsByTagName('img');
 
 foreach ($images as $image) {
 $image_class = $image->getAttribute('class');
-if (strpos($image_class, "attachment-cb-full-full") !== false) {
+if (strpos($image_class, 'attachment-cb-full-full') !== false) {
     echo  $image->getAttribute('src');
 }
-elseif (strpos($image_class, "size-cb-full-full") !== false) {
+elseif (strpos($image_class, 'size-cb-full-full') !== false) {
     echo  $image->getAttribute('src');
 }
-elseif (strpos($image_class, "wp-post-image") !== false) {
+elseif (strpos($image_class, 'wp-post-image') !== false) {
     echo  $image->getAttribute('src');
 }
 }
