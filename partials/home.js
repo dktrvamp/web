@@ -9,7 +9,9 @@ angular.module("Dktrvamp").controller("homeCtrl",["$scope", "$uibModal", "hotkey
 
     // console.log(navigator.appName, window);
 
-    $scope.model = {};
+    $scope.model = {
+        should_show: false
+    };
 
 
 

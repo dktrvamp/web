@@ -16,7 +16,13 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
         },
         _items = [],
         _index = 0,
-        _slide_interval_promise = null;
+        _slide_interval_promise = null,
+        _NEWS = {
+            "edm" : "http://www.youredm.com/feed/",
+            "hiphop": "http://hiphopwired.com/feed/",
+            "other" : "http://www.rollingstone.com/music.rss",
+            "gear" : "http://feeds.webservice.techradar.com/us/rss/news/audio"
+        };
 
         scope.model = _model;
 
@@ -25,8 +31,8 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
         //----------------------------------------------------------------------
 
         function getRssFeed() {
-            //http://feeds.feedburner.com/TechCrunch
-            FeedService.parseFeed("http://www.youredm.com/feed/")
+
+            FeedService.parseFeed(_NEWS[scope.news])
             .then(function(response) {
                 _items = response && response.data.responseData.feed.entries;
 
@@ -35,7 +41,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
             })
             .then(scrapeDomainData);
 
-            _slide_interval_promise = $interval(getItemAtIndex,30000);
+            _slide_interval_promise = $interval(getItemAtIndex,60000);
         }
         function scrapeDomainData() {
             FeedService.get(_model.feed.link)
@@ -43,11 +49,14 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
         }
         function parseResponse(response) {
             var tmp = document.implementation.createHTMLDocument();
+
             tmp.body.innerHTML = response;
 
+            // var images = $(tmp.body.children).find("img"),
             var images = $(tmp.body.children).find("img.attachment-cb-full-full.size-cb-full-full.wp-post-image"),
                 image = _.first(images);
-
+            console.log(images);
+            console.log(_.find(images, function(img) { return img.width > 110; }));
             _model.image_thumbnail = $(image).attr("src");
 
         }
@@ -67,6 +76,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
             } else {
                 _index = _index >= items_length ? 0 : _index +1;
             }
+            removeDouplicateImages();
             _model.feed = _items[_index];
 
             _model.should_display = false;
@@ -79,7 +89,34 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
             scrapeDomainData();
         }
 
+        function removeDouplicateImages() {
+            // TODO FIX THIS
+            // var tmp = document.implementation.createHTMLDocument(),
+            //     seen = {},
+            //     images;
 
+            // tmp.body.innerHTML =  _items[_index].content;
+
+
+            // images = $(tmp.body).find("img");
+
+            // // console.log(images);
+
+            // _.each(images, function(img) {
+            //     var src = $(img).attr("src");
+
+            //     if (seen[src]) {
+            //         var element = angular.element($(img))[0];
+            //         element[0].remove();
+            //         element.addClass(".is-dup");
+            //         console.log("----- should remove", img, angular.element($(img)));
+            //     }
+            //     else{
+            //         seen[src] = true;
+            //     }
+            // });
+
+        }
         /**
          * @doc method
          * @name addHotkeysForScope
@@ -156,7 +193,10 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
 
     return {
         // require: "ngModel", // Array = multiple requires, ? = optional, ^ = check parent elements
-        replace: true,
+        // replace: true,
+        scope: {
+            news: "=?"
+        },
         restrict: "A", // E = Element, A = Attribute, C = Class, M = Comment
         templateUrl: "directive/rss-feed/rss-feed.html",
         link: linkFn
