@@ -42,17 +42,14 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
             .then(parseResponse);
         }
         function parseResponse(response) {
-
-            // _model.image_thumbnail = _.isString(response) && response || "";
-
             var tmp = document.implementation.createHTMLDocument();
             tmp.body.innerHTML = response;
 
             var images = $(tmp.body.children).find("img.attachment-cb-full-full.size-cb-full-full.wp-post-image"),
                 image = _.first(images);
-            console.log(image);
+
             _model.image_thumbnail = $(image).attr("src");
-            console.log(_model.image_thumbnail);
+
         }
 
         /**

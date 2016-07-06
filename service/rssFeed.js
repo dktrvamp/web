@@ -36,17 +36,14 @@ angular.module("Dktrvamp").service("FeedService", function($http, $q){
             data: {url: url}
         })
         .then(function(res){
-            console.log(res);
             if (_.isString(res.data)) {
                 dfd.resolve(res.data);
             }
         })
         .catch(function(er) {
-            console.log(url, er);
             if (_.isString(er.data)) {
                 dfd.resolve(er.data);
             } else {
-                console.log(er);
                 dfd.reject(er);
             }
 
