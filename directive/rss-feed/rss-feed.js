@@ -39,23 +39,20 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
         }
         function scrapeDomainData() {
             FeedService.get(_model.feed.link)
-            .then(parseResponse)
-            .catch(function(er) {
-
-            });
+            .then(parseResponse);
         }
         function parseResponse(response) {
-            // if (!_.isEmpty(_failed_requests) || !response) { return; }
-            _model.image_thumbnail = _.isString(response) && response || "";
-            // console.log(response);
-            // var tmp = document.implementation.createHTMLDocument();
-            // tmp.body.innerHTML = response.data;
 
-            // var images = $(tmp.body.children).find("img.attachment-cb-full-full.size-cb-full-full.wp-post-image"),
-            //     image = _.first(images);
-            // console.log(image);
-            // _model.image_thumbnail = $(image).attr("src");
-            // console.log(_model.image_thumbnail);
+            // _model.image_thumbnail = _.isString(response) && response || "";
+
+            var tmp = document.implementation.createHTMLDocument();
+            tmp.body.innerHTML = response;
+
+            var images = $(tmp.body.children).find("img.attachment-cb-full-full.size-cb-full-full.wp-post-image"),
+                image = _.first(images);
+            console.log(image);
+            _model.image_thumbnail = $(image).attr("src");
+            console.log(_model.image_thumbnail);
         }
 
         /**

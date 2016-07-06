@@ -31,14 +31,16 @@ angular.module("Dktrvamp").service("FeedService", function($http, $q){
         var dfd = $q.defer();
 
         $http({
-            url: "http://www.drvaudio.com/php/getImage.php",
+            url: "http://localhost/getImage.php",
             method: "post",
             data: {url: url}
         })
-        .then(function(){
-            console.log(arguments);
+        .then(function(res){
+            console.log(res);
+            if (_.isString(res.data)) {
+                dfd.resolve(res.data);
+            }
         })
-        .then(dfd.resolve)
         .catch(function(er) {
             console.log(url, er);
             if (_.isString(er.data)) {
