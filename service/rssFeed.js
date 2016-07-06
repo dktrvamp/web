@@ -31,7 +31,7 @@ angular.module("Dktrvamp").service("FeedService", function($http, $q){
         var dfd = $q.defer();
 
         $http({
-            url: "http://localhost/getImage.php",
+            url: "http://www.drvaudio.com/php/getImage.php",
             method: "post",
             data: {url: url}
         })
