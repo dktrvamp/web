@@ -17,11 +17,12 @@
         <div id="Main" data-ng-controller="MainCtrl"
             data-ng-class="model.is_mobile ? 'mobile' : 'desktop'">
             <div data-nav-bar></div>
-            <div style="z-index:1;" data-ng-click="onFacebookClicked()" class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
+            <div id="FacebookSharedLike" data-ng-click="onFacebookClicked()" class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
 
             <data-loading data-ng-if="model.is_loading"></data-loading>
             <div data-ui-view data-ng-if="!model.is_loading" class="fade-in fade-out {{context}}"></div>
             <!-- FOOTER -->
+            <data-vertical-menu></data-vertical-menu>
             <div data-home-footer></div>
         </div>
 

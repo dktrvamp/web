@@ -20,8 +20,8 @@
 
         }
     }
+    &.mobile > button.direction { display: none; }
     > button.direction {
-        .mobile & { display: none; }
         border: none;
         font-size: 24px;
         opacity: 0;
@@ -31,10 +31,7 @@
         .overlayBackground();
         &:hover {
             color: #fff;
-            -webkit-box-shadow: inset 1px 1px 20px 10px rgba(192,192,192, 0.2) !important;
-            -o-box-shadow: inset 1px 1px 20px 10px rgba(192,192,192, 0.2) !important;
-            -moz-box-shadow: inset 1px 1px 20px 10px rgba(192,192,192, 0.2) !important;
-            box-shadow: inset 1px 1px 20px 10px rgba(192,192,192, 0.2) !important;
+            .insetBoxShadow();
         }
     }
     &:hover { > button.direction { opacity: 1; color: #ccc; } }
