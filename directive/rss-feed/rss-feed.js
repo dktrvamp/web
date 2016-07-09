@@ -55,8 +55,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
             // var images = $(tmp.body.children).find("img"),
             var images = $(tmp.body.children).find("img.attachment-cb-full-full.size-cb-full-full.wp-post-image"),
                 image = _.first(images);
-            console.log(images);
-            console.log(_.find(images, function(img) { return img.width > 110; }));
+
             _model.image_thumbnail = $(image).attr("src");
 
         }
