@@ -1,27 +1,5 @@
 <div id="Home">
     <!-- <div data-ui-view></div> -->
-
-    <div class="self-icons">
-        <button data-ng-if="model.should_show"
-        class="submit-button nav-button active"
-        data-ng-click="model.should_show = false">Hide</button>
-        <img class="rss-news"
-            src="http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467775785/Electronic-Music-News_cbxx00.png" alt="Electronic Music News"
-            data-ng-if="!model.should_show"
-            data-ng-click="model.should_show = true; model.news = 'edm' ">
-        <img class="rss-news"
-            src="http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467775785/Hip-Hop-Music-News_u8um3x.png" alt="Hip-Hop News"
-            data-ng-if="!model.should_show"
-            data-ng-click="model.should_show = true;  model.news = 'hiphop' "">
-        <img class="rss-news"
-            src="http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467782981/other-news_mbzwpo.png" alt="Hip-Hop News"
-            data-ng-if="!model.should_show"
-            data-ng-click="model.should_show = true;  model.news = 'other' "">
-
-    </div>
-    <div data-rss-feed data-ng-if="model.should_show" data-news="model.news"></div>
-    <div data-rss-feed data-ng-if="!model.should_show" data-news="'gear'"></div>
-
     <div data-soundcloud-new-track></div>
     <button class="submit-button rs-link"
         data-ng-if="model.is_mobile"

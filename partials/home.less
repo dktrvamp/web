@@ -2,30 +2,10 @@
     position: relative;
     padding-top:  50px;
 	height: 100%;
-    > .self-icons {
-        min-height: 120px;
-        height: auto;
-        .box(center);
 
-        // .overlay(@top: auto);
-        > .rss-news {
-            width: calc(95vw / 3);
-            cursor: pointer;
-            opacity: .6;
-            &:hover {
-                .transition();
-                opacity: 1;
-            }
-            .mobile & {
-                width: 100vw;
-            }
-            &.ng-leave { width: 0; }
-        }
-        > button.active { width: 95vw; }
-    }
     > #Soundcloud {
         margin-top: 10px;
-        // .overlay(@top:auto);
+        .overlay(@top:auto);
     }
     // mobile link switch to desktop
     > .rs-link {
