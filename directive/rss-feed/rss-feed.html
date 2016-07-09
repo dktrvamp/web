@@ -1,4 +1,5 @@
-<div id="RssFeed" data-ng-if="model.feed">
+<div id="RssFeed" data-ng-if="model.feed"
+    data-ng-class="model.is_mobile ? 'mobile' : ''">
     <button data-ng-click="onButtonClicked('left')"
         class="direction fa fa-arrow-left">
     </button>

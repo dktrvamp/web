@@ -187,6 +187,9 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
         getRssFeed();
         addHotkeysForScope();
         scope.$on("$destroy", reset);
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            scope.model.is_mobile = true;
+        }
 
     };
 
