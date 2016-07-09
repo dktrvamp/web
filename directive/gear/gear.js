@@ -40,7 +40,7 @@ angular.module("Dktrvamp").directive("gearSlide", function($http, $interval, hot
                     element.remove();
                 });
 
-            _slide_interval_promise = $interval(getItemAtIndex,7000);
+            _slide_interval_promise = $interval(getItemAtIndex,60000);
         }
 
         /**
