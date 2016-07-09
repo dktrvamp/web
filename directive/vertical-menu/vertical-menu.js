@@ -4,19 +4,29 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("verticalMenu", function($uibModal) {
+angular.module("Dktrvamp").directive("verticalMenu", function($uibModal, Utils) {
     "use strict";
     function linkFn(scope) {
         //--------------------------------------------------------------------------
         // Private Properties
         //--------------------------------------------------------------------------
-        scope.tabs = [
-            { title: "DAW" },
-            { title: "VST" },
-            { title: "TOOLS" },
-            { title: "OS" }
-        ];
-        scope.selected_tab = "";
+        var _tabs = [
+                { title: "Electronic Music News", id: "edm", },
+                { title: "Hip-Hop News", id: "hiphop", },
+                { title: "Other News", id: "other", },
+                { title: "Gear News", id: "gear", }
+            ],
+            _model = {
+                title : "Articles",
+                tabs : _tabs,
+                is_open: false,
+                is_closing: false,
+                show_indicator: true
+            },
+            _modal_promise = null;
+
+        scope.model = _model;
+
         //--------------------------------------------------------------------------
         // Private Functions
         //--------------------------------------------------------------------------
@@ -24,15 +34,66 @@ angular.module("Dktrvamp").directive("verticalMenu", function($uibModal) {
         //--------------------------------------------------------------------------
         // Private Event
         //--------------------------------------------------------------------------
-        scope.onTopArtistClick = function(event, title) {
-            scope.selected_tab = title;
-            $uibModal.open({
+        scope.onClicked = function(event, title) {
+            event.stopPropagation();
+            var item = _.findWhere(_tabs, { title: title }),
+                artist_search_template = [
+                    "<button class=\"submit-button nav-button active\" ",
+                        "data-ng-click=\"onDismiss()\">Close it</button>",
+                    "<div data-artist-api></div>"
+                ].join(""),
+
+                rss_feed_template = [
+                    "<button class=\"submit-button nav-button active\" ",
+                        "data-ng-click=\"onOpenClose();onDismiss()\">Close</button>",
+                    "<div data-rss-feed data-news=\"model.news\"></div>"
+                ].join(""),
+                template = "";
+
+            _model.news = item && item.id;
+            _model.is_open = false;
+
+            template = item ? rss_feed_template : artist_search_template;
+
+            _modal_promise = $uibModal.open({
                 windowClass: "special-features-dialog-container",
                 scope: scope,
-                templateUrl: "modals/gear.html",
-                controller: "gearCtrl"
+                template: template,
+                controller: function($scope, $uibModalInstance) {
+                    $uibModalInstance.opened
+                    .then(function() {
+                        _model.show_indicator = false;
+                    });
+                    $uibModalInstance.result
+                    .catch(function() {
+                        _model.show_indicator = true;
+                    })
+                    .finally(function() {
+                        _modal_promise = null;
+                    });
+
+                    $scope.onDismiss = $uibModalInstance.dismiss;
+                }
             });
         };
+
+        scope.onMouseEvent = function(mouse_event) {
+            _model.is_open = mouse_event === "in";
+            if (_model.is_open) {
+                _model.is_closing = true;
+                    // Allow the nav to close before a mouseover triggers
+                    Utils.createTimer(1000)
+                    .finally(function() {
+                        _model.is_closing = false;
+                    });
+            }
+        };
+
+        scope.onOpenClose = function() {
+            _model.is_open = !_model.is_open;
+
+        };
+
         //--------------------------------------------------------------------------
         // INITIALIZATION
         //--------------------------------------------------------------------------
@@ -41,8 +102,7 @@ angular.module("Dktrvamp").directive("verticalMenu", function($uibModal) {
 
     return {
         replace: true,
-        // require: "ngModel", // Array = multiple requires, ? = optional, ^ = check parent elements
-        restrict: "E", // E = Element, A = Attribute, C = Class, M = Comment
+        restrict: "E",
         templateUrl: "directive/vertical-menu/vertical-menu.html",
         link: linkFn
     };

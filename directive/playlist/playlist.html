@@ -3,26 +3,21 @@
         <div id="audio_box"></div>
         <canvas class="canvas" id="analyser_render"></canvas>
     </div>
-    <button class="hide-btn btn btn-large"
-        data-ng-click="show = !show">
-        {{ show ? "Hide" : "Show" }}
-    </button>
     <div class="table-list" ng-init="show = true" data-ng-show="show">
-
         <ul class="playlist" data-ng-repeat="track in tracks">
             <li data-ng-class="{ 'active' : is_clicked } " data-ng-click="is_clicked = !is_clicked">
                 <i class="fa fa-music"></i>
                 <a class="track-name"
                     data-ng-click="onPlayClicked($index)">{{track.name}}
                 </a>
-                <!-- <i class="play-controls fa fa-pause"
+                <i class="play-controls fa fa-pause"
                     data-ng-click="onPauseClicked($index)">
                 </i>
                 <i class="play-controls fa
                         fa-play-circle-o"
                     data-ng-click="onPlayClicked($index)">
                 </i>
-                <i class="play-controls fa fa-cart-plus"></i> -->
+                <!-- <i class="play-controls fa fa-cart-plus"></i> -->
             </li>
         </ul>
     </div>

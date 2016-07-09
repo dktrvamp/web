@@ -1,4 +1,14 @@
 <div>
+    <div class="artist-search-container">
+        <fieldset>
+            <select class="form-control"
+                data-ng-options="e.search for e in engine"
+                data-ng-model="selected">
+            </select>
+        </fieldset>
+        <div data-type="selected.search" data-artist-content></div>
+    </div>
+
 	<ul data-ng-repeat="artist in artists">
 		<img width=20 height=20 data-ng-src="{{artist.images.low_resolution.url}}">
 	</ul>

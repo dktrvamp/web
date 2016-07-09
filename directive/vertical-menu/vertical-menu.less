@@ -1,32 +1,52 @@
 .vertical-menu {
-    width: 20vw;
+    width: 0;
+    opacity: .3;
     height: 100%;
-    .transition(@prop: width, @time: 5s);
-    .overlay(@top: 65px; @left:auto;);
+    padding-top: @standard_padding;
+    text-align: center;
+    .transition( @time: 500ms);
+    .overlay(@top: @nav_height + 10px; @right: auto;);
     .overlayBackground();
-    > .search-engine-btn {
-        &:hover {
-            background: rgba(32,32,32,.7);
-        }
-        &.direction-btn {
-            // .overlay(@top:auto; @bottom: 150px;);
-        }
-        &:nth-child(odd){
-            text-shadow: -2px -1px 2px @lime_green;
-            &:hover {
-                text-shadow: -4px -1px 2px @light_blue;
-            }
-        }
-        text-shadow: -2px -1px 2px @light_blue;
-        &:hover {
-            text-shadow: -4px -1px 2px @lime_green;
-        }
-        width: 100%;
-        background: none;
-        font-size: 18px;
-        white-space: normal;
+    &.is-open { width: 100vw; }
+    &:hover { opacity: 1; }
 
-        font-family: "Arial Black", Gadget, sans-serif;
+    // Indicator
+    > .nav-indicator {
+        .overlay(@top: @standard_padding; @left: auto; @right: -55px;);
+        font-size: 55px;
+        color: @lime_green;
+        cursor: pointer;
+        &.fa-reply { right: 0; }
+    }
+    // Content
+    > .content {
+        > .nav-header { color: #fff; }
+        > .action-btn {
+            &:hover {
+                background: rgba(32,32,32,.7);
+            }
+            &.direction-btn {
+                // .overlay(@top:auto; @bottom: 150px;);
+            }
+            &:nth-child(odd){
+                text-shadow: -2px -1px 2px @lime_green;
+                &:hover {
+                    text-shadow: -4px -1px 2px @light_blue;
+                }
+            }
+            text-shadow: -2px -1px 2px @light_blue;
+            &:hover {
+                text-shadow: -4px -1px 2px @lime_green;
+            }
+            width: 100%;
+            background: none;
+            font-size: 18px;
+            white-space: normal;
+
+            font-family: "Arial Black", Gadget, sans-serif;
+
+        }
 
     }
 }
+

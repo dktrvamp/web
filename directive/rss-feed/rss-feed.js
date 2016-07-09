@@ -31,8 +31,8 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
         //----------------------------------------------------------------------
 
         function getRssFeed() {
-
-            FeedService.parseFeed(_NEWS[scope.news])
+            var feed_url = _NEWS[scope.news] || scope.news;
+            FeedService.parseFeed(feed_url)
             .then(function(response) {
                 _items = response && response.data.responseData.feed.entries;
 
@@ -44,6 +44,8 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
             _slide_interval_promise = $interval(getItemAtIndex,60000);
         }
         function scrapeDomainData() {
+            var link = _model.feed && _model.feed.link;
+            if (!link) { return; }
             FeedService.get(_model.feed.link)
             .then(parseResponse);
         }
@@ -80,7 +82,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
 
             _model.should_display = false;
 
-            Utils.createTimer(300)
+            Utils.createTimer(100)
                 .then(function(){
                     _model.should_display = true;
 

@@ -1,20 +1,31 @@
-<div class="vertical-menu">
-    <hr>
-    <button class="search-engine-btn btn"
-        data-ng-repeat="tab in tabs"
-        data-ng-click="onTopArtistClick($event, tab.title)" data-ng-bind="tab.title">
-    </button>
-    <hr>
-    <!--  -->
-    <button class="search-engine-btn btn direction-btn"
-        data-ng-if="$state.is('home')"
-        data-ui-sref="home.artist">
-        Search For An Artist
-    </button>
+<div class="vertical-menu"
+    data-ng-class="{ 'is-open' : model.is_open }"
+    data-ng-mouseover="!model.is_closing && onMouseEvent('in')"
+    data-ng-mouseleave="onMouseEvent('out')">
+
+    <!-- Indicator -->
+    <i class="nav-indicator fade-in fade-out fa"
+        data-ng-if="model.show_indicator"
+        data-ng-click="onOpenClose($event)"
+        data-ng-class="{
+            'fa-share' : !model.is_open,
+            'fa-reply' : model.is_open
+        }">
+    </i>
     <br>
-    <button class="search-engine-btn btn direction-btn"
-        data-ng-if="!$state.is('home')"
-        data-ui-sref="home">
-        Go Back
-    </button>
+    <hr>
+    <!-- Content -->
+    <div class="content" data-ng-if="model.is_open">
+        <h3 class="nav-header" data-ng-bind="::model.title"></h3>
+        <button class="action-btn btn"
+            data-ng-repeat="tab in model.tabs"
+            data-ng-click="onClicked($event, tab.title)" data-ng-bind="::tab.title">
+        </button>
+        <hr>
+
+        <button class="action-btn btn direction-btn"
+            data-ng-click="onClicked($event); onOpenClose($event)">
+            Search For An Artist
+        </button>
+    </div>
 </div>

@@ -13,40 +13,25 @@
 */
 angular.module("Dktrvamp").directive("artistApi", function(){
 	"use strict";
-	// Runs during compile
+
 	return {
-		// name: "",
-		// priority: 1,
-		// terminal: true,
 		// scope: {}, // {} = isolate, true = child, false/undefined = no change
-		controller: function( $http, $log, $scope) {
+		replace: true,
+		controller: function($http, $log, $scope) {
 			$scope.model = {
 				artist : null
 			};
+		    $scope.engine = [
+	            { id: 1, search: "Spotify" },
+	            { id: 2, search: "SoundCloud" },
+	            { id: 3, search: "LastFm" },
+	        ];
 
+		    $scope.selected = $scope.engine[0];
 			$scope.artists = [];
-			$scope.browseSpotifyArtist = function(){
-				var artist = $scope.model.artist;
-				$http.get("http://ws.spotify.com/search/1/artist.json?q=artist:"+artist)
-				.success(function(data){
-					var artists = data && data.artists,
-						artist_array = [];
-					_.each(artists, function(art) {
-						artist_array.push(art.name);
-						$scope.artist.name = artist.name;
-					});
-					$scope.artists = artist_array;
-
-				})
-				.catch(function(){
-					$log.warn("Social.Unable to retrieve tweets");
-				})
-				.finally(function(){
-				});
-			};
 		},
-		// require: "ngModel", // Array = multiple requires, ? = optional, ^ = check parent elements
-		restrict: "A", // E = Element, A = Attribute, C = Class, M = Comment
+		replace: true,
+		restrict: "A",
 		templateUrl: "directive/artist-api.html"
 	};
 });
