@@ -30,7 +30,6 @@ angular.module("Dktrvamp").directive("artistApi", function(){
 		    $scope.selected = $scope.engine[0];
 			$scope.artists = [];
 		},
-		replace: true,
 		restrict: "A",
 		templateUrl: "directive/artist-api.html"
 	};
