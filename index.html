@@ -21,16 +21,23 @@
         <div id="Main" data-ng-controller="MainCtrl"
             data-ng-class="model.is_mobile ? 'mobile' : 'desktop'">
             <div data-nav-bar></div>
-            <div id="FacebookSharedLike" data-ng-click="onFacebookClicked()" class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
+            <div id=SocialMediaShare>
+                <div id="FacebookSharedLike"
+                    data-ng-click="onFacebookClicked()"
+                    class="fb-like"
+                    data-share="true"
+                    data-width="450"
+                    data-show-faces="true">
+                </div>
+            </div>
 
             <data-loading data-ng-if="model.is_loading"></data-loading>
             <div data-ui-view data-ng-if="!model.is_loading" class="fade-in fade-out {{context}}"></div>
             <!-- FOOTER -->
-            <data-vertical-menu></data-vertical-menu>
+            <data-vertical-menu data-ng-if="!model.is_loading"></data-vertical-menu>
             <div data-home-footer></div>
         </div>
 
-        <!-- <div data-visual></div> -->
           <!-- <script src="http://localhost:35729/livereload.js" data-build="exclude"></script> -->
     	<!-- 3rd Party Libs -->
         <script src="bower_components/angular/angular.js"></script>
@@ -72,7 +79,6 @@
         <script src="directive/playlist/playlist.js"></script>
         <script src="directive/rss-feed/rss-feed.js"></script>
         <script src="directive/vertical-menu/vertical-menu.js"></script>
-        <script src="directive/visual/visual.js"></script>
         <script src="directive/ng-click.js"></script>
         <script src="directive/twitter/twitter-feed.js"></script>
         <script src="directive/soundcloud/soundcloud-new-track.js"></script>

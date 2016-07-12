@@ -13,13 +13,17 @@ angular.module("Dktrvamp").directive("verticalMenu", function($uibModal, Utils) 
         var _tabs = [
                 { title: "Electronic Music News", id: "edm", },
                 { title: "Hip-Hop News", id: "hiphop", },
+                { title: "Loop Masters", id: "loop_masters", },
+                { title: "Moog News", id: "moog", },
+                { title: "Hardware / Software", id: "hard_soft", },
+                { title: "New Products", id: "gear", },
                 { title: "Other News", id: "other", },
-                { title: "Gear News", id: "gear", }
+                { title: "Tech Crunch", id: "tech_crunch", },
             ],
             _model = {
-                title : "Articles",
+                title : "Top News",
                 tabs : _tabs,
-                is_open: false,
+                is_open: true,
                 is_closing: false,
                 show_indicator: true
             },
@@ -39,7 +43,7 @@ angular.module("Dktrvamp").directive("verticalMenu", function($uibModal, Utils) 
             var item = _.findWhere(_tabs, { title: title }),
                 artist_search_template = [
                     "<button class=\"submit-button nav-button active\" ",
-                        "data-ng-click=\"onDismiss()\">Close it</button>",
+                        "data-ng-click=\"onDismiss()\">Close</button>",
                     "<div data-artist-api></div>"
                 ].join(""),
 
@@ -91,13 +95,14 @@ angular.module("Dktrvamp").directive("verticalMenu", function($uibModal, Utils) 
 
         scope.onOpenClose = function() {
             _model.is_open = !_model.is_open;
-
         };
 
         //--------------------------------------------------------------------------
         // INITIALIZATION
         //--------------------------------------------------------------------------
-
+        scope.$on("$stateChangeSuccess", function() {
+            if (_model.is_open) { _model.is_open = false; }
+        });
     }
 
     return {

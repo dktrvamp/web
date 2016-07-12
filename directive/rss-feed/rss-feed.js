@@ -9,20 +9,27 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
     "use strict";
 
     var linkFn = function(scope){
-        var _model = {
-            feed: {},
-            image_thumbnail: null,
-            should_display: false
-        },
-        _items = [],
-        _index = 0,
-        _slide_interval_promise = null,
-        _NEWS = {
-            "edm" : "http://www.youredm.com/feed/",
-            "hiphop": "http://hiphopwired.com/feed/",
-            "other" : "http://www.rollingstone.com/music.rss",
-            "gear" : "http://feeds.webservice.techradar.com/us/rss/news/audio"
-        };
+
+        var _items = [],
+            _index = 0,
+            _slide_interval_promise = null,
+            _model = {
+                feed: {},
+                image_thumbnail: null,
+                should_display: false,
+                active_slide_index: _index,
+                slides: []
+            },
+            _NEWS = {
+                "edm" : "http://www.youredm.com/feed/",
+                "hiphop": "http://hiphopwired.com/feed/",
+                "other" : "http://www.rollingstone.com/music.rss",
+                "gear" : "http://feeds.webservice.techradar.com/us/rss/news/audio",
+                "loop_masters" : "http://loopmasters.vbfpmedia.com/feed",
+                "moog" : "https://www.moogmusic.com/blog/feed",
+                "hard_soft" : "http://www.tuerkmusic.co.za/index.php/blog/rss",
+                "tech_crunch" : "http://feeds.feedburner.com/TechCrunch/Google"
+            };
 
         scope.model = _model;
 
@@ -38,6 +45,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
 
                 _model.feed = _items[_index];
                 _model.should_display = true;
+                _model.slides = _items;
             })
             .then(scrapeDomainData);
 
@@ -79,7 +87,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
             }
             removeDouplicateImages();
             _model.feed = _items[_index];
-
+            _model.active_slide_index = _index;
             _model.should_display = false;
 
             Utils.createTimer(100)
@@ -180,6 +188,19 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
 
             getItemAtIndex(direction);
 
+        };
+
+        /**
+         * @doc method
+         * @name onIndicatorClicked
+         * @description
+         *
+         * Left Right Item.
+         */
+        scope.onIndicatorClicked = function(index) {
+            reset();
+            _model.feed = _items[index];
+            _model.active_slide_index = _index = index;
         };
 
         //----------------------------------------------------------------------

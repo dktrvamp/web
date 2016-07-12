@@ -18,7 +18,7 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
     //--------------------------------------------------------------------------
     $scope.model = {};
     $scope.context = null;
-    $scope.model.is_loading = true;
+    $scope.model.is_loading = false;
     // $scope.enabled_nav = true;
 
     //--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
         $scope.context = data.context || "";
         if (new_state && !old_state) {
             $scope.model.is_loading = true;
-            Utils.createTimer(1500).finally(function(){
+            Utils.createTimer(1000).finally(function(){
                 $scope.model.is_loading = false;
             });
 

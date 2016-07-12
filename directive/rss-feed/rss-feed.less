@@ -46,4 +46,25 @@
 
     > button.fa-arrow-right { left: auto; }
     > button.fa-arrow-left { right: auto; }
+    .indicators {
+        .box(center);
+        height: 20px;
+        > .indicator {
+            width: 15px;
+            height: 15px;
+            cursor:pointer;
+            margin: 20px 10px;
+            border-radius: 100%;
+            display:inline-block;
+            background: #ccc;
+            border: none;
+            &:focus {
+                background-color: @blue;
+            }
+            &.active {
+                background-color: @lime_green;
+            }
+        }
+    }
+
 }

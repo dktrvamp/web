@@ -23,7 +23,7 @@ angular.module("Dktrvamp").directive("artistApi", function(){
 			};
 		    $scope.engine = [
 	            { id: 1, search: "Spotify" },
-	            { id: 2, search: "SoundCloud" },
+	            // { id: 2, search: "SoundCloud" },
 	            { id: 3, search: "LastFm" },
 	        ];
 

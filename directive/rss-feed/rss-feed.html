@@ -5,6 +5,13 @@
     <button data-ng-click="onButtonClicked('left')"
         class="direction fa fa-arrow-left">
     </button>
+    <div class="indicators">
+        <button class="indicator" ng-repeat="indicator in model.slides"
+            data-ng-class="{'active': model.active_slide_index === $index }"
+            data-ng-click="onIndicatorClicked($index)">
+        </button>
+    </div>
+    <hr>
     <div class="content"
         data-ng-swipe-left="onButtonClicked('left')"
         data-ng-swipe-right="onButtonClicked('right')">

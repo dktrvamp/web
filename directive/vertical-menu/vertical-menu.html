@@ -1,19 +1,20 @@
 <div class="vertical-menu"
-    data-ng-class="{ 'is-open' : model.is_open }"
-    data-ng-mouseover="!model.is_closing && onMouseEvent('in')"
-    data-ng-mouseleave="onMouseEvent('out')">
+    data-ng-class="{ 'is-closed' : !model.is_open }">
 
     <!-- Indicator -->
     <i class="nav-indicator fade-in fade-out fa"
         data-ng-if="model.show_indicator"
         data-ng-click="onOpenClose($event)"
+        data-ng-attr-title="{{model.is_open ? 'Close' : 'Open'}}"
+        data-ng-mouseover="model.show_tool_tip = true"
+        data-ng-mouseleave="model.show_tool_tip = false"
         data-ng-class="{
             'fa-share' : !model.is_open,
-            'fa-reply' : model.is_open
+            'fa-reply' : model.is_open,
+            'fa-newspaper-o' : !model.is_open && model.show_tool_tip
         }">
     </i>
     <br>
-    <hr>
     <!-- Content -->
     <div class="content" data-ng-if="model.is_open">
         <h3 class="nav-header" data-ng-bind="::model.title"></h3>
@@ -23,7 +24,7 @@
         </button>
         <hr>
 
-        <button class="action-btn btn direction-btn"
+        <button class="action-btn btn direction-btn bottom"
             data-ng-click="onClicked($event); onOpenClose($event)">
             Search For An Artist
         </button>
