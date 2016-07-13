@@ -84,6 +84,7 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
     (function() {
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
             $scope.model.is_mobile = true;
+            $window.is_mobile = true;
         }
         if (Analytics.initialized === false) {
             Analytics.init();

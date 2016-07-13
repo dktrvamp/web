@@ -5,11 +5,10 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedService, hotkeys, Utils) {
+angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, $window, FeedService, hotkeys, Utils) {
     "use strict";
 
     var linkFn = function(scope){
-
         var _items = [],
             _index = 0,
             _slide_interval_promise = null,
@@ -18,6 +17,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
                 image_thumbnail: null,
                 should_display: false,
                 active_slide_index: _index,
+                is_mobile: $window.is_mobile,
                 slides: []
             },
             _NEWS = {
@@ -187,7 +187,6 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
             reset();
 
             getItemAtIndex(direction);
-
         };
 
         /**
@@ -210,9 +209,6 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, FeedS
         getRssFeed();
         addHotkeysForScope();
         scope.$on("$destroy", reset);
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-            scope.model.is_mobile = true;
-        }
 
     };
 

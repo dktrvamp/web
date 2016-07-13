@@ -347,9 +347,22 @@ canvas#grapher {
     -moz-box-orient: vertical;
     -o-box-orient: vertical;
 }
+//
+// Social Media
+//
+#SocialMediaShare {
+    .box(center);
+    #FacebookSharedLike {
+        z-index:1;
+        margin-top: 15px;
+        width: 100px;
+        height: 30px;
+        // .overlay(@top: @nav_height + 10, @left: 45%, @right: auto);
 
+    }
+}
 
-
+// Modal
 .confirmation-dialog-container {
     padding: @standard_padding;
     background-color: #000!important;
@@ -360,15 +373,20 @@ canvas#grapher {
         width: 100%;
     }
 }
+.special-features-dialog-container {
+    .modal-dialog {
+        width: 100vw;
+        height: 100vh;
+        margin: 0!important;
+    }
+}
 .modal {
     cursor: default;
     outline:none;
     display: -webkit-box!important;
-    top: @nav_height!important;
-    bottom: @nav_height!important;
     &.fade {
         .modal-dialog {
-            .overlay(@top: 45px; @right:auto;);
+            // .overlay(@top: 45px; @right:auto;);
         }
     }
     // .modal-backdrop.in { opacity: 1 !important; }
@@ -383,16 +401,5 @@ canvas#grapher {
         padding: 15px;
         border-radius: 10px;
         > .close-button { float: right; }
-    }
-}
-#SocialMediaShare {
-    .box(center);
-    #FacebookSharedLike {
-        z-index:1;
-        margin-top: 15px;
-        width: 100px;
-        height: 30px;
-        // .overlay(@top: @nav_height + 10, @left: 45%, @right: auto);
-
     }
 }

@@ -1,20 +1,20 @@
 <div id="RssFeed"
     class="fade-in fade-out"
-    data-ng-if="model.feed && model.should_display"
-    data-ng-class="model.is_mobile ? 'mobile' : ''">
+    data-ng-if="model.feed && model.should_display">
     <button data-ng-click="onButtonClicked('left')"
+        data-ng-if="!model.is_mobile"
         class="direction fa fa-arrow-left">
     </button>
     <div class="indicators">
-        <button class="indicator" ng-repeat="indicator in model.slides"
+        <div class="indicator" ng-repeat="indicator in model.slides"
             data-ng-class="{'active': model.active_slide_index === $index }"
-            data-ng-click="onIndicatorClicked($index)">
-        </button>
+            data-ng-click="onIndicatorClicked($index)" data-ng-bind="$index">
+        </div>
     </div>
     <hr>
     <div class="content"
-        data-ng-swipe-left="onButtonClicked('left')"
-        data-ng-swipe-right="onButtonClicked('right')">
+        data-ng-swipe-left="onButtonClicked('right')"
+        data-ng-swipe-right="onButtonClicked('left')">
         <div class="date" data-ng-bind="model.feed.publishedDate"></div><br>
 
         <img data-ng-if="model.image_thumbnail" class="image-thumbnail" width="360" height="240" data-ng-src="{{model.image_thumbnail}}"/><br>
@@ -22,6 +22,7 @@
         <p class="contentSnippet fade-in fade-out" data-ng-bind-html="model.feed.content"></p><br>
     </div>
     <button data-ng-click="onButtonClicked('right')"
+        data-ng-if="!model.is_mobile"
         class="direction fa fa-arrow-right">
     </button>
 </div>

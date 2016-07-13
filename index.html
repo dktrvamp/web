@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="Dktrvamp">
     <head>
     	<title>Dr.Vamp Audio Engineering</title>
         <!-- <base href="/"> -->
@@ -17,26 +17,25 @@
         <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
         <link href="bower_components/font-awesome/css/font-awesome.css" type="text/css" rel="stylesheet">
     </head>
-    <body data-ng-app="Dktrvamp">
-        <div id="Main" data-ng-controller="MainCtrl"
-            data-ng-class="model.is_mobile ? 'mobile' : 'desktop'">
-            <div data-nav-bar></div>
-            <div id=SocialMediaShare>
-                <div id="FacebookSharedLike"
-                    data-ng-click="onFacebookClicked()"
-                    class="fb-like"
-                    data-share="true"
-                    data-width="450"
-                    data-show-faces="true">
-                </div>
+    <body id="Main" data-ng-controller="MainCtrl"
+        data-ng-class="model.is_mobile ? 'mobile' : 'desktop'">
+        <div data-nav-bar></div>
+        <div id=SocialMediaShare>
+            <div id="FacebookSharedLike"
+                data-ng-click="onFacebookClicked()"
+                class="fb-like"
+                data-share="true"
+                data-width="450"
+                data-show-faces="true">
             </div>
-
-            <data-loading data-ng-if="model.is_loading"></data-loading>
-            <div data-ui-view data-ng-if="!model.is_loading" class="fade-in fade-out {{context}}"></div>
-            <!-- FOOTER -->
-            <data-vertical-menu data-ng-if="!model.is_loading"></data-vertical-menu>
-            <div data-home-footer></div>
         </div>
+
+        <data-loading data-ng-if="model.is_loading"></data-loading>
+        <div data-ui-view data-ng-if="!model.is_loading" class="fade-in fade-out {{context}}"></div>
+        <!-- FOOTER -->
+        <data-vertical-menu data-ng-if="!model.is_loading"></data-vertical-menu>
+        <div data-home-footer></div>
+
 
           <!-- <script src="http://localhost:35729/livereload.js" data-build="exclude"></script> -->
     	<!-- 3rd Party Libs -->
