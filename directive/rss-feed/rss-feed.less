@@ -25,16 +25,18 @@
             color: #fff;
         }
     }
-    a {
-        .box(center);
-        img {
-            height: auto;
-            width: auto;
-            max-width: 50vw;
-            max-height: 50vh;
-            display: block;
-        }
+
+    // Start: The content could include images inside <a> but not always.
+    a { .box(center); }
+    img {
+        height: auto;
+        width: auto;
+        max-width: 50vw;
+        max-height: 50vh;
+        display: block;
     }
+    // End
+
     &.mobile > button.direction { display: none; }
     > button.direction {
         border: none;
