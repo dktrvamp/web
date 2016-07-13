@@ -11,8 +11,6 @@
 angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window", "Analytics", "Utils", function($scope, $state, $window, Analytics, Utils) {
     "use strict";
 
-
-    var _google_analytics = $window.ga;
     //--------------------------------------------------------------------------
     // PROPERTIES (PRIVILEGED)
     //--------------------------------------------------------------------------
@@ -35,6 +33,7 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
      * Handles when a request to change the state has been made.
      */
     function onStateChangeSuccess(event, new_state, new_params, old_state) {
+        if (new_state === old_state) { return; }
         new_state = new_state || $state.current;
         var data = new_state.data || {};
 
@@ -46,10 +45,6 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
                 $scope.model.is_loading = false;
             });
 
-        }
-
-        if (_google_analytics) {
-            $window.ga("send", "pageview", $state.current.name);
         }
     }
 

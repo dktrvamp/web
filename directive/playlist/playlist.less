@@ -76,29 +76,36 @@
 
 div#mp3_player{
 	position: absolute;
-}
-div#mp3_player > div > audio {
-	width:100vw;
-    -webkit-filter: drop-shadow(0 0 2em blue);
-    -moz-filter: drop-shadow(0 0 2em blue);
-    -o-filter: drop-shadow(0 0 2em blue);
-    filter: drop-shadow(0 0 2em blue);
-}
-div#mp3_player > canvas {
-    width: 100%;
-    height: 60px;
-    opacity: .85;
-    z-index: -1;
-}
+    > #audio_box {
+        .box(center);
+        width: 100vw;
+
+        > #audioplayer {
+        	width: 90vw;
+            height: 50px;
+            display: block;
+            -webkit-filter: drop-shadow(0 0 2em blue);
+            -moz-filter: drop-shadow(0 0 2em blue);
+            -o-filter: drop-shadow(0 0 2em blue);
+            filter: drop-shadow(0 0 2em blue);
+        }
+    }
+    > canvas {
+        width: 100vw;
+        height: 60px;
+        opacity: .85;
+        z-index: -1;
+    }
 
 
-.background-lava {
-	opacity: .5;
-	background-color: rgba(20,420,420,.25);
-	animation:myfirst 10s;
-	-moz-animation:myfirst 10s infinite; /* Firefox */
-	-webkit-animation:myfirst 10s infinite; /* Safari and Chrome */
+    .background-lava {
+    	opacity: .5;
+    	background-color: rgba(20,420,420,.25);
+    	animation:myfirst 10s;
+    	-moz-animation:myfirst 10s infinite; /* Firefox */
+    	-webkit-animation:myfirst 10s infinite; /* Safari and Chrome */
 
+    }
 }
 	@-moz-keyframes myfirst {
 	    0%     {background:red;}

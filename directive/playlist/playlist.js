@@ -20,17 +20,12 @@ angular.module("Dktrvamp").directive("playlist", function(){
 				source : null
 			},
 			_tracks = [],
-			audio = null,
-			current_track = 0,
+			_audio_player = $("#audioplayer")[0],
+			_current_track = 0,
 			// Establish all variables that your Analyser will use
 			canvas, ctx, source, context, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
 
-		$($window).mousemove(function(){
-			$("ul>li").fadeIn("fast");
-		});
-
 		$scope.model = _model;
-		$scope.audio = audio;
 
 		function getLocaleString(){
 			var promise = $http.get("locale/tracks.json"),
@@ -38,36 +33,34 @@ angular.module("Dktrvamp").directive("playlist", function(){
 			promise
 				.then(function(response){
 					items = response.data;
-					// _tracks.push(response.data);
-					// console.log("items", _tracks);
 				})
 				.catch(function(){
 					$log.warn("Playlist.getLocaleString - ");
 				})
 				.finally(function(){
-					// $scope.tracks = _tracks[0];
 				});
 			$q.when(promise)
 				.then(function(){
-					console.log("tracks", items);
 					$scope.tracks = _tracks = items.concat();
+					_model.source = _tracks[0].src;
 				});
 		}
 
-		$scope.onPlayClicked = function(index){
-			var track = _tracks[index],
-				source = track && track.src;
-			current_track = index;
+		$scope.onPlayClicked = function(event, index){
+			event.stopPropagation();
+			var track = _tracks[index];
 
-			console.log("$index track : ", index);
+			_current_track = index;
+			_model.source = track && track.src || _model.source;
+			_audio_player.play();
 
-			audio.src = _model.source = source;
-			$("ul>li.active").parent().css({
-				"opacity" : ".6"
-			});
-			$(".canvas").fadeIn(500, function(){
-				$(this).addClass("background-lava");
-			});
+			// Animate
+			// $("ul>li.active").parent().css({
+			// 	"opacity" : ".6"
+			// });
+			// $(".canvas").fadeIn(500, function(){
+			// 	$(this).addClass("background-lava");
+			// });
 
 		};
 
@@ -75,28 +68,21 @@ angular.module("Dktrvamp").directive("playlist", function(){
 			$(".canvas").fadeOut(500, function(){
 				$(this).removeClass("background-lava");
 			});
-			audio.pause();
+			_audio_player.pause();
 		};
 
 		function initMp3Player(){
-			// start
-			// Create a new instance of an audio object and adjust some of its properties
-			// audio.src = "audio/Dr.Vamp - dark society.mp3";
-			if (audio) { return; }
+			if (!_audio_player) { return; }
+			updateVisualizer();
+		}
 
-			audio = new Audio();
-			audio.controls = true;
-			audio.loop = true;
-			audio.autoplay = true;
-			// Initialize the MP3 player after the page loads all of its HTML into the window
-
-			window.player = document.getElementById("audio_box").appendChild(audio);
+		function updateVisualizer() {
+			$window.player = _audio_player;
 			/* jshint ignore:start */
-			window.AudioContext = window.AudioContext || window.webkitAudioContext;
+			$window.AudioContext = $window.webkitAudioContext || $window.AudioContext;
 			context = new AudioContext(); // jshint ignore:line
 			// Re-route audio playback into the processing graph of the AudioContext
-			source = context && context.createMediaElementSource(audio);
-
+			source = context && context.createMediaElementSource(_audio_player);
 			// new AudioContext(); // Safari and old versions of Chrome
 			/* jshint ignore:end */
 
@@ -107,7 +93,6 @@ angular.module("Dktrvamp").directive("playlist", function(){
 			analyser.connect(context.destination);
 			frameLooper();
 		}
-
 		// frameLooper() animates any style of graphics you wish to the audio frequency
 		// Looping at the default frame rate that the browser provides(approx. 60 FPS)
 		function frameLooper() {
@@ -116,11 +101,11 @@ angular.module("Dktrvamp").directive("playlist", function(){
 			fbc_array = new Uint8Array(analyser.frequencyBinCount);
 			analyser.getByteFrequencyData(fbc_array);
 			ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-			ctx.fillStyle = current_track === 0 ? "#FF4B4B" :
-				current_track === 1 ? "#8EFFFF" :
-				current_track === 2 ? "#0FFF3C" :
-				current_track === 3 ? "#CEFF45" :
-				current_track === 4 ? "#8EFFFF" : "#0992cc"; // Color of the bars
+			ctx.fillStyle = _current_track === 0 ? "#FF4B4B" :
+				_current_track === 1 ? "#8EFFFF" :
+				_current_track === 2 ? "#0FFF3C" :
+				_current_track === 3 ? "#CEFF45" :
+				_current_track === 4 ? "#8EFFFF" : "#0992cc"; // Color of the bars
 
 			bars = 5000;
 			for (var i = 0; i < bars; i++) {
@@ -132,11 +117,9 @@ angular.module("Dktrvamp").directive("playlist", function(){
 			}
 		}
 
-		// $("div.target:nth-child(2)").center(false);
 		getLocaleString();
-		window.addEventListener("load", initMp3Player, false);
+		initMp3Player();
 
-		$scope.$watch("audio",initMp3Player);
 		// end
 		},
 		// require: "ngModel", // Array = multiple requires, ? = optional, ^ = check parent elements
