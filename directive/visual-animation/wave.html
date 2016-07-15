@@ -1,0 +1,13 @@
+<div id="Bars">
+    <div data-ng-repeat="bar in bars"
+        class="bar"
+        data-ng-style="{
+            'background' : bar.color,
+            'animation-delay' : bar.delay + 's',
+            '-webkit-animation-delay' : bar.delay + 's',
+            '-o-animation-delay' : bar.delay + 's',
+            '-moz-animation-delay' : bar.delay + 's'
+        }">
+
+    </div>
+</div>

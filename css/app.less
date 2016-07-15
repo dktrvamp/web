@@ -22,6 +22,7 @@
 @import "../directive/vertical-menu/vertical-menu.less";
 @import "../directive/twitter/twitter-feed.less";
 @import "../directive/soundcloud/soundcloud-new-track.less";
+@import "../directive/visual-animation/wave.less";
 
 @light_blue: #0992cc;
 @lime_green: #00FF40;
@@ -353,6 +354,10 @@ canvas#grapher {
 #SocialMediaShare {
     .box(center);
     #FacebookSharedLike {
+        display: --webkit-box;
+        display: -moz-box;
+        display: -o-box;
+        display: box;
         z-index:1;
         margin-top: 15px;
         width: 100px;

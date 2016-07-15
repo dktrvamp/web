@@ -19,6 +19,10 @@ angular.module("Dktrvamp").directive("verticalMenu", function($uibModal, Utils) 
                 { title: "New Products", id: "gear", },
                 { title: "Other News", id: "other", },
                 { title: "Tech Crunch", id: "tech_crunch", },
+                { title: "Music Instruments", id: "musical_instruments", },
+                { title: "Musicians Information", id: "musicians_information", },
+                { title: "Producers Tips", id: "producer_tips", },
+                { title: "Musicians Perspective", id: "musicians_perspective", },
             ],
             _model = {
                 title : "Top News",

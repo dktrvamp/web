@@ -28,7 +28,11 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, $wind
                 "loop_masters" : "http://loopmasters.vbfpmedia.com/feed",
                 "moog" : "https://www.moogmusic.com/blog/feed",
                 "hard_soft" : "http://www.tuerkmusic.co.za/index.php/blog/rss",
-                "tech_crunch" : "http://feeds.feedburner.com/TechCrunch/Google"
+                "tech_crunch" : "http://feeds.feedburner.com/TechCrunch/Google",
+                "musical_instruments" : "http://www.amazon.com/gp/rss/bestsellers/musical-instruments/11970041/ref=zg_bs_11970041_rsslink",
+                "musicians_information" : "http://www.musicthinktank.com/blog/rss.xml",
+                "producer_tips" : "http://feeds.feedburner.com/weallmakemusic",
+                "musicians_perspective" : "http://www.newrockstarphilosophy.com/feed/",
             };
 
         scope.model = _model;

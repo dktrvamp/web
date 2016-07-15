@@ -1,6 +1,5 @@
 <div class="vertical-menu"
     data-ng-class="{ 'is-closed' : !model.is_open }">
-
     <!-- Indicator -->
     <i class="nav-indicator fade-in fade-out fa"
         data-ng-if="model.show_indicator"
@@ -9,9 +8,8 @@
         data-ng-mouseover="model.show_tool_tip = true"
         data-ng-mouseleave="model.show_tool_tip = false"
         data-ng-class="{
-            'fa-share' : !model.is_open,
-            'fa-reply' : model.is_open,
-            'fa-newspaper-o' : !model.is_open && model.show_tool_tip
+            'fa-bars' : !model.is_open,
+            'fa-times-circle-o' : model.is_open
         }">
     </i>
     <br>
@@ -19,7 +17,7 @@
     <div class="content" data-ng-if="model.is_open">
         <h3 class="nav-header" data-ng-bind="::model.title"></h3>
         <button class="action-btn btn"
-            data-ng-repeat="tab in model.tabs"
+            data-ng-repeat="tab in model.tabs | orderBy : 'title'"
             data-ng-click="onClicked($event, tab.title)" data-ng-bind="::tab.title">
         </button>
         <hr>
@@ -29,4 +27,5 @@
             Search For An Artist
         </button>
     </div>
+
 </div>
