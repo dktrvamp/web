@@ -23,7 +23,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, $wind
             _NEWS = {
                 "edm" : "http://www.youredm.com/feed/",
                 "hiphop": "http://hiphopwired.com/feed/",
-                "other" : "http://www.rollingstone.com/music.rss",
+                "other" : "http://www.sickfacemusic.com/feed.xml",
                 "gear" : "http://feeds.webservice.techradar.com/us/rss/news/audio",
                 "loop_masters" : "http://loopmasters.vbfpmedia.com/feed",
                 "moog" : "https://www.moogmusic.com/blog/feed",
