@@ -1,8 +1,21 @@
 [
 	{
+		"id" : "0",
+		"src" : "audio/Dr.Vamp - Cavi.mp3",
+		"name" : "Dr.Vamp - Cavi",
+		"title" : "Dark Society",
+		"volume" : "0",
+		"lease" : "$30",
+		"buy" : "$1000",
+		"bpm": "140 bpm",
+		"genre" : "hip-hop",
+		"year" : "2015",
+		"description" : "25 track beat."
+	},
+	{
 		"id" : "1",
-		"src" : "audio/Dr.Vamp - dark society.mp3",
-		"name" : "Dr.Vamp - Dark Society",
+		"src" : "audio/Dr.Vamp - Midnight Blues.mp3",
+		"name" : "Dr.Vamp - Midnight Blues",
 		"title" : "Dark Society",
 		"volume" : "0",
 		"lease" : "$30",
@@ -14,8 +27,8 @@
 	},
 	{
 		"id" : "2",
-		"src" : "audio/Dr.Vamp - dark angels.mp3",
-		"name" : "Dr.Vamp - Dark Angels",
+		"src" : "audio/Dr.Vamp - dark society.mp3",
+		"name" : "Dr.Vamp - Dark Society",
 		"title" : "Dark Angels",
 		"volume" : "0",
 		"lease" : "$30",
