@@ -11,15 +11,17 @@
         <ul class="playlist">
             <li data-ng-repeat="track in tracks"
                 data-ng-class="{ 'active' : model.playing_item.index === $index } ">
-                <i class="play-controls fa"
+                <div class="play-controls fa"
                     data-ng-class="model.playing_item.index === $index ? 'fa-pause' : 'fa-play-circle-o' "
                     data-ng-click="onPlayToggle($event, $index)">
-                </i>
-                <img data-ng-src="{{track.waveform}}" data-ng-if="track.waveform">
-
-                <a class="track-name"
-                    data-ng-click="onPlayToggle($event, $index)">{{track.name}}
-                </a>
+                </div>
+                <div class="vertical-divider"></div>
+                <div class="track-info-container">
+                    <a class="track-name"
+                        data-ng-click="onPlayToggle($event, $index)">{{track.name}}
+                    </a>
+                    <img class="waveform" data-ng-src="{{track.waveform}}" data-ng-if="track.waveform">
+                </div>
             </li>
         </ul>
     </div>

@@ -47,6 +47,7 @@ angular.module("Dktrvamp").directive("playlist", function(){
 				});
 		}
 
+
 		function initMp3Player(){
 			if (!_audio_player) { return; }
 			// Needed to pass CORS issue

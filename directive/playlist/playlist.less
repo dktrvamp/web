@@ -3,7 +3,7 @@
 }
 #table-list {
 	height: 80vh;
-	.overlay(@top: @nav_height, @right: 15px, @bottom: @nav_height, @left: 15px);
+	.overlay(@top: @nav_height, @right: 0, @bottom: @nav_height, @left: 0);
     > .hide-btn {
     	width: 100vw;
         border-right: none;
@@ -13,50 +13,62 @@
         outline: none;
     }
 }
+@default_height: 60px;
+.mobile & {
+
+    @default_height: 30px;
+}
 .table-list {
 	margin-top: 100px;
     min-height: 20vh;
     max-height: 60vh;
-	>.playlist {
-		width: 100%;
-		opacity: 1;
+    >.playlist {
+        width: 100%;
+        opacity: 1;
+        padding: 0;
 
-		li {
+        li {
+            .box(start);
 			.insetBoxShadow();
-			line-height: 30px;
+            .pattern();
+			line-height: @default_height;
+            height: @default_height * 2;
 			list-style: none;
 			padding: 10px 20px;
 
 			&.active {
-				text-shadow: 1px 0px #999;
-				font-weight: bold;
+				font-weight: 900;
+                > .play-controls { color: #fff; }
 			}
-			>.track-caption{
-				vertical-align: text-bottom;
-			}
-			>.track-name {
-				vertical-align: text-bottom;
-				font-size: 20px;
-				color: @light_blue;
-				text-decoration:none;
-				text-align: center;
-				padding:5px;
 
-				&:hover {
-					opacity:.7;
-					cursor: pointer;
-				}
-			}
+            > .vertical-divider {
+                margin: 0 20px;
+                display: inline-block;
+            }
+            > .track-info-container {
+                > .waveform {
+                    display: block;
+                }
+                > .track-name {
+                    font-size: 20px;
+                    color: @light_blue;
+
+                    &:hover {
+                        opacity:.7;
+                        cursor: pointer;
+                    }
+                }
+
+            }
 			> .play-controls {
-				font-size: 30px;
+				font-size: @default_height;
+                .mobile & { font-size: 22px; }
 				padding-left: 15px;
+                display: block;
 				&:hover{
 					color: white;
 					cursor: pointer;
 				}
-			}
-			>.track-img {
-				padding: 10px;
 			}
 		}
 		.canvas{
@@ -89,7 +101,7 @@ div#mp3_player{
     }
     > canvas {
         width: 100vw;
-        height: 60px;
+        height: @default_height;
         opacity: .85;
         z-index: -1;
     }
