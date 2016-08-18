@@ -17,7 +17,8 @@ angular.module("Dktrvamp").directive("playlist", function(){
 		var _model = {
 				length : null,
 				title  : null,
-				source : null
+				source : null,
+				playing_item: {}
 			},
 			_tracks = [],
 			_audio_player = $("#audioplayer")[0],
@@ -46,33 +47,10 @@ angular.module("Dktrvamp").directive("playlist", function(){
 				});
 		}
 
-		$scope.onPlayClicked = function(event, index){
-			event.stopPropagation();
-			var track = _tracks[index];
-
-			_current_track = index;
-			_model.source = track && track.src || _model.source;
-			_audio_player.play();
-
-			// Animate
-			// $("ul>li.active").parent().css({
-			// 	"opacity" : ".6"
-			// });
-			// $(".canvas").fadeIn(500, function(){
-			// 	$(this).addClass("background-lava");
-			// });
-
-		};
-
-		$scope.onPauseClicked = function() {
-			$(".canvas").fadeOut(500, function(){
-				$(this).removeClass("background-lava");
-			});
-			_audio_player.pause();
-		};
-
 		function initMp3Player(){
 			if (!_audio_player) { return; }
+			// Needed to pass CORS issue
+			_audio_player.crossOrigin = "anonymous";
 			updateVisualizer();
 		}
 
@@ -116,6 +94,31 @@ angular.module("Dktrvamp").directive("playlist", function(){
 				ctx.fillRect(bar_x, canvas.height, bar_width, bar_height);
 			}
 		}
+
+
+		$scope.onPlayToggle = function(event, index){
+			event.stopPropagation();
+			if (_model.playing_item && _model.playing_item.index === index) {
+				_audio_player.pause();
+				_model.playing_item = {};
+				return;
+			}
+
+			var track = _tracks[index];
+			_model.playing_item = { index: index };
+			_current_track = index;
+
+			_audio_player.pause();
+			_audio_player.currentTime = 0;
+
+			_model.source = track && track.src || _model.source;
+			$timeout(function() {
+				if (_audio_player.paused) {
+					_audio_player.play();
+				}
+			}, 150);
+
+		};
 
 		getLocaleString();
 		initMp3Player();
