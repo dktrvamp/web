@@ -307,13 +307,14 @@ canvas#grapher {
         }
     }
 }
-.insetBoxShadow(@shaddow: 4px, @blur: 20px, @spread: 4px, @color: rgba(0,0,0,0.49)) {
+.insetBoxShadow(@shaddow: 2px, @blur: 3px, @spread: 0.3px, @color: rgba(0,0,0,0.49)) {
     -webkit-box-shadow: inset @shaddow @shaddow @blur @spread @color !important;
     -o-box-shadow: inset @shaddow @shaddow @blur @spread @color !important;
     -moz-box-shadow: inset @shaddow @shaddow @blur @spread @color !important;
     box-shadow: inset @shaddow @shaddow @blur @spread @color !important;
 }
 .invalid() {
+    .opacityTransition();
     .insetBoxShadow(@shaddow:1px, @color: @red);
     border-color: @red;
 }
