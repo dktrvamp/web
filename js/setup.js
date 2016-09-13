@@ -23,7 +23,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
 
         $stateProvider
         .state("home", {
-            url: "/home",
+            url: "/home/:id/:index",
             templateUrl: "partials/home.html",
             controller: "homeCtrl",
             data: {
@@ -31,7 +31,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
             }
         })
          .state("home.artist", {
-            url: "/artist",
+            url: "/artist/:id/:index",
             data: {
                 context: "artist"
             },
@@ -39,7 +39,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
             controller: "ArtistCtrl"
         })
         .state("audio", {
-            url: "/audio",
+            url: "/audio/:id/:index",
             templateUrl: "partials/audio.html",
             controller: "audioCtrl",
             data: {
@@ -48,7 +48,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
         })
 
         .state("social", {
-            url: "/social",
+            url: "/social/:id/:index",
             templateUrl: "partials/social.html",
             controller: "socialCtrl",
             data: {
@@ -56,7 +56,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
             }
         })
         .state("about", {
-            url: "/about",
+            url: "/about/:id/:index",
             templateUrl: "partials/about.html",
             controller: "aboutCtrl",
             data: {
@@ -64,7 +64,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
             }
         })
         .state("contact", {
-            url: "/contact",
+            url: "/contact/:id/:index",
             templateUrl: "partials/contact.html",
             controller: "contactCtrl",
             data: {
@@ -72,14 +72,14 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
             }
         })
         .state("policy", {
-            url: "/policy",
+            url: "/policy/:id/:index",
             templateUrl: "partials/policy.html",
             data: {
                 context: "policy"
             }
         })
         .state("engineering", {
-            url: "/engineering",
+            url: "/engineering/:id/:index",
             templateUrl: "partials/engineering.html",
             data: {
                 context: "engineering"

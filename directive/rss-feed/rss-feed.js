@@ -5,12 +5,13 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, $window, FeedService, hotkeys, Utils) {
+angular.module("Dktrvamp").directive("rssFeed", function($state, $interval, $http, $window, FeedService, hotkeys, Utils) {
     "use strict";
 
     var linkFn = function(scope){
-        var _items = [],
-            _index = 0,
+        var _params = $state.params,
+            _items = [],
+            _index = parseInt(_params.index, 10) || 0,
             _slide_interval_promise = null,
             _model = {
                 feed: {},
@@ -43,6 +44,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, $wind
 
         function getRssFeed() {
             var feed_url = _NEWS[scope.news] || scope.news;
+
             FeedService.parseFeed(feed_url)
             .then(function(response) {
                 _items = response && response.data.responseData.feed.entries;
@@ -50,6 +52,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, $wind
                 _model.feed = _items[_index];
                 _model.should_display = true;
                 _model.slides = _items;
+                $state.go($state.current.name,{ id: scope.news, index: _index });
             })
             .then(scrapeDomainData);
 
@@ -94,6 +97,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, $wind
             _model.active_slide_index = _index;
             _model.should_display = false;
 
+            $state.go($state.current.name,{ id : scope.news, index: _index });
             Utils.createTimer(100)
                 .then(function(){
                     _model.should_display = true;
@@ -204,6 +208,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($interval, $http, $wind
             reset();
             _model.feed = _items[index];
             _model.active_slide_index = _index = index;
+            $state.go($state.current.name,{ index: _index });
         };
 
         //----------------------------------------------------------------------

@@ -18,7 +18,7 @@
         <h3 class="nav-header" data-ng-bind="::model.title"></h3>
         <button class="action-btn btn"
             data-ng-repeat="tab in model.tabs | orderBy : 'title'"
-            data-ng-click="onClicked($event, tab.title)" data-ng-bind="::tab.title">
+            data-ng-click="onClicked($event, tab)" data-ng-bind="::tab.title">
         </button>
         <hr>
 

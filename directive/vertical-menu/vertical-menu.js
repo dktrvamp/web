@@ -4,7 +4,7 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("verticalMenu", function($uibModal, Utils) {
+angular.module("Dktrvamp").directive("verticalMenu", function($state, $uibModal, Utils) {
     "use strict";
     function linkFn(scope) {
         //--------------------------------------------------------------------------
@@ -25,6 +25,7 @@ angular.module("Dktrvamp").directive("verticalMenu", function($uibModal, Utils) 
                 { title: "Musicians Perspective", id: "musicians_perspective", },
             ],
             _model = {
+                news: null,
                 title : "Top News",
                 tabs : _tabs,
                 is_open: true,
@@ -42,10 +43,12 @@ angular.module("Dktrvamp").directive("verticalMenu", function($uibModal, Utils) 
         //--------------------------------------------------------------------------
         // Private Event
         //--------------------------------------------------------------------------
-        scope.onClicked = function(event, title) {
-            event.stopPropagation();
-            var item = _.findWhere(_tabs, { title: title }),
-                artist_search_template = [
+        scope.onClicked = function(event, tab) {
+            if (event) {
+                event.stopPropagation();
+            }
+
+            var artist_search_template = [
                     "<button class=\"submit-button nav-button active\" ",
                         "data-ng-click=\"onDismiss()\">Close</button>",
                     "<div data-artist-api></div>"
@@ -58,10 +61,10 @@ angular.module("Dktrvamp").directive("verticalMenu", function($uibModal, Utils) 
                 ].join(""),
                 template = "";
 
-            _model.news = item && item.id;
+            _model.news = tab.id;
             _model.is_open = false;
 
-            template = item ? rss_feed_template : artist_search_template;
+            template = _.findWhere(_tabs, { id: tab.id }) ? rss_feed_template : artist_search_template;
 
             _modal_promise = $uibModal.open({
                 windowClass: "special-features-dialog-container",
@@ -104,6 +107,14 @@ angular.module("Dktrvamp").directive("verticalMenu", function($uibModal, Utils) 
         //--------------------------------------------------------------------------
         // INITIALIZATION
         //--------------------------------------------------------------------------
+        (function() {
+            var params = $state.params,
+                id = params && params.id;
+            if (id) {
+                scope.onClicked(null, { id : params.id});
+            }
+        })();
+
         scope.$on("$stateChangeSuccess", function() {
             if (_model.is_open) { _model.is_open = false; }
         });
