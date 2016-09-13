@@ -36,7 +36,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
                 "producer_tips" : "http://feeds.feedburner.com/weallmakemusic",
                 "musicians_perspective" : "http://www.newrockstarphilosophy.com/feed/",
             };
-        console.log(_model.state, $location);
+
         scope.model = _model;
 
         //----------------------------------------------------------------------
