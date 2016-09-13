@@ -54,8 +54,10 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
                 _model.should_display = true;
                 _model.slides = _items;
 
-                $state.go($state.current.name,{ id: scope.news, index: _index });
-                _model.state = $location.absUrl();
+                $state.go($state.current.name,{ id: scope.news, index: _index })
+                    .then(function(){
+                        _model.state = $location.absUrl();
+                    });
             })
             .then(scrapeDomainData);
 
@@ -100,8 +102,11 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
             _model.active_slide_index = _index;
             _model.should_display = false;
 
-            $state.go($state.current.name,{ id : scope.news, index: _index });
-            _model.state = $location.absUrl();
+            $state.go($state.current.name,{ id : scope.news, index: _index })
+                .then(function(){
+                    _model.state = $location.absUrl();
+                });
+
             Utils.createTimer(100)
                 .then(function(){
                     _model.should_display = true;
@@ -212,7 +217,10 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
             reset();
             _model.feed = _items[index];
             _model.active_slide_index = _index = index;
-            $state.go($state.current.name,{ index: _index });
+            $state.go($state.current.name,{ index: _index })
+                .then(function(){
+                    _model.state = $location.absUrl();
+                });
         };
 
         //----------------------------------------------------------------------
