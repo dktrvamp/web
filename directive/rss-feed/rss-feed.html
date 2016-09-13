@@ -12,7 +12,13 @@
         </div>
     </div>
     <hr>
-    <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="true"><img src="http://res.cloudinary.com/www-drvaudio-com/image/upload/c_scale,w_100/v1473742510/twitter_befwaa.png" alt="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <!--  -->
+    <a class="twitter-share-button"
+        href="https://twitter.com/intent/tweet?text=Check out this article: {{model.feed.title}}&url={{model.state | escape}}&hashtags=drvamp,drvaudio"
+        data-show-count="true">
+        <img src="http://res.cloudinary.com/www-drvaudio-com/image/upload/c_scale,w_100/v1473742510/twitter_befwaa.png" alt="Share on Twitter">
+        </a>
+
     <div class="content"
         data-ng-swipe-left="onButtonClicked('right')"
         data-ng-swipe-right="onButtonClicked('left')">

@@ -5,7 +5,7 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("rssFeed", function($state, $interval, $http, $window, FeedService, hotkeys, Utils) {
+angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $interval, $http, $window, FeedService, hotkeys, Utils) {
     "use strict";
 
     var linkFn = function(scope){
@@ -19,7 +19,8 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $interval, $htt
                 should_display: false,
                 active_slide_index: _index,
                 is_mobile: $window.is_mobile,
-                slides: []
+                slides: [],
+                state: $location.absUrl()
             },
             _NEWS = {
                 "edm" : "http://www.youredm.com/feed/",
@@ -35,7 +36,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $interval, $htt
                 "producer_tips" : "http://feeds.feedburner.com/weallmakemusic",
                 "musicians_perspective" : "http://www.newrockstarphilosophy.com/feed/",
             };
-
+        console.log(_model.state, $location);
         scope.model = _model;
 
         //----------------------------------------------------------------------
