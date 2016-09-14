@@ -4,56 +4,63 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("socialShare", function($location, $timeout){
+angular.module("Dktrvamp").directive("socialShare", function($location, $timeout, Facebook){
     "user strict";
     // Runs during compile
-    return {
-        // name: "",
-        // priority: 1,
-        // terminal: true,
-        // scope: {}, // {} = isolate, true = child, false/undefined = no change
-        link: function(scope) {
-            var _model = {
-                    should_show: false
-                },
-                _timeout_promise = null;
+    function link(scope) {
+        var _model = {
+                should_show: false
+            },
+            _timeout_promise = null;
 
-            scope.model = _model;
-            scope.parent_model = scope.$parent.$parent.model;
-            scope.parent_model = {
-                state : scope.parent_model.state || $location.absUrl(),
-                feed  : scope.parent_model.feed || { title: "Drvaudio.com Home Page 😡🎼🎧🎹🎤" }
-            };
+        scope.model = _model;
+        scope.parent_model = scope.$parent.$parent.model;
+        scope.parent_model = {
+            state : scope.parent_model.state || $location.absUrl(),
+            feed  : scope.parent_model.feed ||
+                {
+                    title: "Drvaudio.com Home Page",
+                    contentSnippet: "😡🎼🎧🎹🎤"
+                }
+        };
 
-            function update() {
-                _model.should_show = false;
-                _timeout_promise = $timeout(angular.noop, 500);
-                _timeout_promise.finally(function(){
-                    _model.should_show = true;
-                    $timeout.cancel(_timeout_promise);
-                     _timeout_promise = null;
-                 });
+        function update() {
+            _model.should_show = false;
+            _timeout_promise = $timeout(angular.noop, 500);
+            _timeout_promise.finally(function(){
+                _model.should_show = true;
+                $timeout.cancel(_timeout_promise);
+                 _timeout_promise = null;
+             });
+        }
+
+        function getImageUrl() {
+            var content = scope.parent_model.feed.content,
+                url = "http://res.cloudinary.com/www-drvaudio-com/image/upload/v1472971318/drv-logo_odaevq.png",
+                img;
+            if (!content) {
+                return url;
             }
-            update();
 
-            scope.onFbClick = function() {
-                var FB = window.FB;
-                FB.ui({
-                    method: "share",
-                    display: "popup",
-                    mobile_iframe: true,
-                    href: scope.parent_model.state,
-                },function(response){
-                    console.log(response);
-                });
-            };
+            img = angular.element(content).find("img");
+            return img && img[0] && img[0].src || url;
+        }
 
+        scope.onFbClick = function() {
+            Facebook.share({
+                url : scope.parent_model.state,
+                img_url : getImageUrl(),
+                caption : scope.parent_model.feed.title,
+                description : scope.parent_model.feed.contentSnippet
+            });
+        };
 
+        update();
 
+    }
 
-    // <div class="fb-share-button" data-layout="standard" data-mobile-iframe="true" data-action="like" data-show-faces="true" data-share="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">Share</a></div>
-        // end
-        },
+    return {
+        link: link,
         scope: true,
         replace: true,
         // require: "ngModel", // Array = multiple requires, ? = optional, ^ = check parent elements
