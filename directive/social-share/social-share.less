@@ -1,0 +1,25 @@
+#SocialShare {
+    .box(center);
+    padding: 10px 0;
+
+    > .share-social-icon {
+        .transition();
+        display: inline-block;
+        padding: 0 30px;
+        opacity: .7;
+        cursor: pointer;
+        .mobile & { opacity: 1; }
+
+        &.ng-enter {
+            margin: 0;
+            opacity: 0;
+        }
+        &.ng-enter.ng-enter-active {
+            opacity: 1;
+            margin: 0 50px;
+        }
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

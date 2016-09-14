@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html data-ng-app="Dktrvamp">
     <head>
-    	<title>Dr.Vamp Audio Engineering</title>
+    	<title>drvaudio.com</title>
         <!-- <base href="/"> -->
         <!-- <base url="http://www.drvaudio.com"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
-        <meta name="description" content="Music Music Production Information by Dr.Vamp: - Musicians News - Information - Audio - Producers - Technology - World Wide - Studio Gear -
+        <meta name="description" content="Music Production Information by Dr.Vamp: - Musicians News - Information - Audio - Producers - Technology - World Wide - Studio Gear -
          Recommendations"/>
-        <meta name="Keywords" content="Audio Engineering, John Oprisor, romanian producer, music producer news, sling tv">
+        <meta name="Keywords" content="Audio Engineering, John Oprisor, romanian producer, music producer news, sling tv, dr.vamp, dktrvamp">
         <meta name="author" content="John Oprisor">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@site_username">
+        <meta name="twitter:title" content="Articles">
+        <meta name="twitter:description" content="Up than 200 characters.">
+        <meta name="twitter:creator" content="@creator_username">
+        <meta name="twitter:image" content="http://res.cloudinary.com/www-drvaudio-com/image/upload/v1472971318/drv-logo_odaevq.png">
+        <meta name="twitter:domain" content="drvaudio.com">
+
+        <meta property="og:url" content="http://www.drvaudio.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Producers News" />
+        <meta property="og:description" content="Musicians Information" />
+        <meta property="og:image" content="http://res.cloudinary.com/www-drvaudio-com/image/upload/v1472971318/drv-logo_odaevq.png" />
 
         <!-- App LESS -->
         <link href="css/app.less" type="text/css" rel="stylesheet/less">
@@ -20,16 +33,10 @@
 </head>
     <body id="Main" data-ng-controller="MainCtrl"
         data-ng-class="model.is_mobile ? 'mobile' : 'desktop'">
+
+        <!-- Facebook -->
+        <div id="fb-root"></div>
         <div data-nav-bar></div>
-        <div id=SocialMediaShare>
-            <div id="FacebookSharedLike"
-                data-ng-click="onFacebookClicked()"
-                class="fb-like"
-                data-share="true"
-                data-width="450"
-                data-show-faces="true">
-            </div>
-        </div>
 
         <data-loading data-ng-if="model.is_loading"></data-loading>
         <div data-ui-view data-ng-if="!model.is_loading" class="fade-in fade-out {{context}}"></div>
@@ -39,7 +46,7 @@
 
 
           <!-- <script src="http://localhost:35729/livereload.js" data-build="exclude"></script> -->
-    	<!-- 3rd Party Libs -->
+        <!-- 3rd Party Libs -->
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/less/dist/less.js" data-build="exclude"></script>
         <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -64,12 +71,12 @@
         <script src="service/contact.js"></script>
         <script src="service/cache.js"></script>
         <script src="service/locale.js"></script>
+        <script src="service/facebook.js"></script>
         <script src="service/rssFeed.js"></script>
         <script src="service/utils.js"></script>
 
         <!-- Directive JS -->
         <script src="directive/artist-api.js"></script>
-        <script src="directive/artist-lookup/artist-lookup.js"></script>
         <script src="directive/artist-content/artist-content.js"></script>
         <script src="directive/footer/home-footer.js"></script>
         <script src="directive/gear/gear.js"></script>
@@ -80,6 +87,7 @@
         <script src="directive/rss-feed/rss-feed.js"></script>
         <script src="directive/vertical-menu/vertical-menu.js"></script>
         <script src="directive/ng-click.js"></script>
+        <script src="directive/social-share/social-share.js"></script>
         <!-- Twitter -->
         <script src="directive/twitter/twitter-feed.js"></script>
         <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -111,7 +119,7 @@
 
         <!-- Analytics -->
         <script src="libs/desktop-view-switch.js"></script>
-        <script src="libs/facebook.js"></script>
         <script src="libs/analytics.js"></script>
+
     </body>
 </html>

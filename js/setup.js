@@ -101,9 +101,10 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
         $urlRouterProvider.otherwise("/home");
         // $locationProvider.html5Mode(true);
     })
-    .run(["$rootScope", "$state", "$stateParams", function ($rootScope, $state, $stateParams) {
+    .run(["$rootScope", "$state", "$stateParams", "Facebook", function ($rootScope, $state, $stateParams, Facebook) {
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
         $state.transitionTo("home");
+        Facebook.init();
     }]);
 
