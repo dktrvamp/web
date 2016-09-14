@@ -4,7 +4,7 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("socialShare", function($location, $timeout, Facebook){
+angular.module("Dktrvamp").directive("socialShare", function($location, $timeout, $window, Facebook){
     "user strict";
     // Runs during compile
     function link(scope) {
@@ -25,6 +25,10 @@ angular.module("Dktrvamp").directive("socialShare", function($location, $timeout
         };
 
         function update() {
+            if ($window.is_mobile) {
+                _model.should_show = true;
+                return;
+            }
             _model.should_show = false;
             _timeout_promise = $timeout(angular.noop, 500);
             _timeout_promise.finally(function(){
