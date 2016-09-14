@@ -42,7 +42,7 @@ angular.module("Dktrvamp").directive("socialShare", function($location, $timeout
                     method: "share",
                     display: "popup",
                     mobile_iframe: true,
-                    // href: scope.parent_model.state,
+                    href: scope.parent_model.state,
                 },function(response){
                     console.log(response);
                 });
