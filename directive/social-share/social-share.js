@@ -47,12 +47,12 @@ angular.module("Dktrvamp").directive("socialShare", function($location, $timeout
         }
 
         scope.onFbClick = function() {
-            Facebook.share({
-                url : scope.parent_model.state,
-                img_url : getImageUrl(),
-                caption : scope.parent_model.feed.title,
-                description : scope.parent_model.feed.contentSnippet
-            });
+            Facebook.share(
+                scope.parent_model.state,
+                getImageUrl(),
+                scope.parent_model.feed.title,
+                scope.parent_model.feed.contentSnippet
+            );
         };
 
         update();
