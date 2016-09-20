@@ -24,6 +24,19 @@ angular.module("Dktrvamp").directive("verticalMenu", function($state, $uibModal,
                 { title: "Producers Tips", id: "producer_tips", },
                 { title: "Musicians Perspective", id: "musicians_perspective", },
             ],
+
+            artist_search_template = [
+                "<button class=\"submit-button nav-button active\" ",
+                    "data-ng-click=\"onDismiss()\">Close</button>",
+                "<div data-artist-api></div>"
+            ].join(""),
+
+            rss_feed_template = [
+                "<button class=\"submit-button nav-button active\" ",
+                    "data-ng-click=\"onOpenClose();onDismiss()\">Close</button>",
+                "<div data-rss-feed data-news=\"model.news\"></div>"
+            ].join(""),
+
             _model = {
                 news: null,
                 title : "Top News",
@@ -48,23 +61,12 @@ angular.module("Dktrvamp").directive("verticalMenu", function($state, $uibModal,
                 event.stopPropagation();
             }
 
-            var artist_search_template = [
-                    "<button class=\"submit-button nav-button active\" ",
-                        "data-ng-click=\"onDismiss()\">Close</button>",
-                    "<div data-artist-api></div>"
-                ].join(""),
+            var template = "";
 
-                rss_feed_template = [
-                    "<button class=\"submit-button nav-button active\" ",
-                        "data-ng-click=\"onOpenClose();onDismiss()\">Close</button>",
-                    "<div data-rss-feed data-news=\"model.news\"></div>"
-                ].join(""),
-                template = "";
-
-            _model.news = tab.id;
+            _model.news = tab && tab.id;
             _model.is_open = false;
 
-            template = _.findWhere(_tabs, { id: tab.id }) ? rss_feed_template : artist_search_template;
+            template = tab && _.findWhere(_tabs, { id: tab.id }) ? rss_feed_template : artist_search_template;
 
             _modal_promise = $uibModal.open({
                 windowClass: "special-features-dialog-container",
