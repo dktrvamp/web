@@ -11,18 +11,25 @@ angular.module("Dktrvamp").directive("verticalMenu", function($state, $uibModal,
         // Private Properties
         //--------------------------------------------------------------------------
         var _tabs = [
+                { title: "Music News", id: "feedburner", },
                 { title: "Electronic Music News", id: "edm", },
                 { title: "Hip-Hop News", id: "hiphop", },
-                { title: "Loop Masters", id: "loop_masters", },
                 { title: "Moog News", id: "moog", },
                 { title: "Hardware / Software", id: "hard_soft", },
                 { title: "New Products", id: "gear", },
                 { title: "Other News", id: "other", },
                 { title: "Tech Crunch", id: "tech_crunch", },
+                { title: "Tech", id: "tech", },
                 { title: "Music Instruments", id: "musical_instruments", },
                 { title: "Musicians Information", id: "musicians_information", },
                 { title: "Producers Tips", id: "producer_tips", },
                 { title: "Musicians Perspective", id: "musicians_perspective", },
+                { title: "Hollywood", id: "hollywood", },
+                { title: "Music Feed", id: "music_1", },
+                { title: "Vst News", id: "vst_1", },
+                { title: "Vst News II", id: "vst_2", },
+                { title: "Roland", id: "vst_3", },
+                { title: "Vintage Gear", id: "vintage_gear", },
             ],
 
             artist_search_template = [

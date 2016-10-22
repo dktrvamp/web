@@ -23,18 +23,25 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
                 state: ""
             },
             _NEWS = {
+                "feedburner": "http://feeds.feedburner.com/thr/music",
                 "edm" : "http://www.youredm.com/feed/",
                 "hiphop": "http://hiphopwired.com/feed/",
                 "other" : "http://www.sickfacemusic.com/feed.xml",
                 "gear" : "http://feeds.webservice.techradar.com/us/rss/news/audio",
-                "loop_masters" : "http://loopmasters.vbfpmedia.com/feed",
                 "moog" : "https://www.moogmusic.com/blog/feed",
                 "hard_soft" : "http://www.tuerkmusic.co.za/index.php/blog/rss",
                 "tech_crunch" : "http://feeds.feedburner.com/TechCrunch/Google",
-                "musical_instruments" : "http://www.amazon.com/gp/rss/bestsellers/musical-instruments/11970041/ref=zg_bs_11970041_rsslink",
+                "musical_instruments" : "http://www.chucklevins.com/rss.php?type=rss",
                 "musicians_information" : "http://www.musicthinktank.com/blog/rss.xml",
                 "producer_tips" : "http://feeds.feedburner.com/weallmakemusic",
                 "musicians_perspective" : "http://www.newrockstarphilosophy.com/feed/",
+                "tech" : "http://feeds.feedburner.com/TheHollywoodReporter-Technology",
+                "hollywood" : "http://feeds.feedburner.com/thr/news",
+                "music_1" : "http://www.synthtopia.com/phpbb2/feed.php",
+                "vintage_gear": "http://feeds.feedburner.com/vintagesynth",
+                "vst_1" : "http://feeds.feedburner.com/getthatprosound",
+                "vst_2" : "http://feeds.feedburner.com/ProducerSpot?format=xml",
+                "vst_3" : "http://www.rolandus.com/blog/feed/",
             };
 
         scope.model = _model;
