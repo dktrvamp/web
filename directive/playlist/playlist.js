@@ -4,7 +4,7 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("playlist", function(){
+angular.module("Dktrvamp").directive("playlist", function($window, $http, $log, $uibModal, $timeout, Utils){
 	"user strict";
 	// Runs during compile
 	return {
@@ -12,7 +12,7 @@ angular.module("Dktrvamp").directive("playlist", function(){
 		// priority: 1,
 		// terminal: true,
 		// scope: {}, // {} = isolate, true = child, false/undefined = no change
-		controller: function($window, $http, $log, $scope, $uibModal, $timeout, $transclude, $q) {
+		link: function(scope) {
 
 		var _model = {
 				length : null,
@@ -23,10 +23,13 @@ angular.module("Dktrvamp").directive("playlist", function(){
 			_tracks = [],
 			_audio_player = $("#audioplayer")[0],
 			_current_track = 0,
+			_current_track_duration = -1,
+			_window = $($window),
+			_waveform_width,
 			// Establish all variables that your Analyser will use
 			canvas, ctx, source, context, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
 
-		$scope.model = _model;
+		scope.model = _model;
 
 		function getLocaleString(){
 			var promise = $http.get("locale/tracks.json"),
@@ -34,16 +37,16 @@ angular.module("Dktrvamp").directive("playlist", function(){
 			promise
 				.then(function(response){
 					items = response.data;
+					var width = "w_" + ($window.is_mobile ? 300 : 1000);
+					_.each(items, function(track) {
+						track.waveform = Utils.replaceToken(track.waveform, "width", width);
+					});
+
+					scope.tracks = _tracks = items.concat();
+					_model.source = _tracks[0].src;
 				})
 				.catch(function(){
-					$log.warn("Playlist.getLocaleString - ");
-				})
-				.finally(function(){
-				});
-			$q.when(promise)
-				.then(function(){
-					$scope.tracks = _tracks = items.concat();
-					_model.source = _tracks[0].src;
+					$log.warn("Playlist.getLocaleString - FAILED");
 				});
 		}
 
@@ -56,9 +59,9 @@ angular.module("Dktrvamp").directive("playlist", function(){
 		}
 
 		function updateVisualizer() {
-			$window.player = _audio_player;
+			_window.player = _audio_player;
 			/* jshint ignore:start */
-			$window.AudioContext = $window.webkitAudioContext || $window.AudioContext;
+			_window.AudioContext = _window.webkitAudioContext || _window.AudioContext;
 			context = new AudioContext(); // jshint ignore:line
 			// Re-route audio playback into the processing graph of the AudioContext
 			source = context && context.createMediaElementSource(_audio_player);
@@ -97,13 +100,15 @@ angular.module("Dktrvamp").directive("playlist", function(){
 		}
 
 
-		$scope.onPlayToggle = function(event, index){
+		scope.onPlayToggle = function(event, index){
 			event.stopPropagation();
+
 			if (_model.playing_item && _model.playing_item.index === index) {
 				_audio_player.pause();
 				_model.playing_item = {};
 				return;
 			}
+
 
 			var track = _tracks[index];
 			_model.playing_item = { index: index };
@@ -111,8 +116,10 @@ angular.module("Dktrvamp").directive("playlist", function(){
 
 			_audio_player.pause();
 			_audio_player.currentTime = 0;
+			_current_track_duration = Math.ceil(_audio_player.duration);
 
 			_model.source = track && track.src || _model.source;
+			_waveform_width = $(".waveform").width();
 			$timeout(function() {
 				if (_audio_player.paused) {
 					_audio_player.play();
@@ -121,8 +128,48 @@ angular.module("Dktrvamp").directive("playlist", function(){
 
 		};
 
+        /**
+         * @doc method
+         * @name setWaveformOverlayWidth
+         * @param {Number} position The left position in pixels.
+         * @description
+         *
+         * Sets the left position for the current stop. Should not include the scrubber width!
+         */
+        function setWaveformOverlayWidth(position) {
+            var max_left_position, width;
+            if (!_.isFinite(position)) {
+                return;
+            }
+
+            max_left_position = Utils.getNumberInRange(
+                ((position / _current_track_duration) * 100).toFixed(1),
+                { min: 0, max: 100, default: 0 }
+            );
+            _waveform_width = Math.ceil(_waveform_width);
+            width = _waveform_width * (Math.ceil(max_left_position) / 100);
+            width = Math.floor(width);
+            console.log(_waveform_width, width);
+            $(".overlay-wave").css({ width: width + "px" });
+        }
+
+        function updateTimeline() {
+			setWaveformOverlayWidth(Math.ceil(this.currentTime));
+        }
+
+        function onWindowResize() {
+			_waveform_width = $(".waveform").width();
+        }
+
 		getLocaleString();
 		initMp3Player();
+		_window.on("resize", onWindowResize);
+		$(_audio_player).on("timeupdate", updateTimeline);
+
+		scope.$on("$destroy", function() {
+			_window.unbind("resize", onWindowResize);
+			$(_audio_player).off("timeupdate", updateTimeline);
+		});
 
 		// end
 		},

@@ -20,7 +20,13 @@
                     <a class="track-name"
                         data-ng-click="onPlayToggle($event, $index)">{{track.name}}
                     </a>
-                    <img class="waveform" data-ng-src="{{track.waveform}}" data-ng-if="track.waveform">
+                    <div ng-if="track.waveform && model.playing_item.index === $index"
+                        class="overlay-wave">
+
+                    </div>
+                    <img class="waveform"
+                        data-ng-src="{{track.waveform}}"
+                        data-ng-if="track.waveform">
                 </div>
             </li>
         </ul>

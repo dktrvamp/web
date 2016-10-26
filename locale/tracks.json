@@ -2,7 +2,7 @@
 	{
 		"id" : "0",
 		"src" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/v1471477610/Dr.Vamp_-_Cavi_ktww3d.mp3",
-		"waveform": "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,w_200,fl_waveform,co_limegreen,b_transparent/Dr.Vamp_-_Cavi_ktww3d.png",
+		"waveform": "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,{{width}},fl_waveform,co_limegreen,b_none/Dr.Vamp_-_Cavi_ktww3d.png",
 		"name" : "Dr.Vamp - Cavi",
 		"title" : "Dark Society",
 		"volume" : "0",
@@ -16,7 +16,7 @@
 	{
 		"id" : "1",
 		"src" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/v1471535402/Dr.Vamp_-_Midnight_Blues_ixm89i.mp3",
-		"waveform" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,w_200,fl_waveform,co_limegreen,b_transparent/Dr.Vamp_-_Midnight_Blues_ixm89i.png",
+		"waveform" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,{{width}},fl_waveform,co_limegreen,b_none/Dr.Vamp_-_Midnight_Blues_ixm89i.png",
 		"name" : "Dr.Vamp - Midnight Blues",
 		"title" : "Dark Society",
 		"volume" : "0",
@@ -30,7 +30,7 @@
 	{
 		"id" : "2",
 		"src" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/v1471535402/Dr.Vamp_-_dark_society_y9n9sf.mp3",
-		"waveform" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,w_200,fl_waveform,co_limegreen,b_transparent/Dr.Vamp_-_dark_society_y9n9sf.png",
+		"waveform" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,{{width}},fl_waveform,co_limegreen,b_none/Dr.Vamp_-_dark_society_y9n9sf.png",
 		"name" : "Dr.Vamp - Dark Society",
 		"title" : "Dark Angels",
 		"volume" : "0",
@@ -44,7 +44,7 @@
 	{
 		"id" : "3",
 		"src" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/v1471535402/Dr.Vamp_-_west-side_wglojy.mp3",
-		"waveform" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,w_200,fl_waveform,co_limegreen,b_transparent/Dr.Vamp_-_west-side_wglojy.png",
+		"waveform" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,{{width}},fl_waveform,co_limegreen,b_none/Dr.Vamp_-_west-side_wglojy.png",
 		"name" : "Dr.Vamp - Dark Side",
 		"title" : "Dark Side",
 		"volume" : "0",
@@ -58,7 +58,7 @@
 	{
 		"id" : "4",
 		"src" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/v1471535402/Dr.vamp_-_Crew_uu9z9d.mp3",
-		"waveform" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,w_200,fl_waveform,co_limegreen,b_transparent/Dr.vamp_-_Crew_uu9z9d.png",
+		"waveform" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,{{width}},fl_waveform,co_limegreen,b_none/Dr.vamp_-_Crew_uu9z9d.png",
 		"name" : "  Dr.Vamp - Crew",
 		"title" : "Crew",
 		"volume" : "0",
@@ -72,7 +72,7 @@
 	{
 		"id" : "5",
 		"src" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/v1471535403/Dr.Vamp_-_Dark_Alley_gez8dh.mp3",
-		"waveform" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,w_200,fl_waveform,co_limegreen,b_transparent/Dr.Vamp_-_Dark_Alley_gez8dh.png",
+		"waveform" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,{{width}},fl_waveform,co_limegreen,b_none/Dr.Vamp_-_Dark_Alley_gez8dh.png",
 		"name" : "Dr.Vamp -  Dark Alley",
 		"title" : " Dark Alley",
 		"volume" : "0",
@@ -86,7 +86,7 @@
 	{
 		"id" : "6",
 		"src" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/v1471535405/Dr.Vamp_-_Attack_Trap-Hop_eza2vo.mp3",
-		"waveform" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,w_200,fl_waveform,co_limegreen,b_transparent/Dr.Vamp_-_Attack_Trap-Hop_eza2vo.png",
+		"waveform" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,{{width}},fl_waveform,co_limegreen,b_none/Dr.Vamp_-_Attack_Trap-Hop_eza2vo.png",
 		"name" : "Dr.Vamp - Attack",
 		"title" : "Attack",
 		"volume" : "0",
@@ -100,7 +100,7 @@
 	{
 		"id" : "7",
 		"src" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/v1471535402/Dr.Vamp_-_genre_ljo8qm.mp3",
-		"waveform" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,w_200,fl_waveform,co_limegreen,b_transparent/Dr.Vamp_-_genre_ljo8qm.png",
+		"waveform" : "http://res.cloudinary.com/www-drvaudio-com/video/upload/h_30,{{width}},fl_waveform,co_limegreen,b_none/Dr.Vamp_-_genre_ljo8qm.png",
 		"name" : "Dr.Vamp - Dr.Vamp - Don't Stop",
 		"title" : "Crew",
 		"volume" : "0",
