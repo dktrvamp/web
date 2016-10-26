@@ -5,7 +5,7 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $interval, $http, $window, FeedService, hotkeys, Utils) {
+angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $interval, $http, $timeout, $window, FeedService, hotkeys, Utils) {
     "use strict";
 
     var linkFn = function(scope){
@@ -17,7 +17,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
                 feed: {},
                 image_thumbnail: null,
                 should_display: false,
-                active_slide_index: _index,
+                active_slide_index: 0,
                 is_mobile: $window.is_mobile,
                 slides: [],
                 state: ""
@@ -56,11 +56,10 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
             FeedService.parseFeed(feed_url)
             .then(function(response) {
                 _items = response && response.data.responseData.feed.entries;
-
                 _model.feed = _items[_index];
                 _model.should_display = true;
+                _model.active_slide_index = _index;
                 _model.slides = _items;
-
                 $state.go($state.current.name,{ id: scope.news, index: _index })
                     .then(function(){
                         _model.state = $location.absUrl();
@@ -196,6 +195,34 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
             }
         }
 
+        /**
+         * @doc method
+         * @name scroll
+         * @description
+         *
+         *
+         */
+        function scroll(int) {
+            if (_.isFinite(int) && int <= 6) {
+                return;
+            }
+
+            var delay = 500,
+                id = "#" + _index,
+                ind = $(id),
+                position = ind.hasClass("ng-scope") && ind.position(),
+                left = position && position.left;
+
+            if (!left) {
+                $timeout(scroll, delay);
+                return;
+            }
+
+            $timeout(function() {
+                $(".indicators").animate({scrollLeft: left}, delay);
+            });
+        }
+
         //----------------------------------------------------------------------
         // METHODS (PRIVILEGED)
         //----------------------------------------------------------------------
@@ -237,7 +264,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
         getRssFeed();
         addHotkeysForScope();
         scope.$on("$destroy", reset);
-
+        scope.$watch("model.active_slide_index", scroll);
     };
 
     return {

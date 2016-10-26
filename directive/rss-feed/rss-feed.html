@@ -7,6 +7,7 @@
     </button>
     <div class="indicators">
         <div class="indicator" ng-repeat="indicator in model.slides"
+            id="{{$index}}"
             data-ng-class="{'active': model.active_slide_index === $index }"
             data-ng-click="onIndicatorClicked($index)" data-ng-bind="$index">
         </div>
