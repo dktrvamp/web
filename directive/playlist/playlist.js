@@ -59,9 +59,9 @@ angular.module("Dktrvamp").directive("playlist", function($window, $http, $log, 
 		}
 
 		function updateVisualizer() {
-			_window.player = _audio_player;
+			$window.player = _audio_player;
 			/* jshint ignore:start */
-			_window.AudioContext = _window.webkitAudioContext || _window.AudioContext;
+			$window.AudioContext = $window.webkitAudioContext || $window.AudioContext;
 			context = new AudioContext(); // jshint ignore:line
 			// Re-route audio playback into the processing graph of the AudioContext
 			source = context && context.createMediaElementSource(_audio_player);
