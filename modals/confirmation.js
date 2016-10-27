@@ -5,7 +5,7 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").controller("confirmationCtrl",["$scope", "$location", function ($scope, $location) {
+angular.module("Dktrvamp").controller("confirmationCtrl",["$scope", function ($scope) {
 
     //--------------------------------------------------------------------------
     // PROPERTIES (PROTECTED)

@@ -41,7 +41,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
                 "vintage_gear": "http://feeds.feedburner.com/vintagesynth",
                 "vst_1" : "http://feeds.feedburner.com/getthatprosound",
                 "vst_2" : "http://feeds.feedburner.com/ProducerSpot?format=xml",
-                "vst_3" : "http://www.rolandus.com/blog/feed/",
+                "vst_3" : "http://www.rolandus.com/blog/feed/"
             };
 
         scope.model = _model;
@@ -64,29 +64,29 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
                     .then(function(){
                         _model.state = $location.absUrl();
                     });
-            })
-            .then(scrapeDomainData);
+            });
+            // .then(scrapeDomainData);
 
             _slide_interval_promise = $interval(getItemAtIndex,60000);
         }
-        function scrapeDomainData() {
-            var link = _model.feed && _model.feed.link;
-            if (!link) { return; }
-            FeedService.get(_model.feed.link)
-            .then(parseResponse);
-        }
-        function parseResponse(response) {
-            var tmp = document.implementation.createHTMLDocument();
+        // function scrapeDomainData() {
+        //     var link = _model.feed && _model.feed.link;
+        //     if (!link) { return; }
+        //     FeedService.get(_model.feed.link)
+        //     .then(parseResponse);
+        // }
+        // function parseResponse(response) {
+        //     var tmp = document.implementation.createHTMLDocument();
 
-            tmp.body.innerHTML = response;
+        //     tmp.body.innerHTML = response;
 
-            // var images = $(tmp.body.children).find("img"),
-            var images = $(tmp.body.children).find("img.attachment-cb-full-full.size-cb-full-full.wp-post-image"),
-                image = _.first(images);
+        //     // var images = $(tmp.body.children).find("img"),
+        //     var images = $(tmp.body.children).find("img.attachment-cb-full-full.size-cb-full-full.wp-post-image"),
+        //         image = _.first(images);
 
-            _model.image_thumbnail = $(image).attr("src");
+        //     _model.image_thumbnail = $(image).attr("src");
 
-        }
+        // }
 
         /**
          * @doc method
@@ -103,7 +103,7 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
             } else {
                 _index = _index >= items_length ? 0 : _index +1;
             }
-            removeDouplicateImages();
+
             _model.feed = _items[_index];
             _model.active_slide_index = _index;
             _model.should_display = false;
@@ -118,37 +118,9 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
                     _model.should_display = true;
 
                 });
-            scrapeDomainData();
+            // scrapeDomainData();
         }
 
-        function removeDouplicateImages() {
-            // TODO FIX THIS
-            // var tmp = document.implementation.createHTMLDocument(),
-            //     seen = {},
-            //     images;
-
-            // tmp.body.innerHTML =  _items[_index].content;
-
-
-            // images = $(tmp.body).find("img");
-
-            // // console.log(images);
-
-            // _.each(images, function(img) {
-            //     var src = $(img).attr("src");
-
-            //     if (seen[src]) {
-            //         var element = angular.element($(img))[0];
-            //         element[0].remove();
-            //         element.addClass(".is-dup");
-            //         console.log("----- should remove", img, angular.element($(img)));
-            //     }
-            //     else{
-            //         seen[src] = true;
-            //     }
-            // });
-
-        }
         /**
          * @doc method
          * @name addHotkeysForScope

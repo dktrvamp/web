@@ -16,8 +16,8 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: pkg,
         app_name: pkg.name.toLowerCase(),
-        device_type: grunt.option("deviceType") || "desktopapp", // Options: desktopapp, samsung
-        environment: grunt.option("environment") || "<%= pkg.environment %>", // Options: dev, qa, beta
+        device_type: grunt.option("deviceType") || "desktopapp",
+        environment: grunt.option("environment") || "<%= pkg.environment %>",
         publisher: grunt.option("publisher") || "<%= pkg.publisher %>",
         connect: {
             main: {
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
                    livereload: true,
                     spawn: false
                 },
-                files: ["js/**/*","css/**/*","img/**/*","partial/**/*","service/**/*","filter/**/*","directive/**/*","index.html"],
+                files: ["libs/*","js/**/*","css/**/*","images/**/*","partials/**/*","service/**/*","filter/**/*","directive/**/*","index.html"],
                 tasks: [] //all the tasks are run dynamically during the watch event handler
             }
         },
@@ -59,7 +59,7 @@ module.exports = function (grunt) {
                     jshintrc: ".jshintrc",
                     smarttabs: false
                 },
-                src: ["js/**/*.js","partial/**/*.js","service/**/*.js","filter/**/*.js","directive/**/*.js"]
+                src: ["js/**/*.js","partials/**/*.js","modals/**/*.js","service/**/*.js","filter/**/*.js","directive/**/*.js"]
             }
         },
         clean: {
@@ -93,7 +93,7 @@ module.exports = function (grunt) {
                         removeStyleLinkTypeAttributes: true
                     }
                 },
-                src: [ "partial/**/*.html","directive/**/*.html" ],
+                src: [ "partials/**/*.html","directive/**/*.html","modals/**/*.html" ],
                 dest: "temp/templates.js"
             }
         },
@@ -102,12 +102,13 @@ module.exports = function (grunt) {
                 files: [
                     {src: ["environment.json"], dest: "dist/"},
                     {src: ["index.html"], dest: "dist/"},
+                    {src: ["lib.html"], dest: "dist/"},
                     {src: ["images/**"], dest: "dist/"},
-                    {src: ["i18n/**"], dest: "dist/"},
-                    {src: ["libs/bower_components/angular-ui-utils/ui-utils-ieshiv.min.js"], dest: "dist/"},
-                    {src: ["libs/bower_components/font-awesome/fonts/**"], dest: "dist/",filter:"isFile",expand:true}
-                    // {src: ["libs/bower_components/select2/*.png","libs/bower_components/select2/*.gif"], dest:"dist/css/",flatten:true,expand:true},
-                    // {src: ["libs/bower_components/angular-mocks/angular-mocks.js"], dest: "dist/"}
+                    {src: ["locale/**"], dest: "dist/"},
+                    {src: ["libs/**"], dest: "dist/"},
+                    {src: ["php/**"], dest: "dist/"},
+                    {src: [".htaccess"], dest: "dist/"},
+                    {src: ["bower_components/font-awesome/fonts/**"], dest: "dist/fonts",flatten: true,filter:"isFile",expand:true}
                 ]
             }
         },
@@ -170,6 +171,9 @@ module.exports = function (grunt) {
             }
         },
         uglify: {
+            options: {
+                mangle: false
+            },
             main: {
                 files: {
                     "dist/<%= app_name %>.full.min.js" : [ "temp/<%= app_name %>.full.js" ]
@@ -205,10 +209,10 @@ module.exports = function (grunt) {
         jasmine: {
             unit: {
                 src: ["<%= dom_munger.data.appjs %>",
-                    "libs/bower_components/angular-mocks/angular-mocks.js"],
+                    "bower_components/angular-mocks/angular-mocks.js"],
                 options: {
                     keepRunner: true,
-                    specs: ["[js][partial][service][filter]/**/*-spec.js"]
+                    specs: ["[js][partials][service][filter][modals]/**/*-spec.js"]
                 }
             }
         },
@@ -217,7 +221,8 @@ module.exports = function (grunt) {
                 logLevel: "DEBUG",
                 testPatterns: [
                     "js/**/*-spec.js",
-                    "partial/**/*-spec.js",
+                    "modals/**/*-spec.js",
+                    "partials/**/*-spec.js",
                     "filter/**/*-spec.js",
                     "service/**/*-spec.js"
                 ],
@@ -267,7 +272,7 @@ module.exports = function (grunt) {
     grunt.registerTask("appjs_test_prepare", "prepare appjs imports",
         function() {
             var appjs = grunt.config("dom_munger.data.appjs");
-            appjs.push("libs/bower_components/angular-mocks/angular-mocks.js");
+            appjs.push("bower_components/angular-mocks/angular-mocks.js");
             var testPatterns = grunt.config("karma.options.testPatterns");
             appjs = appjs.concat(testPatterns);
             grunt.config("karma.options.files", appjs);

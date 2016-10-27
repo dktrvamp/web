@@ -13,7 +13,7 @@ angular.module("Dktrvamp").controller("contactCtrl",["$scope", "$state", "$uibMo
         submit: false,
         is_error: false,
         error_message: ""
-    }
+    };
     //--------------------------------------------------------------------------
     // PROPERTIES (PROTECTED)
     //--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ angular.module("Dktrvamp").controller("contactCtrl",["$scope", "$state", "$uibMo
                 _model.is_error = false;
             });
 
-        })
+        });
     };
 
 }]);
