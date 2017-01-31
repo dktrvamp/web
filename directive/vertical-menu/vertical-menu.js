@@ -71,7 +71,7 @@ angular.module("Dktrvamp").directive("verticalMenu", function($state, $uibModal,
             var template = "";
 
             _model.news = tab && tab.id;
-            _model.is_open = false;
+            scope.onOpenClose();
 
             template = tab && _.findWhere(_tabs, { id: tab.id }) ? rss_feed_template : artist_search_template;
 
@@ -124,9 +124,6 @@ angular.module("Dktrvamp").directive("verticalMenu", function($state, $uibModal,
             }
         })();
 
-        scope.$on("$stateChangeSuccess", function() {
-            if (_model.is_open) { _model.is_open = false; }
-        });
     }
 
     return {

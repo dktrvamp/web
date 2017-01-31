@@ -52,10 +52,10 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
 
         function getRssFeed() {
             var feed_url = _NEWS[scope.news] || scope.news;
-
+            $window.is_loading = true;
             FeedService.parseFeed(feed_url)
             .then(function(response) {
-                _items = response && response.data.responseData.feed.entries;
+                _items = response && response.data.items;
                 _model.feed = _items[_index];
                 _model.should_display = true;
                 _model.active_slide_index = _index;
@@ -64,6 +64,9 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
                     .then(function(){
                         _model.state = $location.absUrl();
                     });
+            })
+            .finally(function() {
+                $window.is_loading = false;
             });
             // .then(scrapeDomainData);
 

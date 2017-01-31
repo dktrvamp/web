@@ -16,7 +16,7 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
     //--------------------------------------------------------------------------
     $scope.model = {};
     $scope.context = null;
-    $scope.model.is_loading = false;
+    // $scope.model.is_loading = false;
     // $scope.enabled_nav = true;
 
     //--------------------------------------------------------------------------
@@ -40,9 +40,9 @@ angular.module("Dktrvamp").controller("MainCtrl",["$scope", "$state", "$window",
         // Update the context (CSS class) for content styling.
         $scope.context = data.context || "";
         if (new_state && !old_state) {
-            $scope.model.is_loading = true;
+            $window.is_loading = true;
             Utils.createTimer(1000).finally(function(){
-                $scope.model.is_loading = false;
+                $window.is_loading = false;
             });
 
         }
