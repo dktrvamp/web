@@ -6,7 +6,7 @@
 */
 angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet", "ngSanitize", "cfp.hotkeys", "swipe" ])
 
-	.config(function($stateProvider, $provide, $urlRouterProvider){
+	.config(function($locationProvider, $stateProvider, $provide, $urlRouterProvider){
         "use strict";
 
         $provide.decorator("$state", function($delegate) {
@@ -23,7 +23,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
 
         $stateProvider
         .state("home", {
-            url: "/home/:id/:index",
+            url: "/home/?id/:index",
             templateUrl: "partials/home.html",
             controller: "homeCtrl",
             data: {
@@ -31,7 +31,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
             }
         })
          .state("home.artist", {
-            url: "/artist/:id/:index",
+            url: "/artist/?id/:index",
             data: {
                 context: "artist"
             },
@@ -39,7 +39,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
             controller: "ArtistCtrl"
         })
         .state("audio", {
-            url: "/audio/:id/:index",
+            url: "/audio/?id/:index",
             templateUrl: "partials/audio.html",
             controller: "audioCtrl",
             data: {
@@ -48,7 +48,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
         })
 
         .state("social", {
-            url: "/social/:id/:index",
+            url: "/social/?id/:index",
             templateUrl: "partials/social.html",
             controller: "socialCtrl",
             data: {
@@ -56,7 +56,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
             }
         })
         .state("about", {
-            url: "/about/:id/:index",
+            url: "/about/?id/:index",
             templateUrl: "partials/about.html",
             controller: "aboutCtrl",
             data: {
@@ -64,7 +64,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
             }
         })
         .state("contact", {
-            url: "/contact/:id/:index",
+            url: "/contact/?id/:index",
             templateUrl: "partials/contact.html",
             controller: "contactCtrl",
             data: {
@@ -72,14 +72,14 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
             }
         })
         .state("policy", {
-            url: "/policy/:id/:index",
+            url: "/policy/?id/:index",
             templateUrl: "partials/policy.html",
             data: {
                 context: "policy"
             }
         })
         .state("engineering", {
-            url: "/engineering/:id/:index",
+            url: "/engineering/?id/:index",
             templateUrl: "partials/engineering.html",
             data: {
                 context: "engineering"
@@ -99,7 +99,7 @@ angular.module("Dktrvamp", [ "ui.bootstrap", "ui.router", "ngAnimate", "ngtweet"
 
         // For any unmatched url, send to /home
         $urlRouterProvider.otherwise("/home");
-        // $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
     })
     .run(["$rootScope", "$state", "$stateParams", "Facebook", function ($rootScope, $state, $stateParams, Facebook) {
         $rootScope.$state = $state;

@@ -1,5 +1,5 @@
 var path = require("path");
-
+var modRewrite = require('connect-modrewrite');
 var folderMount = function folderMount(connect, point) {
     return connect.static(path.resolve(point));
 };
@@ -25,8 +25,23 @@ module.exports = function (grunt) {
                     hostname: "0.0.0.0",
                     open: false,
                     port: 9002,
+                    fallback: "index.html",
                     middleware: function(connect, options) {
-                        return [folderMount(connect, options.base)];
+                        var middleware = [];
+                        // 1. mod-rewrite behavior
+                        var rules = [ '!(\\..+)$ / [L]'];
+                        middleware.push(modRewrite(rules));
+
+                        // 2. original middleware behavior
+                        var base = options.base;
+                        if (!Array.isArray(base)) {
+                            base = [base];
+                        }
+                        base.forEach(function(path) {
+                            middleware.push(connect.static(path));
+                        });
+
+                        return middleware;
                     }
                 }
             },
@@ -37,8 +52,23 @@ module.exports = function (grunt) {
                     useAvailablePort: true,
                     keepalive: true,
                     base: "dist",
+                    fallback: "index.html",
                     middleware: function(connect, options) {
-                        return [folderMount(connect, options.base)];
+                        var middleware = [];
+                        // 1. mod-rewrite behavior
+                        var rules = [ '!(\\..+)$ / [L]'];
+                        middleware.push(modRewrite(rules));
+
+                        // 2. original middleware behavior
+                        var base = options.base;
+                        if (!Array.isArray(base)) {
+                            base = [base];
+                        }
+                        base.forEach(function(path) {
+                            middleware.push(connect.static(path));
+                        });
+
+                        return middleware;
                     }
                 }
             }
@@ -321,6 +351,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask("test",["dom_munger:readscripts", "appjs_test_prepare", "karma:unit"]);
     grunt.registerTask("build_ci", ["test", "build", "zip"]);
+
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
     grunt.event.on("watch", function(action, filepath) {
         //https://github.com/gruntjs/grunt-contrib-watch/issues/156

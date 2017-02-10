@@ -17,10 +17,7 @@
   },
   "homepage": "https://github.com/dktrvamp/web#readme",
   "devDependencies": {
-    "less": "^2.5.1"
-
-  },
-  "devDependencies": {
+    "connect-modrewrite": "^0.9.0",
     "grunt": "~0.4",
     "grunt-angular-templates": "~0.5",
     "grunt-contrib-clean": "~0.5",
@@ -53,4 +50,3 @@
     "requirejs": "~2.1.11"
   }
 }
-
