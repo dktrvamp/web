@@ -1,0 +1,67 @@
+[
+    {
+        "image" : "http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467254977/controllers-place-holder_asupwx.png"
+    },
+    {
+        "image" : "http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467167102/ableton-push_vpqwtp.png",
+        "title" : "Ableton Live: <b>Push 2</b>",
+        "description" : [
+            "Play or program beats, melodies, and harmonies with Push’s 64 pads. ",
+            "When playing drums, Push’s grid of 64 pads is divided into three sections, allowing you to play in real time, step sequence, and adjust the length of your loop, all at the same time. "
+        ]
+    },
+    {
+        "image" : "http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467167670/machine_pozgxb.png",
+        "title" : "Native Instruments: <b>Maschine Studio</b>",
+        "description" : [
+            "The Native Instruments Maschine Studio hybrid software/hardware music-production system combines everything you love about old-school hardware groove machines with the kind of flexibility you can only get from software. ",
+            "Run the Maschine 2 software in standalone mode and load up your favorite virtual instruments for low-latency, high-flexibility sequencing and sampling, or run it as a plug-in in your favorite DAW to add powerful groove-creation potential to your recording rig. ",
+            " Whether you're making beats in your home studio or taking it out on the road as part of your digital DJ system, you're going to be blown away by what you can create with Maschine Studio. "
+        ]
+    },
+    {
+        "image" : "http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467168190/mpc-renaissance_keg6ni.png",
+        "title" : "Akai Professional: <b>MPC Renaissance</b>",
+        "description" : [
+            "Akai Professional's MPC Renaissance fuses the legendary MPC's layout and workflow with the power of your computer to create an unrivaled instrument for music production. ",
+            "This new flagship MPC is a fully integrated hardware/software system.  MPC Renaissance features 16 backlit genuine MPC pads, 16 Q-link controls, an adjustable, backlit LCD-screen, and a full array of inputs and outputs for easy connection in any studio. ",
+            "For the especially nostalgic, the exclusive Vintage Mode and built-in audio interface give you instant access to MPCs of the past. ",
+            "Choose from MPC3000, MPC60, SP1200 Ring, and more. ",
+            "The included MPC software explodes with all the essential sounds of modern production, and you have the ability to expand at will because the MPC Renaissance utilizes the RAM and hard drive space of your computer. ",
+            "Thanks to its tight integration with MPC Software, you can use MPC Renaissance for the high-end features of computer DAWs and plugins. "
+        ]
+    },
+    {
+        "image" : "http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467254977/affordable-analog-polysynth_i8e90p.png"
+    },
+    {
+        "image" : "http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467179494/novation-bass-station-2_emrrzd.png",
+        "title" : "Novation: <b>Bass Station II </b> - <i>Analog Mono-Synth</i>",
+        "description" : [
+            "Bass Station II is an analog mono-synth based on the classic original Bass Station, but re-worked for the 21st century. ",
+            "It has two filters, two oscillators, a third sub-oscillator, patch save, and a fully analog effects section. ",
+            "Add a step sequencer, arpeggiator, full-sized keys, and a powerful modulation section and you have the makings of a synth that is built for bass, but capable of so much more. "
+        ]
+    },
+    {
+        "image" : "http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467179275/korg-minilogue_fxglrm.png",
+        "title" : "Korg:  <b>minilogue </b> - <i>4-voice Analog Synthesizer</i>",
+        "description" : [
+            "Korg minilogue is the first polyphonic analog synthesizer with presets at its price point. ",
+            "Setting standards for quality, sound, and capabilities in this price range. ",
+            "With its powerful - yet easy to understand - signal flow and extensive feature set, minilogue is designed to inspire and captivate musicians and analog enthusiasts on all levels. ",
+            "You'll love how easy it is to create with a 16-step poly note and motion sequencer, voice allocation mode with eight modes, delay effect, OLED screen with oscilloscope, metal shaft chassis-mounted pots, rubber-coated knobs, curved aluminum panel, pyinkado wood rear panel, and 200 editable preset locations with 100 preloaded."
+        ]
+    },
+    {
+        "image" : "http://res.cloudinary.com/www-drvaudio-com/image/upload/v1467179372/roland-system-1_toxsyp.png",
+        "title" : "Roland:  <b>AIRA Series System-1</b> - <i>Variable Synthesizer </i>",
+        "description" : [
+            "ROLAND SYSTEM-1 PLUG-OUT SYNTHESIZER TECHNICAL SPECIFICATIONS: Three modes: Mono, Unison, Poly Legato / Portamento Two modes: system-1 and plug-out Scatter / Arpeggio - Oscillators section (TWO) OSC 1 transpose 6 waveforms color mod cross mod OSC 2 transpose 6 waveforms color mod ring sync - Mixer section OSC 1, OSC 2, SUB OSC (-10 oct/-20 oct), NOISE (white/pink) - Pitch section key tracking AD enveloppe for pitch - Filter section LPF cutoff (12dB/24dB) HPF cutoff resonance ADSR enveloppe - LFO section Keytrig 6 waveforms LFO can affect four paramters simultaneously: pitch (-/+) filter (-/+) rate (-/+) amp (-/+) - Amp / VCA section tone crusher ADSR enveloppe - Effects section reverb delay."
+        ]
+    }
+
+]
+
+
+

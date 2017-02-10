@@ -1,0 +1,59 @@
+{
+    "daw" : [
+            {
+                "image" : [ "images/ableton.png" ],
+                "content" :
+                    [
+                        "<h2 class=\"dynamic-text\">Ableton Live</h2>",
+                        "<hr>",
+                        " Using Max4Live to extend functionality.",
+                        "I use the <sup> Ableton Live</sup> effects as well as other VSTs",
+                        "Mastering, sound design, fx, mixing are all done within the DAW",
+                        "<hr>",
+                        "<h2 class=\"dynamic-text\">Protools</h2>",
+                        "<img src=\"images/protools.png\"> "
+                    ],
+                "others"   : "Experience using Protools, Logic Pro and others... "
+            }
+    ],
+    "os" : [
+            {
+                "image" : [ "images/macbookpro.png" ],
+                "content" :
+                    [
+                        "Over 10 years working on MAC/APPLE operating system.",
+                        "TYPES: Mac Pro, iMac, Macbook Pro"
+                    ],
+                "others"   : "Experience using Windows, Unix... "
+            }
+    ],
+    "tools" : [
+            {
+                "image" : [
+                    "images/macbookpro.png",
+                    "images/minilogue.png",
+                    "images/push.png",
+                    "images/bs2.png",
+                    "images/hs8.gif"
+                ],
+                "content" :
+                    [
+                        "Over 10 years working on MAC/APPLE operating system.",
+                        "TYPES: Mac Pro, iMac, Macbook Pro"
+                    ],
+                "others"   : "Experience using Windows, Unix."
+            }
+    ],
+    "vst" : [
+            {
+                "image" : [ "images/vsts.png" ],
+                "content" :
+                    [
+                        "Plugins:",
+                        "Synths: Ik Multimedia",
+                        "FX: Waves, SoundToys, IK Multimedia, Ozone"
+                    ],
+                "others"   : "Experience using Windows, Unix... "
+            }
+    ]
+}
