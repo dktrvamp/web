@@ -138,7 +138,7 @@ module.exports = function (grunt) {
                     {src: ["libs/**"], dest: "dist/"},
                     {src: ["php/**"], dest: "dist/"},
                     {src: [".htaccess"], dest: "dist/"},
-                    {src: ["bower_components/font-awesome/fonts/**"], dest: "dist/fonts",flatten: true,filter:"isFile",expand:true}
+                    {src: ["/bower_components/font-awesome/fonts/**"], dest: "dist/fonts",flatten: true,filter:"isFile",expand:true}
                 ]
             }
         },
