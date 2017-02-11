@@ -1,12 +1,18 @@
 #Home {
     position: relative;
-    padding-top:  50px;
+    padding-top:  55px;
 	height: 100vh;
-    background-image: url("http://res.cloudinary.com/www-drvaudio-com/image/upload/v1473895286/studio_gin46m.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    >.home-image {
+        .overlay();
+        z-index: -1;
+        background-image: url("http://res.cloudinary.com/www-drvaudio-com/image/upload/v1473895286/studio_gin46m.png");
+        background-size: contain;
+        width: 100vw;
+        height: 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
 
+    }
     // mobile link switch to desktop
     > .rs-link {
         .overlay(@top:auto, @bottom: 200px);

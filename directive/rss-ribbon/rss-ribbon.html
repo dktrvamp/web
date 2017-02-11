@@ -1,13 +1,8 @@
-<div>
-     <div class="content"
+<div id="RSS_Ribbon">
+     <div class="content {{ '--' + $index + '--' }}"
         data-ng-swipe-left="onButtonClicked('right')"
         data-ng-swipe-right="onButtonClicked('left')"
         ng-repeat="feed in feeds">
-
-        <div class="date" data-ng-bind="feed.publishedDate"></div><br>
-
-        <img data-ng-if="image_thumbnail" class="image-thumbnail" width="360" height="240" data-ng-src="{{image_thumbnail}}"/><br>
-        <a data-ng-click="" class="title" data-ng-href="{{feed.link}}" target="_blank">{{feed.title}}</a><br>
-        <p class="contentSnippet fade-in fade-out" data-ng-bind-html="feed.content"></p><br>
+        <div class="{{ '--' + $index + '--' }}" rss-tile item="feed"></div>
     </div>
 </div>

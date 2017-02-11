@@ -23,6 +23,8 @@
 @import "../directive/soundcloud/soundcloud-new-track.less";
 @import "../directive/visual-animation/wave.less";
 @import "../directive/social-share/social-share.less";
+@import "../directive/rss-ribbon/rss-ribbon.less";
+@import "../directive/rss-tile/rss-tile.less";
 
 @light_blue: #0992cc;
 @lime_green: #00FF40;
@@ -34,6 +36,12 @@
 @widget_height: 100px;
 @twitter_height: 100vh;
 @nav_height: 50px;
+
+@rss_ribbon_height: 65vh;
+@rss_ribbon_width: 100vh;
+@rss_tile_height: 50vh;
+@rss_tile_width: 35vh;
+
 html {
     max-height: 720px;
 }
@@ -66,11 +74,20 @@ hr {
     height: 100vh;
     width:100vw;
 }
+
 [data-ui-view] {
     padding: 15px;
     overflow-y: scroll;
     overflow-x: hidden;
     .overlay(@top: @nav_height, @bottom: @nav_height);
+    > #Home {
+        bottom: 10vh;
+        transition: bottom 500ms ease-in-out;
+
+    }
+    &.ng-animate {
+        > #Home {bottom: 100vh;}
+    }
 }
 
 button {

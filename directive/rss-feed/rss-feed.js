@@ -21,27 +21,6 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
                 is_mobile: $window.is_mobile,
                 slides: [],
                 state: ""
-            },
-            _NEWS = {
-                "feedburner": "http://feeds.feedburner.com/thr/music",
-                "edm" : "http://www.youredm.com/feed/",
-                "hiphop": "http://hiphopwired.com/feed/",
-                "other" : "http://www.sickfacemusic.com/feed.xml",
-                "gear" : "http://feeds.webservice.techradar.com/us/rss/news/audio",
-                "moog" : "https://www.moogmusic.com/blog/feed",
-                "hard_soft" : "http://www.tuerkmusic.co.za/index.php/blog/rss",
-                "tech_crunch" : "http://feeds.feedburner.com/TechCrunch/Google",
-                "musical_instruments" : "http://www.chucklevins.com/rss.php?type=rss",
-                "musicians_information" : "http://www.musicthinktank.com/blog/rss.xml",
-                "producer_tips" : "http://feeds.feedburner.com/weallmakemusic",
-                "musicians_perspective" : "http://www.newrockstarphilosophy.com/feed/",
-                "tech" : "http://feeds.feedburner.com/TheHollywoodReporter-Technology",
-                "hollywood" : "http://feeds.feedburner.com/thr/news",
-                "music_1" : "http://www.synthtopia.com/phpbb2/feed.php",
-                "vintage_gear": "http://feeds.feedburner.com/vintagesynth",
-                "vst_1" : "http://feeds.feedburner.com/getthatprosound",
-                "vst_2" : "http://feeds.feedburner.com/ProducerSpot?format=xml",
-                "vst_3" : "http://www.rolandus.com/blog/feed/"
             };
 
         scope.model = _model;
@@ -51,16 +30,17 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
         //----------------------------------------------------------------------
 
         function getRssFeed() {
-            var feed_url = _NEWS[scope.news] || scope.news;
             $window.is_loading = true;
-            FeedService.parseFeed(feed_url)
+            var feed = scope.news || FeedService.RSS_FEEDS[0];
+            var url = feed && feed.url || null;
+            FeedService.parseFeed(url)
             .then(function(response) {
                 _items = response && response.data.items;
                 _model.feed = _items[_index];
                 _model.should_display = true;
                 _model.active_slide_index = _index;
                 _model.slides = _items;
-                $state.go($state.current.name,{ id: scope.news, index: _index })
+                $state.go($state.current.name,{ id: feed.id, index: _index })
                     .then(function(){
                         _model.state = $location.absUrl();
                     });
@@ -110,8 +90,8 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
             _model.feed = _items[_index];
             _model.active_slide_index = _index;
             _model.should_display = false;
-
-            $state.go($state.current.name,{ id : scope.news, index: _index })
+            var feed = scope.news || FeedService.RSS_FEEDS[0];
+            $state.go($state.current.name,{ id : feed.id, index: _index })
                 .then(function(){
                     _model.state = $location.absUrl();
                 });
@@ -231,14 +211,17 @@ angular.module("Dktrvamp").directive("rssFeed", function($state, $location, $int
                     _model.state = $location.absUrl();
                 });
         };
-
+        function onDestroy() {
+            reset();
+            $state.go($state.current.name,{ id: null, index: null });
+        }
         //----------------------------------------------------------------------
         // INITIALIZATION
         //----------------------------------------------------------------------
 
         getRssFeed();
         addHotkeysForScope();
-        scope.$on("$destroy", reset);
+        scope.$on("$destroy", onDestroy);
         scope.$watch("model.active_slide_index", scroll);
     };
 

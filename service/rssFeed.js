@@ -14,6 +14,28 @@ angular.module("Dktrvamp").service("FeedService", function($http, $q){
     //--------------------------------------------------------------------------
     // PROPERTIES (PPRIVATE)
     //--------------------------------------------------------------------------
+    this.RSS_FEEDS = [
+        { title: "Music News", id: "feedburner", url: "http://feeds.feedburner.com/thr/music" },
+        { title: "Electronic Music News", id: "edm", url: "http://www.youredm.com/feed/" },
+        { title: "Hip-Hop News", id: "hiphop", url: "http://hiphopwired.com/feed/" },
+        { title: "Moog News", id: "moog", url: "https://www.moogmusic.com/blog/feed" },
+        { title: "Hardware / Software", id: "hard_soft", url: "http://www.tuerkmusic.co.za/index.php/blog/rss" },
+        { title: "New Products", id: "gear", url: "http://feeds.webservice.techradar.com/us/rss/news/audio" },
+        { title: "Other News", id: "other", url: "http://www.sickfacemusic.com/feed.xml" },
+        { title: "Tech Crunch", id: "tech_crunch", url: "http://feeds.feedburner.com/TechCrunch/Google" },
+        { title: "Tech", id: "tech", url: "http://feeds.feedburner.com/TheHollywoodReporter-Technology"},
+        { title: "Music Instruments", id: "musical_instruments", url: "http://www.chucklevins.com/rss.php?type=rss" },
+        { title: "Musicians Information", id: "musicians_information", url: "http://www.musicthinktank.com/blog/rss.xml" },
+        { title: "Producers Tips", id: "producer_tips", url: "http://feeds.feedburner.com/weallmakemusic" },
+        { title: "Musicians Perspective", id: "musicians_perspective", url: "http://www.newrockstarphilosophy.com/feed/" },
+        { title: "Hollywood", id: "hollywood", url:"http://feeds.feedburner.com/thr/news"},
+        { title: "Music Feed", id: "music_1", url: "http://www.synthtopia.com/phpbb2/feed.php"},
+        { title: "Vst News", id: "vst_1", url:"http://feeds.feedburner.com/getthatprosound"},
+        { title: "Vst News II", id: "vst_2", url:"http://feeds.feedburner.com/ProducerSpot?format=xml" },
+        { title: "Roland", id: "vst_3", url:"http://www.rolandus.com/blog/feed/" },
+        { title: "Vintage Gear", id: "vintage_gear",url:"http://feeds.feedburner.com/vintagesynth" },
+    ];
+    this.RSS = this.RSS_FEEDS;
 
     this.parseFeed = function(url){
         var dfd = $q.defer();

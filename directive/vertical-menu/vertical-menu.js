@@ -4,34 +4,13 @@
 * Description
 * angular.module("Dktrvamp")
 */
-angular.module("Dktrvamp").directive("verticalMenu", function($state, $uibModal, Utils) {
+angular.module("Dktrvamp").directive("verticalMenu", function($state, $uibModal, FeedService, Utils) {
     "use strict";
     function linkFn(scope) {
         //--------------------------------------------------------------------------
         // Private Properties
         //--------------------------------------------------------------------------
-        var _tabs = [
-                { title: "Music News", id: "feedburner", },
-                { title: "Electronic Music News", id: "edm", },
-                { title: "Hip-Hop News", id: "hiphop", },
-                { title: "Moog News", id: "moog", },
-                { title: "Hardware / Software", id: "hard_soft", },
-                { title: "New Products", id: "gear", },
-                { title: "Other News", id: "other", },
-                { title: "Tech Crunch", id: "tech_crunch", },
-                { title: "Tech", id: "tech", },
-                { title: "Music Instruments", id: "musical_instruments", },
-                { title: "Musicians Information", id: "musicians_information", },
-                { title: "Producers Tips", id: "producer_tips", },
-                { title: "Musicians Perspective", id: "musicians_perspective", },
-                { title: "Hollywood", id: "hollywood", },
-                { title: "Music Feed", id: "music_1", },
-                { title: "Vst News", id: "vst_1", },
-                { title: "Vst News II", id: "vst_2", },
-                { title: "Roland", id: "vst_3", },
-                { title: "Vintage Gear", id: "vintage_gear", },
-            ],
-
+        var _tabs = FeedService.RSS_FEEDS,
             artist_search_template = [
                 "<button class=\"submit-button nav-button active\" ",
                     "data-ng-click=\"onDismiss()\">Close</button>",
@@ -48,7 +27,7 @@ angular.module("Dktrvamp").directive("verticalMenu", function($state, $uibModal,
                 news: null,
                 title : "Top News",
                 tabs : _tabs,
-                is_open: true,
+                is_open: false,
                 is_closing: false,
                 show_indicator: true
             },
@@ -70,7 +49,7 @@ angular.module("Dktrvamp").directive("verticalMenu", function($state, $uibModal,
 
             var template = "";
 
-            _model.news = tab && tab.id;
+            _model.news = tab && tab;
             scope.onOpenClose();
 
             template = tab && _.findWhere(_tabs, { id: tab.id }) ? rss_feed_template : artist_search_template;
@@ -81,16 +60,16 @@ angular.module("Dktrvamp").directive("verticalMenu", function($state, $uibModal,
                 template: template,
                 controller: function($scope, $uibModalInstance) {
                     $uibModalInstance.opened
-                    .then(function() {
-                        _model.show_indicator = false;
-                    });
+                        .then(function() {
+                            _model.show_indicator = false;
+                        });
                     $uibModalInstance.result
-                    .catch(function() {
-                        _model.show_indicator = true;
-                    })
-                    .finally(function() {
-                        _modal_promise = null;
-                    });
+                        .catch(function() {
+                            _model.show_indicator = !$state.includes("home");
+                        })
+                        .finally(function() {
+                            _modal_promise = null;
+                        });
 
                     $scope.onDismiss = $uibModalInstance.dismiss;
                 }
@@ -123,7 +102,10 @@ angular.module("Dktrvamp").directive("verticalMenu", function($state, $uibModal,
                 scope.onClicked(null, { id : params.id});
             }
         })();
-
+        scope.$on("$stateChangeSuccess", function(e, newState) {
+            _model.show_indicator = newState && newState.name !== "home";
+            _model.is_open = false;
+        });
     }
 
     return {
