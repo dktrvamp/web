@@ -5,7 +5,7 @@
     &:not(.is-closed) {
         overflow-y: scroll;
     }
-    .transition( @time: 500ms);
+    .drv-transition( @time: 500ms);
     .overlay(@top: @nav_height + 10px;);
     .overlayBackground();
     .desktop & {
@@ -24,7 +24,7 @@
         color: @lime_green;
         cursor: pointer;
         max-height: 50px;
-        .transition( @time: 300ms);
+        .drv-transition(@time: 300ms);
         &.fa-times-circle-o { right: 15px; }
         &:hover { font-size: 55px; }
     }

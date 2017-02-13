@@ -1,3 +1,9 @@
+@import "/bower_components/bootstrap/less/bootstrap.less";
+// @import "../libs/bower_components/bootstrap/less/theme.less";
+@import "/bower_components/font-awesome/less/font-awesome.less";
+@fa-font-path: "/bower_components/font-awesome/fonts";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,300,600,800);
+
 @import "../partials/artist/artist.less";
 @import "../partials/about.less";
 @import "../partials/audio.less";
@@ -173,14 +179,15 @@ canvas#grapher {
     opacity:.35;
 }
 
-.transition(@prop: all, @time: .7s) {
+.drv-transition(@prop: all, @time: .7s) {
     -webkit-transition: @prop @time ease-in-out;
     -o-transition: @prop @time ease-in-out;
     transition: @prop @time ease-in-out;
 }
+
 .fadeAnimation() {
     opacity: 1;
-    .transition();
+    .drv-transition();
     &.ng-enter { opacity: 0; }
     &.ng-enter-active { opacity: 1; }
     &.ng-leave { opacity: 1; }
