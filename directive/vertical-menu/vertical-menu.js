@@ -102,8 +102,8 @@ angular.module("Dktrvamp").directive("verticalMenu", function($state, $uibModal,
                 scope.onClicked(null, { id : params.id});
             }
         })();
-        scope.$on("$stateChangeSuccess", function(e, newState) {
-            _model.show_indicator = newState && newState.name !== "home";
+
+        scope.$on("$stateChangeSuccess", function() {
             _model.is_open = false;
         });
     }
